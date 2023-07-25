@@ -32,9 +32,12 @@ int main() {
 
         cout << "The sum of all elements is: " << array_sum(array,n) << "\n";
 
+        //initialise
+        int sum = array_sum(array,n);
+
         delete [] array;
 
-        return 0;
+        return sum;
 
     }
 
