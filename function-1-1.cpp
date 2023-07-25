@@ -6,13 +6,7 @@ using namespace std;
 
 int array_sum(int array[], int n){
 
-    int n = 0;
-
-    cout << "Please input the number of elements in the array: ";
-    cin >> n;
-    cout << "\n";
-
-    cout << n;
+    
 
 
 
