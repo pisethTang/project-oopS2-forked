@@ -18,10 +18,13 @@ bool is_fanarray(int array[], int n){
         while (i < n / 2){
             if (array[i] >= current_num) {
                 current_num = array[i];
+                cout << "Even: Ascending! at i = " << i << "\n"; //delete this later
+                true_or_false = true;
             }
             else {
                 i = n;
                 true_or_false = false;
+                cout << "Even: No longer ascending at i = " << i << "\n"; //delete this later
             }
             i++;
         }
@@ -33,10 +36,12 @@ bool is_fanarray(int array[], int n){
                 if (array[i] == array[n - i - 1]){
                     i++;
                     true_or_false = true;
+                    cout << "Even: Mirroring at i = " << i << "\n"; //delete this later
                 }
                 else {
                     i = n;
                     true_or_false = false;
+                    cout << "Even: No longer mirroring at i = " << i << "\n";
                 }
             }
         }
@@ -53,9 +58,20 @@ bool is_fanarray(int array[], int n){
             if (array[i] >= current_num){
                 current_num = array[i];
                 i++;
+                true_or_false = true;
             }
             else {
                 i = n;
+                true_or_false = false;
+            }
+        }
+
+        //final ascention for the centre point
+        if (true_or_false == true){
+            if (array[(n - 1) / 2] >= array[((n - 1) / 2) - 1]) {
+                true_or_false = true;
+            }
+            else {
                 true_or_false = false;
             }
         }
