@@ -23,7 +23,7 @@ int main(){
         average = 0.0;
         cout << average << "\n";
 
-        return average;
+        return 0;
 
     }
     else {
@@ -37,15 +37,11 @@ int main(){
             cin >> array[i];
         }
 
-            //using the function
-            average = array_mean(array,length);
+        //using the function
+        cout << array_mean(array,length) << "\n";
 
-            //returning values
-            cout << "The average of these numbers is: ";
-            cout << setprecision(2) << fixed << average << "\n";
-
-            delete array;
-            return average;
+        delete array;
+        return 0;
     }
 
 }
