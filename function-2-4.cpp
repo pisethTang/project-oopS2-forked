@@ -9,7 +9,7 @@ bool is_ascending(int array[], int n){
     //initialise variables
     bool true_or_false;
     int value = array[0];
-    int i = 0;
+    int j = 0;
 
     //determine true_or_false
     for (int i = 0; i < n; i++){
@@ -18,10 +18,11 @@ bool is_ascending(int array[], int n){
         }
         else{
             i = n + 10;
+            j = n + 10;
         }
     }
 
-    if (i == n + 10){
+    if (j == n + 10){
         true_or_false = false;
     }
     else{
