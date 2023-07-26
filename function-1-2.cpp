@@ -10,14 +10,20 @@ double array_mean(int array[], int n){
     double sum = 0;
     double average = 0;
 
-    for (int i = 0; i < n; i++){
-        sum = sum + array[i];
+    //check for n < 1
+    if (n < 1) {
+        return 0;
     }
 
-    average = sum / (double)n;
+    //rest of n's
+    else {
+        for (int i = 0; i < n; i++){
+            sum = sum + double(array[i]);
+        }
 
-    cout << "average is " << average << "\n";
+        average = sum / (double)n;
 
-    return average;
+        return average;
+    }
 
 }
