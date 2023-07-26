@@ -11,89 +11,99 @@ bool is_fanarray(int array[], int n){
     int current_num = array[0];
     bool true_or_false;
 
-    //the case for even length
-    if (n % 2 == 0){
+    //check for n < 1
+    if (n < 1){
+        return 0;
+    }
 
-        //determining that it ascends to the halfway point
-        while (i < n / 2){
-            if (array[i] >= current_num) {
-                current_num = array[i];
-                cout << "Even: Ascending! at i = " << i << "\n"; //delete this later
-                true_or_false = true;
-            }
-            else {
-                i = n;
-                true_or_false = false;
-                cout << "Even: No longer ascending at i = " << i << "\n"; //delete this later
-            }
-            i++;
-        }
+    //rest of n's
+    else {
 
-        //determining that the array mirrors, if it passed the ascending test
-        if (true_or_false == true) {
-            i = 0;
-            while (i < n / 2) {
-                if (array[i] == array[n - i - 1]){
-                    i++;
+        //the case for even length
+        if (n % 2 == 0){
+
+            //determining that it ascends to the halfway point
+            while (i < n / 2){
+                if (array[i] >= current_num) {
+                    current_num = array[i];
+                    cout << "Even: Ascending! at i = " << i << "\n"; //delete this later
                     true_or_false = true;
-                    cout << "Even: Mirroring at i = " << i << "\n"; //delete this later
                 }
                 else {
                     i = n;
                     true_or_false = false;
-                    cout << "Even: No longer mirroring at i = " << i << "\n";
+                    cout << "Even: No longer ascending at i = " << i << "\n"; //delete this later
+                }
+                i++;
+            }
+
+            //determining that the array mirrors, if it passed the ascending test
+            if (true_or_false == true) {
+                i = 0;
+                while (i < n / 2) {
+                    if (array[i] == array[n - i - 1]){
+                        i++;
+                        true_or_false = true;
+                        cout << "Even: Mirroring at i = " << i << "\n"; //delete this later
+                    }
+                    else {
+                        i = n;
+                        true_or_false = false;
+                        cout << "Even: No longer mirroring at i = " << i << "\n";
+                    }
                 }
             }
         }
-    }
 
-    //the case for odd length
-    else {
-        //variables
-        i = 0;
-        current_num = array[0];
-
-        //determining if it ascends to the center value
-        while (i < (n - 1) / 2){
-            if (array[i] >= current_num){
-                current_num = array[i];
-                i++;
-                true_or_false = true;
-            }
-            else {
-                i = n;
-                true_or_false = false;
-            }
-        }
-
-        //final ascention for the centre point
-        if (true_or_false == true){
-            if (array[(n - 1) / 2] >= array[((n - 1) / 2) - 1]) {
-                true_or_false = true;
-            }
-            else {
-                true_or_false = false;
-            }
-        }
-
-        //determining if the values on either side of the center value are equal
-        if (true_or_false == true){
-           
+        //the case for odd length
+        else {
+            //variables
             i = 0;
+            current_num = array[0];
 
+            //determining if it ascends to the center value
             while (i < (n - 1) / 2){
-                if (array[i] == array[n - i - 1]){
+                if (array[i] >= current_num){
+                    current_num = array[i];
                     i++;
                     true_or_false = true;
                 }
-                else{
+                else {
                     i = n;
                     true_or_false = false;
                 }
             }
-        }
-    }
 
-    return true_or_false;
+            //final ascention for the centre point
+            if (true_or_false == true){
+                if (array[(n - 1) / 2] >= array[((n - 1) / 2) - 1]) {
+                    true_or_false = true;
+                }
+                else {
+                    true_or_false = false;
+                }
+            }
+
+            //determining if the values on either side of the center value are equal
+            if (true_or_false == true){
+            
+                i = 0;
+
+                while (i < (n - 1) / 2){
+                    if (array[i] == array[n - i - 1]){
+                        i++;
+                        true_or_false = true;
+                    }
+                    else{
+                        i = n;
+                        true_or_false = false;
+                    }
+                }
+            }
+        }
+
+        return true_or_false;
+
+    }
 
 }
