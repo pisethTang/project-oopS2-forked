@@ -8,14 +8,24 @@ int max_element(int array[], int n){
     //initialising variables
     int max_num;
 
-    //finding min_num
-    max_num = array[0];
-    for (int i = 1; i < n; i++){
-        if (array[i] > max_num){
-            max_num = array[i];
-        }
+    //checking for n < 1
+    if (n < 1) {
+        return 0;
     }
 
-    return max_num;
+    //rest of n's
+    else {
+
+        //finding min_num
+        max_num = array[0];
+        for (int i = 1; i < n; i++){
+            if (array[i] > max_num){
+                max_num = array[i];
+            }
+        }
+
+        return max_num;
+
+    }
 
 }
