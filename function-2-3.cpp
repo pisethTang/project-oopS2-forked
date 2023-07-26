@@ -10,25 +10,33 @@ void two_five_nine(int array[], int n){
     int num_fives = 0;
     int num_nines = 0;
 
-    //adding the values of numbers
-    for (int i = 0; i < n; i++){
-        switch(array[i]) {
-            case 2:
-                num_twos = num_twos + 1;
-                break;
-            case 5:
-                num_fives = num_fives + 1;
-                break;
-            case 9:
-                num_nines = num_nines + 1;
-                break;
-        }
+    //checking for n < 1
+    if (n < 1){
+        return;
     }
 
-    //printing values
-    cout << "2:" << num_twos << ";5:" << num_fives << ";9:" << num_nines << "\n";
+    else {
+        //adding the values of numbers
+        for (int i = 0; i < n; i++){
+            switch(array[i]) {
+                case 2:
+                    num_twos = num_twos + 1;
+                    break;
+                case 5:
+                    num_fives = num_fives + 1;
+                    break;
+                case 9:
+                    num_nines = num_nines + 1;
+                    break;
+            }
+        }
 
-    return;
+        //printing values
+        cout << "2:" << num_twos << ";5:" << num_fives << ";9:" << num_nines << "\n";
+
+        return;
+
+    }
 
 }
 
