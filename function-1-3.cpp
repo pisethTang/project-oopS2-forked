@@ -10,13 +10,22 @@ int num_count(int array[], int n, int number){
     //initialise variables
     int count = 0;
 
-    //count
-    for (int i = 0; i < n; i++){
-        if (array[i] == number){
-            count = count + 1;
-        }
+    //checking for n < 1
+    if (n < 1) {
+        return 0;
     }
 
-    return count;
+    else {
+
+        //count
+        for (int i = 0; i < n; i++){
+            if (array[i] == number){
+                count = count + 1;
+            }
+        }
+
+        return count;
+
+    }
 
 }
