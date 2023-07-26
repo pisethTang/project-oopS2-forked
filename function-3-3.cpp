@@ -9,21 +9,29 @@ double weighted_average(int array[], int n){
     int count = 0;
     double average;
 
-    //calculating the average
-    for (int i = 0; i < n; i++){
-        count = 0;
-
-        //counting each number
-        for (int j = 0; j < n; j++){
-            if (array[i] == array[j]){
-                count = count + 1;
-            }
-        }
-
-        //adding to the average
-        average = average + ((double(array[i]) * double(count)) / double(n));
-
+    //if n < 1
+    if (n < 1) {
+        return 0;
     }
 
-    return average;
+    //if n >= 1
+    else {
+        //calculating the average
+        for (int i = 0; i < n; i++){
+            count = 0;
+
+            //counting each number
+            for (int j = 0; j < n; j++){
+                if (array[i] == array[j]){
+                    count = count + 1;
+                }
+            }
+
+            //adding to the average
+            average = average + ((double(array[i]) * double(count)) / double(n));
+
+        }
+
+        return average;
+    }
 }
