@@ -33,7 +33,10 @@ int main() {
         //using the function
         cout << "The weighted average is: " << weighted_average(array,n) << "\n";
 
+        //delete if doesn't work
+        double average = weighted_average(array,n);
+
         delete array;
-        return 0;
+        return average;
     }
 }
