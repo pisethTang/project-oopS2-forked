@@ -32,7 +32,7 @@ void two_five_nine(int array[], int n){
         }
 
         //printing values
-        cout << "2:" << num_twos << ";5:" << num_fives << ";9:" << num_nines << "\n";
+        cout << "2:" << num_twos << ";5:" << num_fives << ";9:" << num_nines << ";\n";
 
         return;
 
