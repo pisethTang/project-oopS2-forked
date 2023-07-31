@@ -27,7 +27,7 @@ void print_binary_str(string decimal_number){
     }
 
     //printing the binary
-    cout << "Your binary is " << binary << "\n";
+    cout << binary << "\n";
 
     return;
 
