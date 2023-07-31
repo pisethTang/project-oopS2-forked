@@ -25,4 +25,6 @@ int main(){
     sum = sum_diagonal(array);
     cout << sum << ".\n";
 
+    return 0;
+
 }
