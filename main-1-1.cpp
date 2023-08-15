@@ -20,11 +20,11 @@ int main() {
 
     //printing
     for (int i = 0; i < n; i++){
-        
+        cout << "Person " << i + 1 << ": " << k[i].name << " " << k[i].age << "\n";
     }
 
     //DELETE
-    delete k;
+    delete[] k;
 
     return 0;
 
