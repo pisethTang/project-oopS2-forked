@@ -4,7 +4,7 @@
 
 using namespace std;
 
-PersonList deepCopyPersonList(PersonList pl){
+PersonList shallowCopyPersonList(PersonList pl){
 
     //creating personlist
     PersonList p2;
