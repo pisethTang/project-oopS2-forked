@@ -45,6 +45,7 @@ int main() {
     }
 
     delete[] k;
+    delete[] p2.people;
 
     return 0;
 }
