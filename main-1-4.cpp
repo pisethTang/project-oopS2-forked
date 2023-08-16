@@ -4,7 +4,7 @@
 
 using namespace std;
 
-extern PersonList deepCopyPersonList(PersonList pl);
+extern PersonList shallowCopyPersonList(PersonList pl);
 
 int main() {
 
@@ -36,7 +36,7 @@ int main() {
     }
 
     //using function
-    p2 = deepCopyPersonList(pl);
+    p2 = shallowCopyPersonList(pl);
 
     //printing
     cout << "The second construct: \n";
