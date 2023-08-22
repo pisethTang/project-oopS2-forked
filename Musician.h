@@ -18,6 +18,8 @@ class Musician {
     //functions
     std::string get_instrument();
     int get_experience();
+    
+    void set_musician(Musician new_musician, Musician old_musician);
 };
 
 #endif
