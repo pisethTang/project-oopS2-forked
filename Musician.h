@@ -10,24 +10,14 @@ class Musician {
 
     public:
     //standard constructor
-    Musician(){
-        m_instrument = "null";
-        m_experience = 0;
-    }
+    Musician();
 
     //constructor
-    Musician(std::string instrument, int experience){
-        m_instrument = instrument;
-        m_experience = experience;
-    }
+    Musician(std::string instrument, int experience);
 
     //functions
-    std::string get_instrument(){
-        return m_instrument;
-    }
-    int get_experience(){
-        return m_experience;
-    }
+    std::string get_instrument();
+    int get_experience();
 };
 
 #endif
