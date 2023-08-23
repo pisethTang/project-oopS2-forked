@@ -10,7 +10,7 @@ class Clinic{
     private:
     string name;
     int max;
-    
+    Cage* animals;
 
     public:
     Clinic();                                // default constructor
@@ -19,10 +19,11 @@ class Clinic{
 
     int getNumber_of_cages();               // returns the number of cages currently in the the clinic
     std::string getName();                  // returns the clinics's name
-    Cage * getCages();                      // returns the array of cages currently in the clinic
+    Cage* getCages();                      // returns the array of cages currently in the clinic
 
     bool addCage(Cage new_cage);            // tries to add a cage to clinic. If there is enough space, return true
                                              // and adds cage to the clinic. Otherwise, do not save cage, and return false. 
+    int getMaxSize();                        // returns max size
 
     ~Clinic();                               // destructor
 
