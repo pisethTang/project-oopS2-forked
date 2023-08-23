@@ -5,7 +5,7 @@
 
 class Cage{
     private:
-    string name;
+    std::string name;
     int num;
 
     public:
