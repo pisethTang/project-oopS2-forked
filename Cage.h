@@ -4,7 +4,11 @@
 #include <string>
 
 class Cage{
+    private:
+    string name;
+    int num;
 
+    public:
     Cage();                                    // a default constructor ID number is zero and occupant name is an empty string ""
     Cage(std::string newName, int newNumber);  // a constructor that takes the ID number and occupant name
 
