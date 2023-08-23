@@ -24,6 +24,10 @@ int Clinic::getMaxSize(){
     return max;
 }
 
+string Clinic::getName(){
+    return name;
+}
+
 int Clinic::getNumber_of_cages(){
     //initialising variables
     int num = 0;
@@ -44,10 +48,6 @@ void Cage::setName(string newName){
 
 void Cage::setIDNum(int newID){
     num = newID;
-}
-
-string Clinic::getName(){
-    return name;
 }
 
 Cage* Clinic::getCages(){
