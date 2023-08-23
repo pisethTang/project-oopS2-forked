@@ -15,6 +15,9 @@ class Cage{
     std::string getName();                    // returns the name of the cage occupant
     int getIDnum();                           // returns the cage's ID number
 
+    void setName(std::string newName);
+    void setIDNum(int newID);
+
     ~Cage();                                   // destructor 
 };
 
