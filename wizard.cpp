@@ -1,6 +1,6 @@
 
-#include "Warrior.h"
-#include "Wizard.h"
+#include "warrior.h"
+#include "wizard.h"
 #include <iostream>
 
 Wizard::Wizard(string newName, int newHealth, int newDamage, int newMana):Player(newName,newHealth,newDamage){
