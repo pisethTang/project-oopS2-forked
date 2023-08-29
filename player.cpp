@@ -1,6 +1,6 @@
-#include "Player.h"
-#include "Warrior.h"
-#include "Wizard.h"
+#include "player.h"
+#include "warrior.h"
+#include "wizard.h"
 #include <iostream>
 
 
