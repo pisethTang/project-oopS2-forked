@@ -5,8 +5,6 @@
 
 class Car : public Vehicle{
 
-    private:
-
     public:
     //empty constructor
     Car();
@@ -15,7 +13,7 @@ class Car : public Vehicle{
     Car(int ID);
 
     //functions
-    int getParkingDuration(); //maybe virtual??
+    int getParkingDuration();
 
 };
 
