@@ -5,8 +5,6 @@
 
 class Bus : public Vehicle{
 
-    private:
-
     public:
     //empty constructor
     Bus();
