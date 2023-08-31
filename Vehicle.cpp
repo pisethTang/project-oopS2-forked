@@ -37,7 +37,7 @@ int Vehicle::getParkingDuration(){ //is this function necessary?? I never call i
 
     // //test line
     // cout << timeOfDepature << " " << getTimeOfEntry() << " " << timeOfDepature - getTimeOfEntry() << "\n";
-    cout << "Vehicle\n";
+    //cout << "Vehicle\n";
 
     return 0;
 }
