@@ -33,9 +33,6 @@ int Bus::getParkingDuration(){
     reduced_duration = 0.75*duration;
     duration = reduced_duration;
 
-    //test line
-    cout << "Bus\n";
-
     return duration;
 
 }
