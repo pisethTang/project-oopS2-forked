@@ -14,11 +14,6 @@ int main(){
     ParkingLot a = ParkingLot(10);
     int response;
 
-    //test line
-    int z = 20;
-    int* ptr = &z;
-    cout << "z is " << z << " and ptr is " << ptr << " and ptr* is " << *ptr << "\n";
-
     //finding the ten vehicles
     for (int i = 0; i < 10; i++){
         cout << "What vehicle type? 1 for car, 2 for bus, 3 for motorbike. ";
