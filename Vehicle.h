@@ -6,7 +6,7 @@ using namespace std;
 
 class Vehicle{
 
-    private:
+    protected:
     time_t timeOfEntry;
     int ID;
 
