@@ -21,8 +21,16 @@ int Vehicle::getID(){
     return ID;
 }
 
+void Vehicle::setID(int IDnum){
+    ID = IDnum;
+}
+
 time_t Vehicle::getTimeOfEntry(){
     return timeOfEntry;
+}
+
+void Vehicle::setTimeOfEntry(time_t time){
+    timeOfEntry = time;
 }
 
 //virtual function
