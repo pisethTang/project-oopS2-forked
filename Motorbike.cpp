@@ -7,23 +7,15 @@ using namespace std;
 //MOTORBIKE_H
 //defining constructors
 Motorbike::Motorbike(){
-    //initialise variables
-    time_t timeOfEntry;
-    int ID_num;
-
     //define variables
     timeOfEntry = time(NULL);
-    ID_num = 0;
+    ID = 3;
 }
 
-Motorbike::Motorbike(int ID){
-    //initalise variables
-    time_t timeOfEntry;
-    int ID_num;
-
+Motorbike::Motorbike(int ID_num){
     //define variables
     timeOfEntry = time(NULL);
-    ID_num = ID;
+    ID = ID_num;
 }
 
 //defining functions
