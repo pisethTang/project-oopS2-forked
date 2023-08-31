@@ -19,7 +19,9 @@ class Vehicle{
 
     //functions
     int getID();
+    void setID(int IDnum);
     time_t getTimeOfEntry();
+    void setTimeOfEntry(time_t time);
     virtual int getParkingDuration();
 
     //destructor
