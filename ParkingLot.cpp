@@ -72,6 +72,7 @@ void ParkingLot::unparkVehicle(int ID){
         if (ID == vehicle[i]->getID() && match == false){
             vehicle[i] = &c;
             match = true;
+            setCount(-1);
         }
     }
 
