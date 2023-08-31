@@ -33,9 +33,6 @@ int Motorbike::getParkingDuration(){
     reduced_duration = 0.85*duration;
     duration = reduced_duration;
 
-    //test line
-    cout << "Motorbike\n";
-
     return duration;
 
 }
