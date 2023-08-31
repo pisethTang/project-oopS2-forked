@@ -22,6 +22,10 @@ int ParkingLot::getCount(){
     return count;
 }
 
+void ParkingLot::setCount(int newCount){
+    count = count + newCount;
+}
+
 int ParkingLot::getMax(){
     return max;
 }
@@ -47,6 +51,9 @@ void ParkingLot::parkVehicle(Vehicle* k){
             setVehicle(k,i);
 
             full = false;
+
+            setCount(1);
+
         }
     }
 
