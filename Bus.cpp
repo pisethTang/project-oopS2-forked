@@ -7,23 +7,15 @@ using namespace std;
 //BUS_H
 //defining constructors
 Bus::Bus(){
-    //initialise variables
-    time_t timeOfEntry;
-    int ID_num;
-
     //define variables
     timeOfEntry = time(NULL);
-    ID_num = 0;
+    ID = 2;
 }
 
-Bus::Bus(int ID){
-    //initalise variables
-    time_t timeOfEntry;
-    int ID_num;
-
+Bus::Bus(int ID_num){
     //define variables
     timeOfEntry = time(NULL);
-    ID_num = ID;
+    ID = ID_num;
 }
 
 //functions
