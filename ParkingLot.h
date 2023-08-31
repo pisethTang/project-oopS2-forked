@@ -18,6 +18,8 @@ class ParkingLot{
     //functions
     int getCount();
 
+    void setCount(int newCount);
+
     int getMax();
 
     void setVehicle(Vehicle* b, int c);
