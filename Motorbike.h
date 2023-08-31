@@ -5,8 +5,6 @@
 
 class Motorbike : public Vehicle{
 
-    private:
-
     public:
     //empty constructor
     Motorbike();
