@@ -10,7 +10,7 @@ Vehicle::Vehicle(){
     int ID_num;
 
     //define variables
-    timeOfEntry = time(NULL);
+    timeOfEntry = time(0);
     ID_num = 0;
 }
 
@@ -20,7 +20,7 @@ Vehicle::Vehicle(int ID){
     int ID_num;
 
     //define variables
-    timeOfEntry = time(NULL);
+    timeOfEntry = time(0);
     ID_num = ID;
 }
 
@@ -38,16 +38,13 @@ int Vehicle::getParkingDuration(){ //is this function necessary?? I never call i
     //initialise variables
     time_t timeOfDepature;
     int duration;
-    double reduced_duration;
 
     //define variables
-    timeOfDepature = time(NULL);
+    timeOfDepature = time(0);
     duration = timeOfDepature - getTimeOfEntry();
 
-    reduced_duration = 0.75*duration;
-    duration = reduced_duration;
-
     //test line
+    cout << timeOfDepature << " " << getTimeOfEntry() << " " << timeOfDepature - getTimeOfEntry() << "\n";
     cout << "Vehicle\n";
 
     return duration;
