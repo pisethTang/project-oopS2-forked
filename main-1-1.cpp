@@ -40,12 +40,13 @@ int main(){
 
     //use functions
     for (int i = 0; i < num; i++){
-        cout << i << ": " << k[i].getTimeOfEntry() <<"\n"; //this is returning insane values??
+        cout << i << ": " << k[i].getParkingDuration() <<"\n"; //this is returning insane values??
 
         //test line
         cout << "Testing: ";
-        k[i].getTimeOfEntry();
+        k[i].getParkingDuration();
         cout << "\n\n";
+
     }
 
 }
