@@ -9,8 +9,8 @@ class AirCraft{
     int numberOfFlights;         // initially 0
 
     public:
-    AirCraft AirCraft();
-    AirCraft AirCraft(int w);             // creates an Aircraft with weight w
+    AirCraft();
+    AirCraft(int w);             // creates an Aircraft with weight w
 
     int get_weight();
     void set_weight(int newWeight);
