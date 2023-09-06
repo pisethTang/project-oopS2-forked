@@ -37,7 +37,7 @@ void Helicopter::fly(int headwind, int minutes){
     if(headwind < 40){
         fuelCalc = fuelCalc - (minutes*0.2);
         if (extraWeight > 0){
-            fuelCalc = fuelCalc - (extraWeight*0.01);
+            fuelCalc = fuelCalc - (extraWeight*0.01*minutes);
         }
     }
     else {
@@ -65,11 +65,11 @@ void Helicopter::fly(int headwind, int minutes){
 
         //weight
         if(extraWeight > 0){
-            set_fuel(get_fuel() - (extraWeight*0.01));
+            set_fuel(get_fuel() - (extraWeight*0.01*minutes));
         }
 
         set_numberOfFlights(get_numberOfFlights() + 1);
 
-        return;
+        //return;
     }
 }
