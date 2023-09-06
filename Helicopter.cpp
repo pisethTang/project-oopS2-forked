@@ -48,7 +48,7 @@ void Helicopter::fly(int headwind, int minutes){
     }
     
     //can't fly
-    if(fuelCalc < 0.20){
+    if(fuelCalc < 20){
         return;
     }
 
