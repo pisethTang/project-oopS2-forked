@@ -43,13 +43,13 @@ void Airplane::fly(int headwind, int minutes){
         fuelCalc = fuelCalc - (minutes*0.3);
 
         //accounting for passengers
-        fuelCalc = fuelCalc - (getNumPassengers()*0.001);
+        fuelCalc = fuelCalc - (getNumPassengers()*0.001*minutes);
     }
     else {
         fuelCalc = fuelCalc - (minutes*0.5);
 
         //accounting for passengers
-        fuelCalc = fuelCalc - (getNumPassengers()*0.001);
+        fuelCalc = fuelCalc - (getNumPassengers()*0.001*minutes);
     }
     
     //can't fly
@@ -65,13 +65,13 @@ void Airplane::fly(int headwind, int minutes){
             set_fuel(get_fuel() - (minutes*0.3));
 
             //passengers
-            set_fuel(get_fuel() - (getNumPassengers()*0.001));
+            set_fuel(get_fuel() - (getNumPassengers()*0.001*minutes));
         }
         else {
             set_fuel(get_fuel() - (minutes*0.5));
 
             //passengers
-            set_fuel(get_fuel() - (getNumPassengers()*0.001));
+            set_fuel(get_fuel() - (getNumPassengers()*0.001*minutes));
         }
 
         set_numberOfFlights(get_numberOfFlights() + 1);
