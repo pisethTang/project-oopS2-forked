@@ -6,7 +6,7 @@
 
 int main(){
 
-    AirFleet();
+    AirFleet a = AirFleet();
 
     return 0;
 }
