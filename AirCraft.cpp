@@ -2,11 +2,15 @@
 
 //constructors
 AirCraft::AirCraft(){
-
+    weight = 0;
+    fuel = 0;
+    numberOfFlights = 0;
 }
 
 AirCraft::AirCraft(int w){
     weight = w;
+    fuel = 100;
+    numberOfFlights = 0;
 }
 
 int AirCraft::get_weight(){
