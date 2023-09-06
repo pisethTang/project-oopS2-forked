@@ -4,7 +4,7 @@
 #include "AirCraft.h"
 #include <string>
 
-class Helicopter:AirCraft{
+class Helicopter : public AirCraft{
 
     protected:
     std::string name;
