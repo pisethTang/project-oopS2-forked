@@ -10,6 +10,7 @@ class University {
     private: 
         std::string name;
         std::string location;
+        int max;
         Course* courses;
         int max_num_courses;
         int current_num_courses;
@@ -17,6 +18,7 @@ class University {
 
     public:
         //constructors
+        University();
         University(std::string newName, std::string newLocation, int newMax);
 
         //functions
@@ -25,7 +27,7 @@ class University {
         int getCurrentNum();
         void setCurrentNum(int newNum);
 
-        ~University();
+        //~University();
 };
 
 #endif

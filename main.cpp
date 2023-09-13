@@ -12,13 +12,13 @@ int main(){
     University k = University("Adelaide Uni", "Adelaide", 20);
 
     //adding course
-    Course j = Course("Maths", 1005, 10);
-    k.addCourse(j.getID(), j.getName());
+    // Course j = Course("Maths", 1005, 10);
+    // k.addCourse(j.getID(), j.getName());
 
     //adding student
-    Student a = Student("Clara", 1234);
-    Student* s = &a;
-    j.addPerson(s);
+    // Student a = Student("Clara", 1234);
+    // Student* s = &a;
+    // j.addPerson(s);
 
     //adding grade
     
