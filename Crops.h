@@ -2,6 +2,7 @@
 #define CROPS_H
 
 #include "Produce.h"
+#include "Farm.h"
 #include <string>
 
 class Crops : public Produce{
@@ -17,7 +18,9 @@ class Crops : public Produce{
     //functions
     int getGrowthStage();
 
-    void setGrowthStage(int newGrowthStage);
+    void setGrowthStage(int newGrowthStage);    //<add growth speed stuff>
+
+    virtual int getGrowthSpeed(Farm f1) = 0;
 
     //destructor
 

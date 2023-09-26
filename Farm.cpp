@@ -1,11 +1,18 @@
 #include "Farm.h"
+#include <SFML/Graphics.hpp>
+
+using namespace sf;
 
 //constructors
-Farm::Farm()
-    :Farm(""){};
+Farm::Farm(){
+    name = "";
+    lands = new Land[max_land];
+}
 
 Farm::Farm(std::string new_name){
     name = new_name;
+    lands = new Land[max_land];
+    win = new sf::RenderWindow(sf::VideoMode(100, 100), name); // setting up game window
 }
 
 // getters
@@ -90,4 +97,25 @@ void Farm::buyNewLand(){
     }
 }
 
+// game window
+void Farm::run(){
+        while (win->isOpen()){
+            Event e;
+            while(win->pollEvent(e)){
+                if(e.type==Event::Closed){
+                    win->close();
+                }
+        // <add keyboard functions>
+            }
+            win->clear();
+            win->display();
+        }
+        
+    }
+
+
+
 //destructor
+Farm::~Farm(){
+    delete[] lands;
+}

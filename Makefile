@@ -1,0 +1,3 @@
+main-1: main-1-1.cpp
+	@clang++ main-1-1.cpp Animals.cpp Carrots.cpp Chickens.cpp Cows.cpp Crops.cpp Farm.cpp Land.cpp Potatoes.cpp Sheep.cpp Wheat.cpp -lsfml-graphics -lsfml-window -lsfml-system -o main -Wall
+	@./main

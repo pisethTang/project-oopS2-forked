@@ -2,8 +2,8 @@
 #define FARM_H
 
 #include "Land.h"
+#include <SFML/Graphics.hpp>
 #include <string>
-#include <vector>
 
 class Farm{
     protected:
@@ -13,12 +13,12 @@ class Farm{
     int day_num;    //starts at zero, goes up
     int time_of_day;   //int between 0 and 3, when it hits 3 num_days++
     int money;  //start with 1000, can't be less than zero
-
-    // <a vector of land here>
-    std::vector<Land> lands;
+    Land* lands;    //a vector of Land, of size max_land
 
     bool has_good_soil;
     bool has_good_food; //these variables make produce grow faster
+
+    sf::RenderWindow* win; // game window
 
     public:
     //constructors
@@ -47,7 +47,11 @@ class Farm{
     void buyNewLand(); //This is going to add a land to the land vector, take away money, and 
                        //change current land
 
+    // game window
+    void run();
+
     //destructor
+    ~Farm();
 
 };
 

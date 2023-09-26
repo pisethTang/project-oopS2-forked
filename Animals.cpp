@@ -1,4 +1,5 @@
 #include "Animals.h"
+#include "Produce.h"
 
 //constructors
 Animals::Animals(){
@@ -18,9 +19,9 @@ Animals::Animals(string newName, int newCost, int newSellPrice, int newBuyPrice,
 }
 
 //functions
-int Animals::getValuePerDay(){
-    return value_per_day;
-}
+// int Animals::getValuePerDay(){
+//     return value_per_day;
+// }    //<this is a virtual function?>
 
 void Animals::setValuePerDay(int newValue){
     value_per_day = value_per_day + newValue;

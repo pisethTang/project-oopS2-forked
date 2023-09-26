@@ -8,7 +8,7 @@ class Sheep : public Animals{
     private:
 
     public:
-    virtual int getValuePerDay() = 0;   //this function is virtual as the price of wool fluctuates
+    int getValuePerDay();   //this function is virtual as the price of wool fluctuates
 
 };
 

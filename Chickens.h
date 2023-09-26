@@ -8,7 +8,11 @@ class Chickens : public Animals{
     private:
 
     public:
-    virtual int getValuePerDay() = 0;
+    // constructor
+    Chickens();
+    
+    //functions
+    int getValuePerDay();
 
 };
 
