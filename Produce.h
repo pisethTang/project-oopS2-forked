@@ -7,9 +7,9 @@ using namespace std;
 class Produce{
     protected:
     string name;        //<do we even need a name?>
-    int cost_per_day;
-    int selling_price;
-    int buying_price;
+    int cost_per_day;   //the cost of upkeep per day
+    int selling_price;  //the price that a Produce sells for
+    int buying_price;   //the price to buy and plant a Produce
 
     public:
     //constructors
@@ -22,6 +22,7 @@ class Produce{
     int getCostPerDay();
     int getSellingPrice();
     int getBuyingPrice();
+    void setSellingPrice(int newSellPrice);
 
     //destructor    
 

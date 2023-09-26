@@ -21,3 +21,7 @@ Animals::Animals(string newName, int newCost, int newSellPrice, int newBuyPrice,
 int Animals::getValuePerDay(){
     return value_per_day;
 }
+
+void Animals::setValuePerDay(int newValue){
+    value_per_day = value_per_day + newValue;
+}

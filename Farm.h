@@ -33,7 +33,6 @@ class Farm{
     bool getHasGoodFood();
 
     // setters
-    // void set_farm_name(std::string name); //Not sure we need this one?
     void setDayNum(int newDay);
     void setTimeOfDay(int newTime);
     void setMoney(int newMoney);

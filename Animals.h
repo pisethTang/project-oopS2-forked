@@ -6,7 +6,7 @@
 class Animals : public Produce{
 
     protected:
-    int value_per_day;
+    int value_per_day;  //the value that the player recieves each day for having an Animal in a Land
 
     private:
     //constructors
@@ -15,6 +15,7 @@ class Animals : public Produce{
 
     //functions
     int getValuePerDay();
+    void setValuePerDay(int newValue);  //function used when food upgrade is given
 
     //destructor
 
