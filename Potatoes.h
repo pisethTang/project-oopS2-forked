@@ -2,13 +2,17 @@
 #define POTATOES_H
 
 #include "Farm.h"
-#include "Produce.h"
+#include "Crops.h"
 
-class Potatoes : public Produce{
+class Potatoes : public Crops{
 
     private:
 
     public:
+    //constructors
+    Potatoes();
+
+    //functions
     int getGrowthSpeed(Farm f1);   
 
 };

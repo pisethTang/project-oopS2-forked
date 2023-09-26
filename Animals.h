@@ -2,6 +2,7 @@
 #define ANIMALS_H
 
 #include "Produce.h"
+#include "Farm.h"
 
 class Animals : public Produce{
 
@@ -14,8 +15,8 @@ class Animals : public Produce{
     Animals(string newName, int newCost, int newSellPrice, int newBuyPrice, int newValue);
 
     //functions
-    virtual int getValuePerDay() = 0;
-    void setValuePerDay(int newValue);  //function used when food upgrade is given
+    virtual int getValuePerDay(Farm f1) = 0;
+    void setValuePerDay(int newValue);  //<function used when food upgrade is given?>
 
     //destructor
 

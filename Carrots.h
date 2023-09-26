@@ -9,6 +9,10 @@ class Carrots : public Crops {
     private:
 
     public:
+    //constructors
+    Carrots();
+
+    //functions
     int getGrowthSpeed(Farm f1);
 
 };

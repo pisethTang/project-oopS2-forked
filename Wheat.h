@@ -9,6 +9,10 @@ class Wheat : public Crops {
     private:
 
     public:
+    //constructors
+    Wheat();
+
+    //functions
     int getGrowthSpeed(Farm f1);
 
 };

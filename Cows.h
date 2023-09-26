@@ -2,13 +2,17 @@
 #define COWS_H
 
 #include "Animals.h"
+#include "Farm.h"
 
 class Cows: public Animals{
     private:
         
-
     public:
-    int getValuePerDay();// 
+    //constructors
+    Cows();
+
+    //functions
+    int getValuePerDay(Farm f1);
 
 };
 

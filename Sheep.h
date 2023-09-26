@@ -2,13 +2,18 @@
 #define SHEEP_H
 
 #include "Animals.h"
+#include "Farm.h"
 
 class Sheep : public Animals{
 
     private:
 
     public:
-    int getValuePerDay();   //this function is virtual as the price of wool fluctuates
+    //constructors
+    Sheep();
+
+    //functions
+    int getValuePerDay(Farm f1);
 
 };
 

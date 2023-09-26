@@ -12,7 +12,7 @@ class Chickens : public Animals{
     Chickens();
     
     //functions
-    int getValuePerDay();
+    int getValuePerDay(Farm f1);
 
 };
 
