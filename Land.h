@@ -7,7 +7,10 @@ class Land{
 
     protected:
     bool empty_or_used;
+    bool unlocked;
     //<add produce here> Not totally sure how this is going to work
+    //<perhaps a Produce ptr to a new whichever, and then we delete that when it's harvested?
+    //we would need to be careful that the ptr is never accessed when there is nothing there>
 
     public:
     //constructors

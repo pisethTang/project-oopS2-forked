@@ -4,6 +4,7 @@
 //constructors
 Land::Land(){
     empty_or_used = 0;
+    unlocked = 0;
     //<put a produce here?? but need to initialise with nothing so that the produce can change>
 }
 
