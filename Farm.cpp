@@ -55,18 +55,22 @@ void Farm::setTimeOfDay(int newTime){
 
 void Farm::setMoney(int newMoney){
     money = newMoney;
+    return;
 }
 
 void Farm::setCurrentLand(int newLand){
     current_land = newLand;
+    return;
 }
 
 void Farm::setGoodSoil(bool newSoil){
     has_good_soil = newSoil;
+    return;
 }
 
 void Farm::setGoodFood(bool newFood){
     has_good_food = newFood;
+    return;
 }
 
 //functions

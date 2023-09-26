@@ -1,7 +1,9 @@
 #ifndef FARM_H
 #define FARM_H
 
+#include "Land.h"
 #include <string>
+#include <vector>
 
 class Farm{
     protected:
@@ -13,6 +15,7 @@ class Farm{
     int money;  //start with 1000, can't be less than zero
 
     // <a vector of land here>
+    std::vector<Land> lands;
 
     bool has_good_soil;
     bool has_good_food; //these variables make produce grow faster
