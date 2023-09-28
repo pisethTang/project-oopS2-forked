@@ -12,7 +12,7 @@ class Crops : public Produce{
 
     public:
     //constructors
-    Crops();    //never start with good soil type
+    Crops();
     Crops(string newName, int newCost, int newSellPrice, int newBuyPrice);
 
     //functions

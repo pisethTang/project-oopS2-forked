@@ -49,7 +49,6 @@ bool Farm::getHasGoodFood(){
 }
 
 // setters
-// void set_farm_name(std::string name); //Not sure we need this one?
 void Farm::setDayNum(int newDay){
     day_num = newDay;
     return;
@@ -99,26 +98,32 @@ void Farm::buyNewLand(){
 
 // game window
 void Farm::run(){
-        while (win->isOpen()){
-            Event e;
-            while(win->pollEvent(e)){
-                if(e.type==Event::Closed){
-                    win->close();
-                }
-        // <add keyboard functions>
+    while (win->isOpen()){
+        Event e;
+        while(win->pollEvent(e)){
+            if(e.type==Event::Closed){
+                win->close();
             }
-            win->clear();
-            win->display();
+    // <add keyboard functions>
         }
-        
+        win->clear();
+        win->display();
     }
+}
 
 void Farm::changeDay(){
     //setting the new day number
     setDayNum(getDayNum() + 1);
 
     //a for loop going through the whole land vector, checking each type and affecting money appropriately
-    //<put this in here>
+
+    for(int i = 0; i < max_land; i++){
+        if (lands[i].getEmptyOrUsed() == 1){
+            //<is this going to work??>
+            setMoney(getMoney() - lands[i].getPlanted().getCostPerDay());
+            //setMoney(getMoney() + ) //<something for only the Animals having money given per day>
+        }
+    }
 }
 
 void Farm::moveTime(){

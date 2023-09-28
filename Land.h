@@ -2,17 +2,18 @@
 #define LAND_H
 
 #include "Produce.h"
-#include "Farm.h"
+#include "Crops.h"
+#include "Animals.h"
+//#include "Farm.h"
+
+class Farm; //<if this doesn't work, we need to rework the Farm class entirely>
+
 
 class Land{
-
     protected:
     bool empty_or_used;
     bool unlocked;
     Produce planted;
-    //<add produce here> Not totally sure how this is going to work
-    //<perhaps a Produce ptr to a new whichever, and then we delete that when it's harvested?
-    //we would need to be careful that the ptr is never accessed when there is nothing there>
 
     public:
     //constructors
@@ -22,11 +23,12 @@ class Land{
     bool getEmptyOrUsed();
     void setEmptyOrUsed(bool a);
     bool getUnlocked();
+    Produce getPlanted();
     void setUnlocked(bool b);
     void setProduce(Produce newPlanted);
     //<put the above in the diagram>
 
-    void plantProduce(int produceIteration, Farm farm);    //Also takes away money and only does the following:
+    //void plantProduce(int produceIteration, Farm farm);    //Also takes away money and only does the following:
                                                 //this function finds the first available element in
                                                 //the Land vector and assigns that pointer to a produce
                                                 //of iteration produceIteration

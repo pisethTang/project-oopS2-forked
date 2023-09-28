@@ -30,3 +30,5 @@ void Crops::setGrowthStage(int newGrowthStage){
         growth_stage = getGrowthStage() + newGrowthStage;
     }
 }
+
+//<need something here to change the selling price>
