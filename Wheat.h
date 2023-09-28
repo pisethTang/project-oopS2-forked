@@ -14,6 +14,7 @@ class Wheat : public Crops {
 
     //functions
     int getGrowthSpeed(Farm f1);
+    //<need to make a way to update the growth stage and the selling price>
 
 };
 

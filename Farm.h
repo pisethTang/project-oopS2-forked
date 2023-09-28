@@ -47,6 +47,12 @@ class Farm{
     void buyNewLand(); //This is going to add a land to the land vector, take away money, and 
                        //change current land
 
+    //<Put these on the diagram>
+    void changeDay();   //this function adds one to the day counter, gives the user one day's worth of
+                        //money from their animals, and takes away money for upkeep
+    void moveTime();    //this function progresses time by one unit, checks if the day has ended,
+                        //and calls the changeDay() function if the day has ended
+
     // game window
     void run();
 

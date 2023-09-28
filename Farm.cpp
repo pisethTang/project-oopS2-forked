@@ -113,7 +113,22 @@ void Farm::run(){
         
     }
 
+void Farm::changeDay(){
+    //setting the new day number
+    setDayNum(getDayNum() + 1);
 
+    //a for loop going through the whole land vector, checking each type and affecting money appropriately
+    //<put this in here>
+}
+
+void Farm::moveTime(){
+    setTimeOfDay(getTimeOfDay() + 1);
+
+    if (getTimeOfDay() == 3){
+        setTimeOfDay(0);
+        changeDay();
+    }
+}
 
 //destructor
 Farm::~Farm(){
