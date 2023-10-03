@@ -13,7 +13,11 @@ Wheat::Wheat(){
 }
 
 //functions
-int Wheat::getGrowthSpeed(Farm f1){
+int Wheat::getGrowthSpeed(Farm f1){ //<Can only be used in something above Farm?
+                                    //or we store hasGoodSoil in something else? land maybe?
+                                    //we could put this function into land and have it be 
+                                    //an if statement, but that would remove the virtual function
+                                    //which we need>
     //the case for standard soil
     if (f1.getHasGoodSoil() == 0) {
 
