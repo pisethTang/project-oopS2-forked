@@ -16,6 +16,7 @@ Farm::Farm(){
 // }
 
 // getters
+
 // std::string Farm::getName(){
 //     return name; //possibly unnecessary
 // }
@@ -88,7 +89,7 @@ void Farm::buyNewLand(){
             //take away money
             setMoney(getMoney() - 250);
 
-            // <change the land vector>
+            // <change the land vector> <may not need to change land vector?>
 
             //add the new land
             setCurrentLand(getCurrentLand() + 1);
@@ -121,7 +122,14 @@ void Farm::changeDay(){
         if (lands[i].getEmptyOrUsed() == 1){
             //<is this going to work??>
             setMoney(getMoney() - lands[i].getPlanted().getCostPerDay());
-            //setMoney(getMoney() + ) //<something for only the Animals having money given per day>
+            Farm f1; // <find a way to not have farm>
+
+            Produce a = lands[i].getPlanted();
+            Produce* produce = &a;
+            Animals* animals = dynamic_cast<Animals*>(produce);
+            if (animals != nullptr){
+                setMoney(getMoney() + animals->getValuePerDay(f1)); //<just somehow remove f1>
+            }
         }
     }
 }

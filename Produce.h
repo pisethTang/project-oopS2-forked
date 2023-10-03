@@ -18,7 +18,7 @@ class Produce{
     Produce(string newName, int newCost, int newSellPrice, int newBuyPrice);
 
     //functions
-    string getName();
+    virtual string getName();
     int getCostPerDay();
     int getSellingPrice();
     int getBuyingPrice();
