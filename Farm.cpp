@@ -5,20 +5,20 @@ using namespace sf;
 
 //constructors
 Farm::Farm(){
-    name = "";
+    //name = "";
     lands = new Land[max_land];
 }
 
-Farm::Farm(std::string new_name){
-    name = new_name;
-    lands = new Land[max_land];
-    win = new sf::RenderWindow(sf::VideoMode(100, 100), name); // setting up game window
-}
+// Farm::Farm(std::string new_name){    //<evaluate this and see if needed>
+//     //name = new_name;
+//     lands = new Land[max_land];
+//     win = new sf::RenderWindow(sf::VideoMode(100, 100), name); // setting up game window
+// }
 
 // getters
-std::string Farm::getName(){
-    return name;
-}
+// std::string Farm::getName(){
+//     return name; //possibly unnecessary
+// }
 
 int Farm::getDayNum(){
     return day_num;
@@ -115,7 +115,7 @@ void Farm::changeDay(){
     //setting the new day number
     setDayNum(getDayNum() + 1);
 
-    //a for loop going through the whole land vector, checking each type and affecting money appropriately
+    //for loop going through the whole land vector, checking each type and affecting money appropriately
 
     for(int i = 0; i < max_land; i++){
         if (lands[i].getEmptyOrUsed() == 1){

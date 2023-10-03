@@ -7,7 +7,7 @@
 
 class Farm{
     protected:
-    std::string name;
+    //std::string name; <perhaps remove>
     int max_land;
     int current_land;
     int day_num;    //starts at zero, goes up
@@ -26,7 +26,7 @@ class Farm{
     Farm(std::string new_name);
     
     // getters
-    std::string getName();
+    //std::string getName();    <perhaps remove>
     int getDayNum();
     int getTimeOfDay();
     int getMaxLand();
