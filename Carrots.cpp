@@ -8,6 +8,7 @@ Carrots::Carrots(){
     //<name>
     cost_per_day = 10;  //10 gold per day to upkeep one Land of Carrots
     selling_price = 25;    //175 gold to sell when fully grown, 25 gold to sell otherwise
+    //future_sell_price = 175;
     buying_price = 25;  //25 gold to buy a Carrot seed
     growth_stage = 0;   //always initialises with a growth stage of 0
 
@@ -38,3 +39,7 @@ int Carrots::getGrowthSpeed(bool goodSoil, int dayNum){
     }
 
 }
+
+// void Carrots::setSellingPrice(){
+//     selling_price = getFutureSellPrice();
+// }

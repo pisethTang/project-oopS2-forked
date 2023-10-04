@@ -7,6 +7,7 @@ Wheat::Wheat(){
     //<name>
     cost_per_day = 15;  //15 gold per day to upkeep one Land of Wheat
     selling_price = 10;    //125 gold to sell when fully grown, 10 gold to sell otherwise
+    //future_sell_price = 125;
     buying_price = 10;  //10 gold to buy a Wheat seed
     growth_stage = 0;   //always initialises with a growth stage of 0
 
@@ -41,3 +42,7 @@ int Wheat::getGrowthSpeed(bool goodSoil, int dayNum){ //<Can only be used in som
         }
     }
 }
+
+// void Wheat::setSellingPrice(){
+//     selling_price = getFutureSellPrice();   //<we need to test that this is working as it should>
+// }

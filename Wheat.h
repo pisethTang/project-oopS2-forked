@@ -15,7 +15,7 @@ class Wheat : public Crops {
     //functions
     int getGrowthSpeed(bool goodSoil, int dayNum) override;
     //the growth stage updates when the changeDay() function is called
-    //<need to make a way to update the selling price>
+    // void setSellingPrice();
 
 };
 
