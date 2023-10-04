@@ -14,6 +14,8 @@ class Sheep : public Animals{
 
     //functions
     // int getValuePerDay(Farm f1) override;
+    //<four functions, one for good normal value, one for bad normal value, one for every four
+    //days good value, and one for every four days bad value>
 
 };
 
