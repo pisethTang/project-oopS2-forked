@@ -9,26 +9,26 @@ Chickens::Chickens(){
 
 }
 
-// int Chickens::getValuePerDay(Farm f1){
-//     //the case for standard food
+int Chickens::getValuePerDay(bool goodFood, int dayNum){
+    //the case for standard food
 
-//     if (f1.getHasGoodSoil() == 0){
-//         //the chickens will be unhappy once a week, and that day it will break even
-//         if ((f1.getDayNum() % 7) == 0){
-//             return 10;
-//         }
-//         else {
-//             return 35;
-//         }
-//     }
+    if (goodFood == 0){
+        //the chickens will be unhappy once a week, and that day it will break even
+        if ((dayNum % 7) == 0){
+            return 10;
+        }
+        else {
+            return 35;
+        }
+    }
 
-//     //the case for good food
-//     else {
-//         if ((f1.getDayNum() % 7) == 0){
-//             return 20;
-//         }
-//         else {
-//             return 70;
-//         }
-//     }
-// }
+    //the case for good food
+    else {
+        if ((dayNum % 7) == 0){
+            return 20;
+        }
+        else {
+            return 70;
+        }
+    }
+}

@@ -20,7 +20,7 @@ class Crops : public Produce{
 
     void setGrowthStage(int newGrowthStage);    //<add growth speed stuff>
 
-    // virtual int getGrowthSpeed(Farm f1) = 0;
+    virtual int getGrowthSpeed(bool goodSoil, int dayNum) = 0;
 
     //destructor
 

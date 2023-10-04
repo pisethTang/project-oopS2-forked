@@ -1,4 +1,4 @@
-#include "Land.h"
+#include "Farmland.h"
 #include "Farm.h"
 #include "Produce.h"
 #include "Wheat.h"
@@ -21,12 +21,12 @@ Farm::Farm(){
     has_good_soil = false;
     has_good_food = false;
     
-    lands = new Land[max_land];
+    lands = new Farmland[max_land];
 }
 
 // Farm::Farm(std::string new_name){    //<evaluate this and see if needed>
 //     //name = new_name;
-//     lands = new Land[max_land];
+//     lands = new Farmland[max_land];
 //     win = new sf::RenderWindow(sf::VideoMode(100, 100), name); // setting up game window
 // }
 
@@ -112,38 +112,50 @@ void Farm::buyNewLand(){
     }
 }
 
-// void Farm::changeDay(){
-//     //setting the new day number
-//     setDayNum(getDayNum() + 1);
+void Farm::changeDay(){
+    //setting the new day number
+    setDayNum(getDayNum() + 1);
 
-//     //for loop going through the whole land vector, checking each type and affecting money appropriately
+    //iterating through Land vector, checking each type and affecting money appropriately
+    for(int i = 0; i < max_land; i++){
+        if (lands[i].getEmptyOrUsed() == 1){
+            //<is this going to work??>
+            setMoney(getMoney() - lands[i].getPlanted().getCostPerDay());
 
-//     for(int i = 0; i < max_land; i++){
-//         if (lands[i].getEmptyOrUsed() == 1){
-//             //<is this going to work??>
-//             setMoney(getMoney() - lands[i].getPlanted().getCostPerDay());
-//             Farm f1; // <find a way to not have farm>
+            Produce a = lands[i].getPlanted();
+            Produce* produce = &a;
+            Animals* animals = dynamic_cast<Animals*>(produce);
+            if (animals != nullptr){
+                setMoney(getMoney() + animals->getValuePerDay(getHasGoodFood(), getDayNum()));
+            }
+        }
+    }
 
-//             Produce a = lands[i].getPlanted();
-//             Produce* produce = &a;
-//             Animals* animals = dynamic_cast<Animals*>(produce);
-//             if (animals != nullptr){
-//                 setMoney(getMoney() + animals->getValuePerDay(f1)); //<just somehow remove f1>
-//             }
-//         }
-//     }
-// }
+    //iterating through land vector, checking each type and growing crops
+    for (int i = 0; i < max_land; i++){
+        if (lands[i].getEmptyOrUsed() == 1){
+            
+            Produce b = lands[i].getPlanted();
+            Produce* ptr = &b;
+            Crops* crops = dynamic_cast<Crops*>(ptr);
+            if (crops != nullptr){
+                //if this element is a crop, increase the growth stage by the growth speed
+                crops->setGrowthStage(crops->getGrowthStage() + crops->getGrowthSpeed(getHasGoodSoil(), getDayNum()));
+            }
+        }
+    }
+}
 
-// void Farm::moveTime(){
-//     setTimeOfDay(getTimeOfDay() + 1);
+void Farm::moveTime(){  //<put this function in all the other functions>
+    setTimeOfDay(getTimeOfDay() + 1);
 
-//     if (getTimeOfDay() == 3){
-//         setTimeOfDay(0);
-//         changeDay();
-//     }
-// }
+    if (getTimeOfDay() == 3){
+        setTimeOfDay(0);
+        changeDay();
+    }
+}
 
-/*void Farm::plantProduce(int produceIteration){
+void Farm::plantProduce(int produceIteration){
     //<make time move if planting succeeds>
 
 
@@ -269,7 +281,23 @@ void Farm::buyNewLand(){
     }
 
     return;
-} */
+}
+
+void Farm::harvestProduce(int index){
+    //it gives money to be sold
+    if (lands[index].getEmptyOrUsed() == 1){     //ensures it's used before giving player money
+        Produce b = lands[index].getPlanted();
+        Produce* ptr = &b;
+        Crops* crops = dynamic_cast<Crops*>(ptr);
+        if (crops != nullptr){
+            //if this element is a crop, get the money for selling
+                setMoney(getMoney() + crops->getSellingPrice());
+        }
+    }
+
+    //this function doesn't delete the produce, but rather allows it to be written over
+    lands[index].setEmptyOrUsed(0);
+}
 
 //destructor
 Farm::~Farm(){
