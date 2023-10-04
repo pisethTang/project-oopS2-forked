@@ -23,18 +23,7 @@ Farm::Farm(){
     
     lands = new Farmland[max_land];
 }
-
-// Farm::Farm(std::string new_name){    //<evaluate this and see if needed>
-//     //name = new_name;
-//     lands = new Farmland[max_land];
-//     win = new sf::RenderWindow(sf::VideoMode(100, 100), name); // setting up game window
-// }
-
 // getters
-
-// std::string Farm::getName(){
-//     return name; //possibly unnecessary
-// }
 
 int Farm::getDayNum(){
     return day_num;
@@ -71,6 +60,7 @@ void Farm::setDayNum(int newDay){
 }
 
 void Farm::setTimeOfDay(int newTime){
+    // <should we be checking if newTime is between 1 and 3 here?>
     time_of_day = newTime;
     return;
 }
@@ -97,7 +87,7 @@ void Farm::setGoodFood(bool newFood){
 
 //functions
 void Farm::buyNewLand(){
-    if (getMoney() > 250){  //250 chosen as the price of land
+    if (getMoney() >= 250){  //250 chosen as the price of land
 
         if((getCurrentLand() + 1) < getMaxLand()){  //ensure not going past max land
 
@@ -176,6 +166,8 @@ void Farm::plantProduce(int produceIteration){
             Chickens w;
             Cows v;
             Sheep u;
+
+            //<do we need to dynamically allocate these?>
 
             switch (produceIteration) {
                 case 1: //Wheat
