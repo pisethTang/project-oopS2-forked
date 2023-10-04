@@ -1,5 +1,5 @@
-#include "Farmland.h"
 #include "Farm.h"
+#include "Farmland.h"
 #include "Produce.h"
 #include "Wheat.h"
 #include "Carrots.h"
@@ -110,7 +110,7 @@ void Farm::changeDay(){
     for(int i = 0; i < max_land; i++){
         if (lands[i].getEmptyOrUsed() == 1){
             //<is this going to work??>
-            setMoney(getMoney() - lands[i].getPlanted().getCostPerDay());
+            setMoney(getMoney() - lands[i].getPlanted().getCostPerDay());   //<getCostPerDay>
 
             Produce a = lands[i].getPlanted();
             Produce* produce = &a;
