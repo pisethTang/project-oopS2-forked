@@ -19,14 +19,6 @@ Animals::Animals(string newName, int newCost, int newSellPrice, int newBuyPrice,
 }
 
 //functions
-// int Animals::getValuePerDay(){
-//     return value_per_day;
-// }    //<this is a virtual function?>
-
 std::string Animals::getName(){
     return "name";  //<can't remove this>
-}
-
-void Animals::setValuePerDay(int newValue){
-    value_per_day = value_per_day + newValue;
 }

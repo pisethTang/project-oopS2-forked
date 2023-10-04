@@ -59,9 +59,48 @@ void Farm::setDayNum(int newDay){
     return;
 }
 
-void Farm::setTimeOfDay(int newTime){
-    // <should we be checking if newTime is between 1 and 3 here?>
-    time_of_day = newTime;
+void Farm::setTimeOfDay(int newTime){   //<can someone please check through the logic of this for me?>
+
+    switch(newTime) {
+        case 0:
+            time_of_day = 0;
+            changeDay();
+            cout << "Time changed to morning.\n";
+        break;
+        case 1:
+            if (getTimeOfDay() >= 1) {
+                changeDay();
+            }
+            time_of_day = 1;
+            cout << "Time changed to midday.\n";
+        break;
+        case 2:
+            if (getTimeOfDay() >= 2){
+                changeDay();
+            }
+            time_of_day = 2;
+            cout << "Time changed to Afternoon.\n";
+        break;
+        case 3:
+            time_of_day = 3;
+            cout << "Time changed to evening. Have a good sleep!\n";
+            moveTime();
+        break;
+        default:
+            cout << "Time invalid!\n";
+        break;
+    }
+
+    // if (newTime >= 0 && newTime < 3){
+    //     time_of_day = newTime;
+    // }
+    // else if (newTime == 3){
+    //     changeDay();
+    // }
+    // else {
+    //     cout << "Time invalid!\n";
+    // }
+    
     return;
 }
 
@@ -110,7 +149,7 @@ void Farm::changeDay(){
     for(int i = 0; i < max_land; i++){
         if (lands[i].getEmptyOrUsed() == 1){
             //<is this going to work??>
-            setMoney(getMoney() - lands[i].getPlanted().getCostPerDay());   //<getCostPerDay>
+            setMoney(getMoney() - lands[i].getPlanted().getCostPerDay());
 
             Produce a = lands[i].getPlanted();
             Produce* produce = &a;
@@ -139,7 +178,7 @@ void Farm::changeDay(){
 void Farm::moveTime(){  //<put this function in all the other functions>
     setTimeOfDay(getTimeOfDay() + 1);
 
-    if (getTimeOfDay() == 3){
+    if (getTimeOfDay() >= 3){
         setTimeOfDay(0);
         changeDay();
     }

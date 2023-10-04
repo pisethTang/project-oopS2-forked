@@ -6,7 +6,7 @@ Potatoes::Potatoes(){
     //<name>
     cost_per_day = 20;  //20 gold per day to upkeep one Land of Potatoes
     selling_price = 35;    //225 gold to sell when fully grown, 35 gold to sell otherwise
-    //future_sell_price = 225;
+    future_sell_price = 225;
     buying_price = 35;  //35 gold to buy a Potato seed
     growth_stage = 0;   //always initialises with a growth stage of 0
 
