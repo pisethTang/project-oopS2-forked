@@ -6,12 +6,13 @@
 
 class Farm{
     protected:
+    Land* lands;    //a vector of Land, of size max_land
     int max_land;
     int current_land;
     int day_num;    //starts at zero, goes up
     int time_of_day;   //int between 0 and 3, when it hits 3 num_days++
     int money;  //start with 1000, can't be less than zero
-    Land* lands;    //a vector of Land, of size max_land
+    
 
     bool has_good_soil;
     bool has_good_food; //these variables make produce grow faster
@@ -52,9 +53,6 @@ class Farm{
                                                 //this function finds the first available element in
                                                 //the Land vector and assigns that pointer to a produce
                                                 //of iteration produceIteration
-
-    // game window
-    void run();
 
     //destructor
     ~Farm();

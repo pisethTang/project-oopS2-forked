@@ -1,3 +1,4 @@
+#include "Land.h"
 #include "Farm.h"
 #include "Produce.h"
 #include "Wheat.h"
@@ -142,8 +143,9 @@ void Farm::buyNewLand(){
 //     }
 // }
 
-void Farm::plantProduce(int produceIteration){
+/*void Farm::plantProduce(int produceIteration){
     //<make time move if planting succeeds>
+
 
     int planting = 0;
     int i = 0;
@@ -267,7 +269,7 @@ void Farm::plantProduce(int produceIteration){
     }
 
     return;
-}
+} */
 
 //destructor
 Farm::~Farm(){
