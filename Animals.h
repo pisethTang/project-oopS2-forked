@@ -16,7 +16,7 @@ class Animals : public Produce{
 
     //functions
     std::string getName() override; //<do NOT remove this>
-    virtual int getValuePerDay(Farm f1) = 0;
+    //virtual int getValuePerDay(Farm f1) = 0;
     void setValuePerDay(int newValue);  //<function used when food upgrade is given?>
 
     //destructor

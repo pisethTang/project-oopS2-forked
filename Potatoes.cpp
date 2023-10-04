@@ -12,16 +12,16 @@ Potatoes::Potatoes(){
 }
 
 //functions
-int Potatoes::getGrowthSpeed(Farm f1){
-    //the case for standard soil
+// int Potatoes::getGrowthSpeed(Farm f1){
+//     //the case for standard soil
 
-    if(f1.getHasGoodSoil() == 0){
-        //potatoes thrive in any environment and grow the fastest and most consistently
-        return 2;
-    }
+//     if(f1.getHasGoodSoil() == 0){
+//         //potatoes thrive in any environment and grow the fastest and most consistently
+//         return 2;
+//     }
 
-    //the case for good soil
-    else {
-        return 4;
-    }
-}
+//     //the case for good soil
+//     else {
+//         return 4;
+//     }
+// }

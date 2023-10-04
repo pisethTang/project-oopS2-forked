@@ -1,11 +1,25 @@
 #include "Farm.h"
-#include <SFML/Graphics.hpp>
-
-using namespace sf;
+#include "Produce.h"
+#include "Wheat.h"
+#include "Carrots.h"
+#include "Potatoes.h"
+#include "Chickens.h"
+#include "Cows.h"
+#include "Sheep.h"
+#include <iostream>
 
 //constructors
 Farm::Farm(){
     //name = "";
+    max_land = 10; //<randomly chosen>
+    current_land = 2;
+    day_num = 0;    //starts at zero, goes up
+    time_of_day = 0;   //int between 0 and 3, when it hits 3 num_days++
+    money = 1000;  //start with 1000, can't be less than zero
+
+    has_good_soil = false;
+    has_good_food = false;
+    
     lands = new Land[max_land];
 }
 
@@ -97,50 +111,162 @@ void Farm::buyNewLand(){
     }
 }
 
-// game window
-void Farm::run(){
-    while (win->isOpen()){
-        Event e;
-        while(win->pollEvent(e)){
-            if(e.type==Event::Closed){
-                win->close();
+// void Farm::changeDay(){
+//     //setting the new day number
+//     setDayNum(getDayNum() + 1);
+
+//     //for loop going through the whole land vector, checking each type and affecting money appropriately
+
+//     for(int i = 0; i < max_land; i++){
+//         if (lands[i].getEmptyOrUsed() == 1){
+//             //<is this going to work??>
+//             setMoney(getMoney() - lands[i].getPlanted().getCostPerDay());
+//             Farm f1; // <find a way to not have farm>
+
+//             Produce a = lands[i].getPlanted();
+//             Produce* produce = &a;
+//             Animals* animals = dynamic_cast<Animals*>(produce);
+//             if (animals != nullptr){
+//                 setMoney(getMoney() + animals->getValuePerDay(f1)); //<just somehow remove f1>
+//             }
+//         }
+//     }
+// }
+
+// void Farm::moveTime(){
+//     setTimeOfDay(getTimeOfDay() + 1);
+
+//     if (getTimeOfDay() == 3){
+//         setTimeOfDay(0);
+//         changeDay();
+//     }
+// }
+
+void Farm::plantProduce(int produceIteration){
+    //<make time move if planting succeeds>
+
+    int planting = 0;
+    int i = 0;
+
+    while (planting == 0) {
+
+        if (lands[i].getEmptyOrUsed() == 0){    //will only plant if this Land is empty
+            planting = 1;   //ending the while loop once an empty plot is found
+
+            //1 is wheat, 2 is carrots, 3 is potatoes, 4 is chickens, 5 is cows, 6 is sheep
+
+            //<I get errors if I initialise in the switch, which sucks bc i don't want to initialise all this>
+            Wheat z;
+            Carrots y;
+            Potatoes x;
+            Chickens w;
+            Cows v;
+            Sheep u;
+
+            switch (produceIteration) {
+                case 1: //Wheat
+                    if (getMoney() <= z.getBuyingPrice()){
+                        //spend money
+                        setMoney(getMoney() - z.getBuyingPrice());
+
+                        //make land used
+                        lands[i].setEmptyOrUsed(1);
+
+                        //make Produce a Wheat
+                        lands[i].setProduce(z);    //<is this right?>
+                    }
+                    else {
+                        cout << "Not enough money!\n";
+                    }
+                break;
+                case 2: //Carrots
+                    if (getMoney() <= y.getBuyingPrice()){
+                        //spend money
+                        setMoney(getMoney() - y.getBuyingPrice());
+
+                        //make land used
+                        lands[i].setEmptyOrUsed(1);
+
+                        //make Produce a Carrots
+                        lands[i].setProduce(y);    //<is this right?>
+                    }
+                    else {
+                        cout << "Not enough money!\n";
+                    }
+                break;
+                case 3: //Potatoes
+                    if (getMoney() <= x.getBuyingPrice()){
+                        //spend money
+                        setMoney(getMoney() - x.getBuyingPrice());
+
+                        //make land used
+                        lands[i].setEmptyOrUsed(1);
+
+                        //make Produce a Potatoes
+                        lands[i].setProduce(x);    //<is this right?>
+                    }
+                    else {
+                        cout << "Not enough money!\n";
+                    }
+                break;
+                case 4: //Chickens
+                    if (getMoney() <= w.getBuyingPrice()){
+                        //spend money
+                        setMoney(getMoney() - w.getBuyingPrice());
+
+                        //make land used
+                        lands[i].setEmptyOrUsed(1);
+
+                        //make Produce a Chickens
+                        lands[i].setProduce(w);    //<is this right?>
+                    }
+                    else {
+                        cout << "Not enough money!\n";
+                    }
+                break;
+                case 5: //Cows
+                    if (getMoney() <= v.getBuyingPrice()){
+                        //spend money
+                        setMoney(getMoney() - v.getBuyingPrice());
+
+                        //make land used
+                        lands[i].setEmptyOrUsed(1);
+
+                        //make Produce a Cows
+                        lands[i].setProduce(v);    //<is this right?>
+                    }
+                    else {
+                        cout << "Not enough money!\n";
+                    }
+                break;
+                case 6: //Sheep
+                    if (getMoney() <= u.getBuyingPrice()){
+                        //spend money
+                        setMoney(getMoney() - u.getBuyingPrice());
+
+                        //make land used
+                        lands[i].setEmptyOrUsed(1);
+
+                        //make Produce a Sheep
+                        lands[i].setProduce(u);    //<is this right?>
+                    }
+                    else {
+                        cout << "Not enough money!\n";
+                    }
+                break;
             }
-    // <add keyboard functions>
         }
-        win->clear();
-        win->display();
+
+        i++;    //iterating i;
+
     }
-}
 
-void Farm::changeDay(){
-    //setting the new day number
-    setDayNum(getDayNum() + 1);
-
-    //for loop going through the whole land vector, checking each type and affecting money appropriately
-
-    for(int i = 0; i < max_land; i++){
-        if (lands[i].getEmptyOrUsed() == 1){
-            //<is this going to work??>
-            setMoney(getMoney() - lands[i].getPlanted().getCostPerDay());
-            Farm f1; // <find a way to not have farm>
-
-            Produce a = lands[i].getPlanted();
-            Produce* produce = &a;
-            Animals* animals = dynamic_cast<Animals*>(produce);
-            if (animals != nullptr){
-                setMoney(getMoney() + animals->getValuePerDay(f1)); //<just somehow remove f1>
-            }
-        }
+    //A notice for if there is no land
+    if (planting == 0) {
+        std::cout << "No available land.\n";
     }
-}
 
-void Farm::moveTime(){
-    setTimeOfDay(getTimeOfDay() + 1);
-
-    if (getTimeOfDay() == 3){
-        setTimeOfDay(0);
-        changeDay();
-    }
+    return;
 }
 
 //destructor

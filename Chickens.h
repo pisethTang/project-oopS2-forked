@@ -12,7 +12,7 @@ class Chickens : public Animals{
     Chickens();
     
     //functions
-    int getValuePerDay(Farm f1) override;
+    //int getValuePerDay(Farm f1) override;
 
 };
 
