@@ -13,7 +13,26 @@ void Textbased::displayMenu() {
     std::cout << "-----------------------------\n";
     std::cout << "      " << getTitle() << "      \n";
     std::cout << "-----------------------------\n";
-    std::cout << "What would you like to do? You have $" << farm.getMoney() << ".\n";
+    std::cout << "Day " << farm.getDayNum() << " | ";
+
+    switch (farm.getTimeOfDay()) {
+        case 0:
+            std::cout << "Morning";
+        break;
+        case 1:
+            std::cout << "Midday";
+        break;
+        case 2:
+            std::cout << "Afternoon";
+        break;
+        default:
+            std::cout << "this text should not appear.";
+        break;
+    }
+
+    std::cout << " | You have $" << farm.getMoney() << " | Goal: $10000\n";
+
+    std::cout << "What would you like to do?\n";
     std::cout << "1. Shop Produce\n";
     std::cout << "2. Buy Upgrades or Land (" << farm.getCurrentLand() << "/" << farm.getMaxLand() << " land)\n";
     std::cout << "3. Sell/Harvest Animals/Crops\n";
@@ -21,7 +40,27 @@ void Textbased::displayMenu() {
 
 // Function to display the Farmland array
 void Textbased::displayFarmland() {
-    
+    cout << " _______________________________________________________________________________\n";
+
+    //top row
+    for (int i = 0; i < 10; i++) {
+        cout << "|" << farm.getTopRow(i);
+    }
+    cout << "|\n";
+
+    //middle row
+    for (int i = 0; i < 10; i++) {
+        cout << "|" << farm.getMiddleRow(i);
+    }
+    cout << "|\n";
+
+    //bottom row
+    for (int i = 0; i < 10; i++) {
+        cout << "|" << farm.getBottomRow(i);
+    }
+    cout << "|\n";
+
+    cout << " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\n";
 }
 
 // Function to get user choice
@@ -62,6 +101,7 @@ void Textbased::executeAction(int choice){
 // Function to start the game loop
 void Textbased::startGame() {
     while (1) {
+        displayFarmland();
         displayMenu();         // Display the menu
         int choice = getUserChoice();  // Get user choice
         executeAction(choice); // Execute the chosen action
@@ -73,10 +113,10 @@ void Textbased::startGame() {
 // |       |       |       |       |       |       |       |       |       |       |
 // |       |       |   X   |   X   |   X   |   X   |   X   |   X   |   X   |   X   |
 // |       |       |       |       |       |       |       |       |       |       |
-//  ⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺
+//  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 
 //  _______________________________________________________________________________
 // |Carrots|Potato | Wheat | Sheep | Cows  |Chicken|       |       |       |       |
 // |  $16  |  $50  |  $75  | $150  | $170  | $130  |   X   |   X   |   X   |   X   |
 // |  15%  | 100%  |  75%  | $35/d | $40/d | $30/d |       |       |       |       |
-//  ⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺
+//  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾

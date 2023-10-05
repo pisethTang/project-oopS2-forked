@@ -14,7 +14,7 @@ Farm::Farm(){
     //name = "";
     max_land = 10; //<randomly chosen>
     current_land = 2;
-    day_num = 0;    //starts at zero, goes up
+    day_num = 1;    //starts at one, goes up
     time_of_day = 0;   //int between 0 and 3, when it hits 3 num_days++
     money = 1000;  //start with 1000, can't be less than zero
     for (int i = 0; i < 10; i++) {
@@ -223,6 +223,7 @@ void Farm::changeDay(){
                 }
                 else{
                     setBottomRow(i, " 100%  ");
+                    setMiddleRow(i, " $" + to_string(crops->getSellingPrice()) + "  "); //<check that they all fit>
                 }
             }
         }
