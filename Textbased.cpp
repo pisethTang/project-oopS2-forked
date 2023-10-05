@@ -16,9 +16,6 @@ std::string Textbased::getTitle(){
 
 // Function to display the menu
 void Textbased::displayMenu() {
-    std::cout << "-----------------------------\n";
-    std::cout << "      " << getTitle() << "      \n";
-    std::cout << "-----------------------------\n";
     std::cout << "Day " << farm.getDayNum() << " | ";
 
     switch (farm.getTimeOfDay()) {
@@ -171,6 +168,11 @@ void Textbased::executeAction(int choice){
 
 // Function to start the game loop
 void Textbased::startGame() {
+    //display title
+    std::cout << "-----------------------------\n";
+    std::cout << "      " << getTitle() << "      \n";
+    std::cout << "-----------------------------\n";
+
     while (1) {
         displayFarmland();
         displayMenu();         // Display the menu
@@ -195,9 +197,6 @@ void Textbased::startGame() {
 //  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 
 //list:
-//Remove timechange line
 //make title and things only appear once
-//make a column next to table for info
 //check the values of cost and such appear correct and apply correctly
 //continue connecting the front and back
-//average spaces out for title

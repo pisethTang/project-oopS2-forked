@@ -106,7 +106,7 @@ void Farm::setTimeOfDay(int newTime){   //<can someone please check through the 
         case 3:
             time_of_day = 3;
             //cout << "Time changed to evening. Have a good sleep!\n";
-            moveTime();
+            changeDay();
             break;
         default:
             cout << "Time invalid! This shouldn't be seen!\n";
@@ -247,7 +247,7 @@ void Farm::plantProduce(int produceIteration){
     int planting = 0;
     int i = 0;
 
-    while (planting == 0) {
+    while (planting == 0 && i < getCurrentLand()) {
 
         if (lands[i].getEmptyOrUsed() == 0){    //will only plant if this Land is empty
             planting = 1;   //ending the while loop once an empty plot is found
