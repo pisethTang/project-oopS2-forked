@@ -4,7 +4,8 @@
 // include several header files of test files
 // #include "testCrops"
 // #include "testAnimals"
-// #include "testWheat"
+#include "testWheat.h"
+#include "testPotatoes.h"
 #include "testCarrots.h"
 
 class super_test{

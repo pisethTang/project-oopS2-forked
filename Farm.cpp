@@ -88,29 +88,29 @@ void Farm::setTimeOfDay(int newTime){   //<can someone please check through the 
             time_of_day = 0;
             changeDay();
             cout << "Time changed to morning.\n";
-        break;
+            break;
         case 1:
             if (getTimeOfDay() >= 1) {
                 changeDay();
             }
             time_of_day = 1;
             cout << "Time changed to midday.\n";
-        break;
+            break;
         case 2:
             if (getTimeOfDay() >= 2){
                 changeDay();
             }
             time_of_day = 2;
             cout << "Time changed to Afternoon.\n";
-        break;
+            break;
         case 3:
             time_of_day = 3;
             cout << "Time changed to evening. Have a good sleep!\n";
             moveTime();
-        break;
+            break;
         default:
             cout << "Time invalid!\n";
-        break;
+            break;
     }
 
     // if (newTime >= 0 && newTime < 3){
@@ -205,6 +205,10 @@ void Farm::changeDay(){
             if (crops != nullptr){
                 //if this element is a crop, increase the growth stage by the growth speed
                 crops->setGrowthStage(crops->getGrowthStage() + crops->getGrowthSpeed(getHasGoodSoil(), getDayNum()));
+                //<the above looks wrong to me, it doesn't look like it updates lands itself>
+
+                //changing the growth stage on the visual array
+                
             }
         }
     }
@@ -255,14 +259,22 @@ void Farm::plantProduce(int produceIteration){
                         lands[i].setProduce(z);    //<is this right?>
 
                         //change visual arrays
-                        setTopRow(i + 1, " Wheat ");
-                        if(z.getSellingPrice() < 100){
-                            setMiddleRow(i + 1, "  $" << z.getSellingPrice() << "  ");
+                        setTopRow(i, " Wheat ");    //top row
+
+                        if(z.getSellingPrice() < 100){  //middle row
+                            setMiddleRow(i, "  $" + to_string(z.getSellingPrice()) + "  ");
                         }
                         else{
-                            setMiddleRow(i + 1, " $" << z.getSellingPrice() << "  ");
+                            setMiddleRow(i, " $" + to_string(z.getSellingPrice()) + "  ");
                         }
-                        setBottomRow(i + 1, )
+
+                        if(z.getGrowthStage() != 100){    //bottom row
+                            setBottomRow(i, "  " + to_string(z.getGrowthStage()) + "%  ");
+                        }
+                        else{
+                            setBottomRow(i, " 100%  ");
+                        }
+
                     }
                     else {
                         cout << "Not enough money!\n";
@@ -278,6 +290,24 @@ void Farm::plantProduce(int produceIteration){
 
                         //make Produce a Carrots
                         lands[i].setProduce(y);    //<is this right?>
+
+                        //change visual arrays
+                        setTopRow(i, "Carrots");    //top row
+
+                        if(y.getSellingPrice() < 100){  //middle row
+                            setMiddleRow(i, "  $" + to_string(y.getSellingPrice()) + "  ");
+                        }
+                        else{
+                            setMiddleRow(i, " $" + to_string(y.getSellingPrice()) + "  ");
+                        }
+
+                        if(y.getGrowthStage() != 100){    //bottom row
+                            setBottomRow(i, "  " + to_string(y.getGrowthStage()) + "%  ");
+                        }
+                        else{
+                            setBottomRow(i, " 100%  ");
+                        }
+
                     }
                     else {
                         cout << "Not enough money!\n";
@@ -293,6 +323,24 @@ void Farm::plantProduce(int produceIteration){
 
                         //make Produce a Potatoes
                         lands[i].setProduce(x);    //<is this right?>
+
+                        //change visual arrays
+                        setTopRow(i, "Potato ");    //top row
+
+                        if(x.getSellingPrice() < 100){  //middle row
+                            setMiddleRow(i, "  $" + to_string(x.getSellingPrice()) + "  ");
+                        }
+                        else{
+                            setMiddleRow(i, " $" + to_string(x.getSellingPrice()) + "  ");
+                        }
+
+                        if(x.getGrowthStage() != 100){    //bottom row
+                            setBottomRow(i, "  " + to_string(x.getGrowthStage()) + "%  ");
+                        }
+                        else{
+                            setBottomRow(i, " 100%  ");
+                        }
+
                     }
                     else {
                         cout << "Not enough money!\n";
@@ -308,6 +356,24 @@ void Farm::plantProduce(int produceIteration){
 
                         //make Produce a Chickens
                         lands[i].setProduce(w);    //<is this right?>
+
+                        //change visual arrays
+                        setTopRow(i, "Chicken");    //top row
+
+                        if(w.getSellingPrice() < 100){  //middle row
+                            setMiddleRow(i, "  $" + to_string(w.getSellingPrice()) + "  ");
+                        }
+                        else{
+                            setMiddleRow(i, " $" + to_string(w.getSellingPrice()) + "  ");
+                        }
+
+                        if(w.getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
+                            setBottomRow(i, "  $" + to_string(w.getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
+                        }
+                        else{
+                            setBottomRow(i, " $" + to_string(w.getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
+                        }
+
                     }
                     else {
                         cout << "Not enough money!\n";
@@ -323,6 +389,23 @@ void Farm::plantProduce(int produceIteration){
 
                         //make Produce a Cows
                         lands[i].setProduce(v);    //<is this right?>
+
+                        //change visual arrays
+                        setTopRow(i, " Cows  ");    //top row
+
+                        if(v.getSellingPrice() < 100){  //middle row
+                            setMiddleRow(i, "  $" + to_string(v.getSellingPrice()) + "  ");
+                        }
+                        else{
+                            setMiddleRow(i, " $" + to_string(v.getSellingPrice()) + "  ");
+                        }
+
+                        if(v.getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
+                            setBottomRow(i, "  $" + to_string(v.getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
+                        }
+                        else{
+                            setBottomRow(i, " $" + to_string(v.getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
+                        }
                     }
                     else {
                         cout << "Not enough money!\n";
@@ -338,6 +421,23 @@ void Farm::plantProduce(int produceIteration){
 
                         //make Produce a Sheep
                         lands[i].setProduce(u);    //<is this right?>
+
+                        //change visual arrays
+                        setTopRow(i, " Sheep ");    //top row
+
+                        if(u.getSellingPrice() < 100){  //middle row
+                            setMiddleRow(i, "  $" + to_string(u.getSellingPrice()) + "  ");
+                        }
+                        else{
+                            setMiddleRow(i, " $" + to_string(u.getSellingPrice()) + "  ");
+                        }
+
+                        if(u.getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
+                            setBottomRow(i, "  $" + to_string(u.getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
+                        }
+                        else{
+                            setBottomRow(i, " $" + to_string(u.getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
+                        }
                     }
                     else {
                         cout << "Not enough money!\n";
@@ -366,7 +466,12 @@ void Farm::harvestProduce(int index){
         Crops* crops = dynamic_cast<Crops*>(ptr);
         if (crops != nullptr){
             //if this element is a crop, get the money for selling
-                setMoney(getMoney() + crops->getSellingPrice());
+            setMoney(getMoney() + crops->getSellingPrice());
+
+            //change the visual array
+            setTopRow(index, "       ");
+            setMiddleRow(index, "       ");
+            setBottomRow(index, "       ");
         }
     }
 
