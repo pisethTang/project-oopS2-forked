@@ -2,11 +2,11 @@
 #define CROPS_H
 
 // #include "Farm.h"
+#include <iostream>
 #include "Produce.h"
 #include <string>
 
 class Crops : public Produce{
-
     protected:
     int growth_stage;
     int future_sell_price;
@@ -14,7 +14,7 @@ class Crops : public Produce{
     public:
     //constructors
     Crops();
-    Crops(string newName, int newCost, int newSellPrice, int newBuyPrice);  //<not sure we ever use this?>
+    Crops(std::string newName, int newCost, int newSellPrice, int newBuyPrice);  //<not sure we ever use this?>
 
     //functions
     int getGrowthStage();
