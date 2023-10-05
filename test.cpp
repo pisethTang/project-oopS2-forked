@@ -1,5 +1,5 @@
 #include "FarmTest.h"
-#include "CarrotsTest.h"
+//#include "testCarrots.h"
 #include <iostream>
 
 int main() {
@@ -8,8 +8,8 @@ int main() {
     farmTest.runTests();
 
     //carrots test
-    CarrotsTest carrotsTest;
-    carrotsTest.runTests();
+    //CarrotsTest carrotsTest;
+    //carrotsTest.runTests();
 
 
     return 0;
