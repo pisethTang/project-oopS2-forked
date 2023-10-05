@@ -87,29 +87,29 @@ void Farm::setTimeOfDay(int newTime){   //<can someone please check through the 
         case 0:
             time_of_day = 0;
             changeDay();
-            cout << "Time changed to morning.\n";
+            //cout << "Time changed to morning.\n"; //<remove these probably>
             break;
         case 1:
             if (getTimeOfDay() >= 1) {
                 changeDay();
             }
             time_of_day = 1;
-            cout << "Time changed to midday.\n";
+            //cout << "Time changed to midday.\n";
             break;
         case 2:
             if (getTimeOfDay() >= 2){
                 changeDay();
             }
             time_of_day = 2;
-            cout << "Time changed to Afternoon.\n";
+            //cout << "Time changed to Afternoon.\n";
             break;
         case 3:
             time_of_day = 3;
-            cout << "Time changed to evening. Have a good sleep!\n";
+            //cout << "Time changed to evening. Have a good sleep!\n";
             moveTime();
             break;
         default:
-            cout << "Time invalid!\n";
+            cout << "Time invalid! This shouldn't be seen!\n";
             break;
     }
 

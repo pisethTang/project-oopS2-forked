@@ -22,6 +22,9 @@ public:
     // Function to display the Farmland array
     void displayFarmland();
 
+    //Function to display explanation
+    void displayExplanation();
+
     // Function to get user choice
     int getUserChoice();
 
