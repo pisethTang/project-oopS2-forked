@@ -6,7 +6,7 @@
 #include "Farm.h"
 #include "Carrots.h"
 
-class CarrotsTest {
+class test_carrots{
 public:
     void runTests() {
         testGetCostPerDay();
