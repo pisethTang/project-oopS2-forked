@@ -191,6 +191,15 @@ void Farm::changeDay(){
             Animals* animals = dynamic_cast<Animals*>(produce);
             if (animals != nullptr){
                 setMoney(getMoney() + animals->getValuePerDay(getHasGoodFood(), getDayNum()));
+                lands[i].setProduce(*animals);  //<check that this works>
+
+                //changing the visual array
+                if(animals->getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
+                    setBottomRow(i, "  $" + to_string(animals->getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
+                }
+                else{
+                    setBottomRow(i, " $" + to_string(animals->getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
+                }
             }
         }
     }
@@ -205,10 +214,16 @@ void Farm::changeDay(){
             if (crops != nullptr){
                 //if this element is a crop, increase the growth stage by the growth speed
                 crops->setGrowthStage(crops->getGrowthStage() + crops->getGrowthSpeed(getHasGoodSoil(), getDayNum()));
+                lands[i].setProduce(*crops);    //<this line is because the above looked odd>
                 //<the above looks wrong to me, it doesn't look like it updates lands itself>
 
                 //changing the growth stage on the visual array
-                
+                if(crops->getGrowthStage() != 100){
+                    setBottomRow(i, "  " + to_string(crops->getGrowthStage()) + "%  ");
+                }
+                else{
+                    setBottomRow(i, " 100%  ");
+                }
             }
         }
     }
