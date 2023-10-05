@@ -13,10 +13,15 @@ void Textbased::displayMenu() {
     std::cout << "-----------------------------\n";
     std::cout << "      " << getTitle() << "      \n";
     std::cout << "-----------------------------\n";
-    std::cout << "What would you like to do?\n";
+    std::cout << "What would you like to do? You have $" << farm.getMoney() << ".\n";
     std::cout << "1. Shop Produce\n";
-    std::cout << "2. Buy Upgrades or Land\n";
+    std::cout << "2. Buy Upgrades or Land (" << farm.getCurrentLand() << "/" << farm.getMaxLand() << " land)\n";
     std::cout << "3. Sell/Harvest Animals/Crops\n";
+}
+
+// Function to display the Farmland array
+void Textbased::displayFarmland() {
+    
 }
 
 // Function to get user choice
@@ -62,3 +67,16 @@ void Textbased::startGame() {
         executeAction(choice); // Execute the chosen action
     }
 }
+
+// empty lot
+//  _______________________________________________________________________________
+// |       |       |       |       |       |       |       |       |       |       |
+// |       |       |   X   |   X   |   X   |   X   |   X   |   X   |   X   |   X   |
+// |       |       |       |       |       |       |       |       |       |       |
+//  ⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺
+
+//  _______________________________________________________________________________
+// |Carrots|Potato | Wheat | Sheep | Cows  |Chicken|       |       |       |       |
+// |  $16  |  $50  |  $75  | $150  | $170  | $130  |   X   |   X   |   X   |   X   |
+// |  15%  | 100%  |  75%  | $35/d | $40/d | $30/d |       |       |       |       |
+//  ⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺

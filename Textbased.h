@@ -19,6 +19,9 @@ public:
     // Function to display the menu
     void displayMenu();
 
+    // Function to display the Farmland array
+    void displayFarmland();
+
     // Function to get user choice
     int getUserChoice();
 
