@@ -22,7 +22,7 @@ public:
     // Function to display the Farmland array
     void displayFarmland();
 
-    //Function to display explanation
+    // Function to display explanation
     void displayExplanation();
 
     // Function to get user choice
@@ -30,6 +30,9 @@ public:
 
     // Function to shop for produce
     void shopProduce();
+
+    // Function to shop for upgrades
+    void shopUpgrades();
 
     // Function to execute the chosen action
     void executeAction(int choice);

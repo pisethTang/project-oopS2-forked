@@ -470,6 +470,10 @@ void Farm::plantProduce(int produceIteration){
                         cout << "Not enough money!\n";
                     }
                 break;
+
+                default:
+                    cout << "Invalid selection!\n"; //<check that this works>
+                break;
             }
         }
 

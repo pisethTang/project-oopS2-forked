@@ -133,6 +133,63 @@ void Textbased::shopProduce(){  //<can we make this easier?>
 
 }
 
+void Textbased::shopUpgrades(){
+   
+   int choice;
+   
+    //displaying options
+    cout << "       Soil Upgrade    Food Upgrade    More Farmland\n";
+    cout << "cost   $1500           $1500           $1000\n";   //<choose the prices>
+    cout << "info   crops grow      more $/day\n";
+    cout << "       faster\n";
+    cout << "What is your choice? (1-3): ";
+    cin >> choice;
+    cout << "\n";
+
+    //determining based on answer
+    switch(choice){
+        case 1:
+            if (farm.getMoney() >= 1500){
+                farm.setMoney(farm.getMoney() - 1500);
+                farm.setGoodSoil(1);
+
+                farm.moveTime();
+            }
+            else {
+                cout << "Not enough money!\n\n";    //<check that this is the right amount of \ns>
+            }
+        break;
+        case 2:
+            if (farm.getMoney() >= 1500){
+                farm.setMoney(farm.getMoney() - 1500);
+                farm.setGoodFood(1);
+
+                farm.moveTime();
+            }
+            else {
+                cout << "Not enough money!\n\n";    //<check that this is the right amount of \ns>
+            }
+        break;
+        case 3:
+            if (farm.getMoney() >= 1000){
+                farm.setMoney(farm.getMoney() - 1000);
+                farm.setMiddleRow(farm.getCurrentLand(), "       ");
+                farm.setCurrentLand(farm.getCurrentLand() + 1);
+
+                farm.moveTime();
+            }
+            else {
+                cout << "Not enough money!\n\n";    //<check that this is the right amount of \ns>
+            }
+        break;
+        default:   
+            cout << "Invalid input.\n\n";
+        break;
+    }
+
+    return;
+}
+
 // Function to execute the chosen action
 void Textbased::executeAction(int choice){
     switch (choice) {
@@ -144,7 +201,7 @@ void Textbased::executeAction(int choice){
 
         case 2:
             std::cout << "\nYou chose to Buy Upgrades or Lands.\n";
-            // Add code for buying upgrades or lands
+            shopUpgrades();
 
             break;
 
@@ -197,6 +254,7 @@ void Textbased::startGame() {
 //  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 
 //list:
-//make title and things only appear once
 //check the values of cost and such appear correct and apply correctly
 //continue connecting the front and back
+//make a 'back' button in each menu
+//make it so you can lose
