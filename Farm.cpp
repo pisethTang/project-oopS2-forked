@@ -218,7 +218,10 @@ void Farm::changeDay(){
                 //<the above looks wrong to me, it doesn't look like it updates lands itself>
 
                 //changing the growth stage on the visual array
-                if(crops->getGrowthStage() != 100){
+                if(crops->getGrowthStage() < 10){
+                    setBottomRow(i, "  " + to_string(crops->getGrowthStage()) + "%   ");
+                }
+                else if(crops->getGrowthStage() != 100 && crops->getGrowthStage() > 9){
                     setBottomRow(i, "  " + to_string(crops->getGrowthStage()) + "%  ");
                 }
                 else{
@@ -240,7 +243,6 @@ void Farm::moveTime(){  //<put this function in all the other functions>
 }
 
 void Farm::plantProduce(int produceIteration){
-    //<make time move if planting succeeds>
 
     int planting = 0;
     int i = 0;
@@ -264,7 +266,7 @@ void Farm::plantProduce(int produceIteration){
 
             switch (produceIteration) {
                 case 1: //Wheat
-                    if (getMoney() <= z.getBuyingPrice()){
+                    if (getMoney() >= z.getBuyingPrice()){
                         //spend money
                         setMoney(getMoney() - z.getBuyingPrice());
 
@@ -284,7 +286,10 @@ void Farm::plantProduce(int produceIteration){
                             setMiddleRow(i, " $" + to_string(z.getSellingPrice()) + "  ");
                         }
 
-                        if(z.getGrowthStage() != 100){    //bottom row
+                        if(z.getGrowthStage() < 10){
+                            setBottomRow(i, "  " + to_string(z.getGrowthStage()) + "%   ");
+                        }
+                        else if(z.getGrowthStage() != 100 && z.getGrowthStage() > 9){    //bottom row
                             setBottomRow(i, "  " + to_string(z.getGrowthStage()) + "%  ");
                         }
                         else{
@@ -297,7 +302,7 @@ void Farm::plantProduce(int produceIteration){
                     }
                 break;
                 case 2: //Carrots
-                    if (getMoney() <= y.getBuyingPrice()){
+                    if (getMoney() >= y.getBuyingPrice()){
                         //spend money
                         setMoney(getMoney() - y.getBuyingPrice());
 
@@ -317,7 +322,10 @@ void Farm::plantProduce(int produceIteration){
                             setMiddleRow(i, " $" + to_string(y.getSellingPrice()) + "  ");
                         }
 
-                        if(y.getGrowthStage() != 100){    //bottom row
+                        if(y.getGrowthStage() < 10){
+                            setBottomRow(i, "  " + to_string(y.getGrowthStage()) + "%   ");
+                        }
+                        else if(y.getGrowthStage() != 100 && y.getGrowthStage() > 9){    //bottom row
                             setBottomRow(i, "  " + to_string(y.getGrowthStage()) + "%  ");
                         }
                         else{
@@ -330,7 +338,7 @@ void Farm::plantProduce(int produceIteration){
                     }
                 break;
                 case 3: //Potatoes
-                    if (getMoney() <= x.getBuyingPrice()){
+                    if (getMoney() >= x.getBuyingPrice()){
                         //spend money
                         setMoney(getMoney() - x.getBuyingPrice());
 
@@ -350,7 +358,10 @@ void Farm::plantProduce(int produceIteration){
                             setMiddleRow(i, " $" + to_string(x.getSellingPrice()) + "  ");
                         }
 
-                        if(x.getGrowthStage() != 100){    //bottom row
+                        if(x.getGrowthStage() < 10){
+                            setBottomRow(i, "  " + to_string(x.getGrowthStage()) + "%   ");
+                        }
+                        else if(x.getGrowthStage() != 100 && x.getGrowthStage() > 9){    //bottom row
                             setBottomRow(i, "  " + to_string(x.getGrowthStage()) + "%  ");
                         }
                         else{
@@ -363,7 +374,7 @@ void Farm::plantProduce(int produceIteration){
                     }
                 break;
                 case 4: //Chickens
-                    if (getMoney() <= w.getBuyingPrice()){
+                    if (getMoney() >= w.getBuyingPrice()){
                         //spend money
                         setMoney(getMoney() - w.getBuyingPrice());
 
@@ -396,7 +407,7 @@ void Farm::plantProduce(int produceIteration){
                     }
                 break;
                 case 5: //Cows
-                    if (getMoney() <= v.getBuyingPrice()){
+                    if (getMoney() >= v.getBuyingPrice()){
                         //spend money
                         setMoney(getMoney() - v.getBuyingPrice());
 
@@ -428,7 +439,7 @@ void Farm::plantProduce(int produceIteration){
                     }
                 break;
                 case 6: //Sheep
-                    if (getMoney() <= u.getBuyingPrice()){
+                    if (getMoney() >= u.getBuyingPrice()){
                         //spend money
                         setMoney(getMoney() - u.getBuyingPrice());
 
@@ -464,6 +475,11 @@ void Farm::plantProduce(int produceIteration){
 
         i++;    //iterating i;
 
+    }
+
+    //moving time if planting occured
+    if (planting == 1) {
+        moveTime();
     }
 
     //A notice for if there is no land

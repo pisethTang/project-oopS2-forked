@@ -25,6 +25,9 @@ public:
     // Function to get user choice
     int getUserChoice();
 
+    // Function to shop for produce
+    void shopProduce();
+
     // Function to execute the chosen action
     void executeAction(int choice);
 

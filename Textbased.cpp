@@ -1,4 +1,10 @@
 #include "Textbased.h"
+#include "Wheat.h"
+#include "Carrots.h"
+#include "Potatoes.h"
+#include "Chickens.h"
+#include "Cows.h"
+#include "Sheep.h"
 
 // Constructor with a title parameter
 Textbased::Textbased(const std::string& title) : title(title) {}
@@ -71,12 +77,52 @@ int Textbased::getUserChoice() {
     return choice;
 }
 
+// Function to shop for produce
+void Textbased::shopProduce(){  //<can we make this easier?>
+    Wheat a;
+    Produce* ptr1 = &a;
+    int choice;
+
+    cout << "       Wheat   Carrots Potato  Chicken Cows    Sheep \n";
+    cout << "cost   " << ptr1->getBuyingPrice() << "      ";    //Wheat
+
+    Carrots b;
+    ptr1 = &a;
+    cout << ptr1->getBuyingPrice() << "      "; //Carrots
+
+    Potatoes c;
+    ptr1 = &c;
+    cout << ptr1->getBuyingPrice() << "      "; //Potatoes
+
+    Chickens d;
+    ptr1 = &d;
+    cout << ptr1->getBuyingPrice() << "     "; //Chickens
+
+    Cows e;
+    ptr1 = &e;
+    cout << ptr1->getBuyingPrice() << "     "; //Cows
+
+    Sheep f;
+    ptr1 = &f;
+    cout << ptr1->getBuyingPrice() << "\n"; //Sheep
+
+    //<add stuff about cost efficiency>
+
+    cout << "What is your choice? (1-6): ";
+    cin >> choice;
+
+    farm.plantProduce(choice);
+
+    return;
+
+}
+
 // Function to execute the chosen action
 void Textbased::executeAction(int choice){
     switch (choice) {
         case 1:
             std::cout << "You chose to Shop Produce.\n";
-            // Add code for shopping produce
+            shopProduce();
 
             break;
 
@@ -120,3 +166,12 @@ void Textbased::startGame() {
 // |  $16  |  $50  |  $75  | $150  | $170  | $130  |   X   |   X   |   X   |   X   |
 // |  15%  | 100%  |  75%  | $35/d | $40/d | $30/d |       |       |       |       |
 //  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+
+//list:
+//ensure that table can cope with values of <10 TICK
+//Space out the text that gets given
+//Remove timechange line
+//make title and things only appear once
+//make a column next to table for info
+//check the values of cost and such appear correct and apply correctly
+//continue connecting the front and back
