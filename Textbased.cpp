@@ -123,12 +123,16 @@ void Textbased::executeAction(int choice){
         case 1:
             std::cout << "You chose to Shop Produce.\n";
             // Add code for shopping produce
+            // show produce and plant
+            shopProduce();
+
 
             break;
 
         case 2:
             std::cout << "You chose to Buy Upgrades or Lands.\n";
             // Add code for buying upgrades or lands
+            
 
             break;
 
