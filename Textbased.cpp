@@ -139,7 +139,7 @@ void Textbased::shopUpgrades(){
    
     //displaying options
     cout << "       Soil Upgrade    Food Upgrade    More Farmland\n";
-    cout << "cost   $1500           $1500           $1000\n";   //<choose the prices>
+    cout << "cost   $500            $500            $500\n";    //<choose the prices>
     cout << "info   crops grow      more $/day\n";
     cout << "       faster\n";
     cout << "What is your choice? (1-3): ";
@@ -149,8 +149,8 @@ void Textbased::shopUpgrades(){
     //determining based on answer
     switch(choice){
         case 1:
-            if (farm.getMoney() >= 1500){
-                farm.setMoney(farm.getMoney() - 1500);
+            if (farm.getMoney() >= 500){
+                farm.setMoney(farm.getMoney() - 500);
                 farm.setGoodSoil(1);
 
                 farm.moveTime();
@@ -160,8 +160,8 @@ void Textbased::shopUpgrades(){
             }
         break;
         case 2:
-            if (farm.getMoney() >= 1500){
-                farm.setMoney(farm.getMoney() - 1500);
+            if (farm.getMoney() >= 500){
+                farm.setMoney(farm.getMoney() - 500);
                 farm.setGoodFood(1);
 
                 farm.moveTime();
@@ -171,8 +171,8 @@ void Textbased::shopUpgrades(){
             }
         break;
         case 3:
-            if (farm.getMoney() >= 1000){
-                farm.setMoney(farm.getMoney() - 1000);
+            if (farm.getMoney() >= 500){
+                farm.setMoney(farm.getMoney() - 500);
                 farm.setMiddleRow(farm.getCurrentLand(), "       ");
                 farm.setCurrentLand(farm.getCurrentLand() + 1);
 
