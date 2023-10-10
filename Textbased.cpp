@@ -38,6 +38,11 @@ void Textbased::executeAction(int choice){
         case 1:
             std::cout << "You chose to Shop Produce.\n";
             // Add code for shopping produce
+            // - display produce menu
+            // - <check if enough land space available>?
+            // - get user to choose option
+            // - remove money
+            // - add that produce to land
 
             break;
 
