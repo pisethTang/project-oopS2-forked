@@ -213,7 +213,7 @@ void Textbased::executeAction(int choice){
             cin >> index;
 
             if (index > 0 && index <= farm.getCurrentLand()){
-                farm.harvestProduce(index);
+                farm.harvestProduce(index-1);
             }
             else {
                 cout << "Invalid choice!\n\n";
