@@ -12,7 +12,9 @@ class Farm{
     int day_num;    //starts at zero, goes up
     int time_of_day;   //int between 0 and 3, when it hits 3 num_days++
     int money;  //start with 1000, can't be less than zero
-    
+    std::string top_row[10];
+    std::string middle_row[10];
+    std::string bottom_row[10];
 
     bool has_good_soil;
     bool has_good_food; //these variables make produce grow faster
@@ -31,6 +33,9 @@ class Farm{
     int getMoney();
     bool getHasGoodSoil();
     bool getHasGoodFood();
+    std::string getTopRow(int i);
+    std::string getMiddleRow(int i);
+    std::string getBottomRow(int i);
 
     // setters
     void setDayNum(int newDay);
@@ -39,6 +44,9 @@ class Farm{
     void setCurrentLand(int newLand);
     void setGoodSoil(bool newSoil);
     void setGoodFood(bool newFood);
+    void setTopRow(int i, std::string newString);
+    void setMiddleRow(int i, std::string newString);
+    void setBottomRow(int i, std::string newString);
 
     //functions
     void buyNewLand(); //This is going to add a land to the land vector, take away money, and 
