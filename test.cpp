@@ -1,5 +1,4 @@
 #include "FarmTest.h"
-//#include "testCarrots.h"
 #include <iostream>
 
 int main() {
