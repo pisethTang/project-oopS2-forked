@@ -17,6 +17,16 @@ Farm::Farm(){
     day_num = 0;    //starts at zero, goes up
     time_of_day = 0;   //int between 0 and 3, when it hits 3 num_days++
     money = 1000;  //start with 1000, can't be less than zero
+    for (int i = 0; i < 10; i++) {
+        top_row[i] = "       ";
+        bottom_row[i] = "       ";
+        if (i == 0 || i == 1) {
+            middle_row[i] = "       ";
+        }
+        else {
+            middle_row[i] = "   X   ";
+        }
+    }
 
     has_good_soil = false;
     has_good_food = false;
@@ -51,6 +61,18 @@ bool Farm::getHasGoodSoil(){
 
 bool Farm::getHasGoodFood(){
     return has_good_food;
+}
+
+std::string Farm::getTopRow(int i){
+    return top_row[i];
+}
+
+std::string Farm::getMiddleRow(int i){
+    return middle_row[i];
+}
+
+std::string Farm::getBottomRow(int i){
+    return bottom_row[i];
 }
 
 // setters
@@ -124,6 +146,18 @@ void Farm::setGoodFood(bool newFood){
     return;
 }
 
+void Farm::setTopRow(int i, std::string newString){
+    top_row[i] = newString;
+}
+
+void Farm::setMiddleRow(int i, std::string newString){
+    middle_row[i] = newString;
+}
+
+void Farm::setBottomRow(int i, std::string newString){
+    bottom_row[i] = newString;
+}
+
 //functions
 void Farm::buyNewLand(){
     if (getMoney() >= 250){  //250 chosen as the price of land
@@ -133,7 +167,8 @@ void Farm::buyNewLand(){
             //take away money
             setMoney(getMoney() - 250);
 
-            // <change the land vector> <may not need to change land vector?>
+            //change the visual land vector
+            setMiddleRow(getCurrentLand(), "       ");
 
             //add the new land
             setCurrentLand(getCurrentLand() + 1);
@@ -187,7 +222,6 @@ void Farm::moveTime(){  //<put this function in all the other functions>
 void Farm::plantProduce(int produceIteration){
     //<make time move if planting succeeds>
 
-
     int planting = 0;
     int i = 0;
 
@@ -219,6 +253,16 @@ void Farm::plantProduce(int produceIteration){
 
                         //make Produce a Wheat
                         lands[i].setProduce(z);    //<is this right?>
+
+                        //change visual arrays
+                        setTopRow(i + 1, " Wheat ");
+                        if(z.getSellingPrice() < 100){
+                            setMiddleRow(i + 1, "  $" << z.getSellingPrice() << "  ");
+                        }
+                        else{
+                            setMiddleRow(i + 1, " $" << z.getSellingPrice() << "  ");
+                        }
+                        setBottomRow(i + 1, )
                     }
                     else {
                         cout << "Not enough money!\n";
