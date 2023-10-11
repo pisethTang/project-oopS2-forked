@@ -4,6 +4,8 @@
 // include several header files of test files
 // #include "testCrops"
 // #include "testAnimals"
+
+#include "testFarm.h"
 #include "testWheat.h"
 #include "testPotatoes.h"
 #include "testCarrots.h"
