@@ -38,3 +38,8 @@ void test_cows::testConstructor() {
             if (c6.getValuePerDay(true, 5) != 0) std::cout << "Test 6 failed! Incorrect value for other days." << std::endl;
         }
     }
+
+void test_cows::runCowsTests(){
+    test_cows tc;
+    tc.testConstructor();
+}

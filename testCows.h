@@ -7,10 +7,11 @@
 
 class test_cows {
 public:
-    void runTests();
+    void runCowsTests();
+
 private:
     void testConstructor();
-    
+
 };
 
 #endif

@@ -7,7 +7,7 @@
 
 class test_sheep{
 public:
-    void runTests();
+    void runSheepTests();
 
 private:
     void testConstructor();

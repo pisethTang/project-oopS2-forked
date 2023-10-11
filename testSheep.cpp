@@ -39,7 +39,7 @@ void test_sheep::testConstructor() {
         }
 }
 
-void test_sheep::runTests(){
+void test_sheep::runSheepTests(){
     test_sheep ts;
-    ts.runTests();
+    ts.testConstructor();
 }

@@ -5,10 +5,8 @@
 // #include "testCrops"
 // #include "testAnimals"
 
-#include "testFarm.h"
-#include "testWheat.h"
-#include "testPotatoes.h"
-#include "testCarrots.h"
+
+
 
 class super_test{
     public:
