@@ -11,7 +11,6 @@ Chickens::Chickens(){
 
 int Chickens::getValuePerDay(bool goodFood, int dayNum){
     //the case for standard food
-
     if (goodFood == 0){
         //the chickens will be unhappy once a week, and that day it will break even
         if ((dayNum % 7) == 0){

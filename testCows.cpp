@@ -1,24 +1,6 @@
-#ifndef COWSTEST_H
-#define COWSTEST_H
+#include "testCows.h"
 
-#include <iostream>
-#include <limits>
-#include "Cows.h"
-
-class test_cows {
-public:
-    void runTests() {
-        testConstructor();
-        // Add other test methods here
-<<<<<<< HEAD
-        // add test getValuePerDay() in the future
-=======
-        
->>>>>>> 3f820ac (Adding tests for cow class)
-    };
-
-private:
-    void testConstructor() {
+void test_cows::testConstructor() {
         // Test 1: Check if the constructor initializes cost per day correctly
         {
             Cows c1;
@@ -56,26 +38,3 @@ private:
             if (c6.getValuePerDay(true, 5) != 0) std::cout << "Test 6 failed! Incorrect value for other days." << std::endl;
         }
     }
-};
-
-#endif
-#ifndef COWSTEST_H
-#define COWSTEST_H
-
-#include <iostream>
-#include <limits>
-#include "Cows.h"
-
-class test_cows {
-public:
-    void runTests() {
-        testConstructor();
-        // Add other test methods here
-        
-    };
-
-private:
-    void testConstructor();
-};
-
-#endif
