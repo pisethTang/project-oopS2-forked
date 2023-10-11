@@ -13,6 +13,8 @@ void super_test::run_all_tests(){
     test_wheat tw;
     tw.runTests();
 
+    test_farm tf;
+    tf.runTests();
 }
 
 

@@ -1,10 +1,8 @@
-#include "FarmTest.h"
-#include <iostream>
+#include "superTest.h"
 
 int main() {
-    // from farm test file
-    FarmTest farmTest;
-    farmTest.runTests();
+    super_test st;
+    st.run_all_tests();
     
     return 0;
 }
