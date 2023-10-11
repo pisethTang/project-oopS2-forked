@@ -10,7 +10,11 @@ public:
     void runTests() {
         testConstructor();
         // Add other test methods here
+<<<<<<< HEAD
         // add test getValuePerDay() in the future
+=======
+        
+>>>>>>> 3f820ac (Adding tests for cow class)
     };
 
 private:
