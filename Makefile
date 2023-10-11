@@ -18,7 +18,6 @@ test_carrots: testPotatoes.cpp
 
 
 
-
 # ---- clean sections----
 # Seth: I don't think that abstract classes (although we are still unsure as to assign Produce, Crops and Animals as abstract or not...) need to be tested explicitly. 
 # We will test their derived classes. And they will act as a proxy for their parents/super classes.
@@ -35,4 +34,7 @@ clean-t-potatoes:
 
 clean-t-carrots:
 	@rm -rf testCarrots
+
+clean-all-tests:
+	@rm -rf testWheat testPotatoes testCarrots
 
