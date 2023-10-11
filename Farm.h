@@ -6,7 +6,7 @@
 
 class Farm{
     protected:
-    Farmland* lands;    //a vector of Land, of size max_land
+    Farmland* lands;    //an array of Land, of size max_land
     int max_land;
     int current_land;
     int day_num;    //starts at zero, goes up
@@ -49,7 +49,7 @@ class Farm{
     void setBottomRow(int i, std::string newString);
 
     //functions
-    void buyNewLand(); //This is going to add a land to the land vector, take away money, and 
+    void buyNewLand(); //This is going to add a land to the land array, take away money, and 
                        //change current land
 
     //<Put these on the diagram>

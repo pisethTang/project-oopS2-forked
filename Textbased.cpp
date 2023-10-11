@@ -16,32 +16,32 @@ std::string Textbased::getTitle(){
 
 // Function to display the menu
 void Textbased::displayMenu() {
-    std::cout << "-----------------------------\n";
-    std::cout << "      " << getTitle() << "      \n";
-    std::cout << "-----------------------------\n";
     std::cout << "Day " << farm.getDayNum() << " | ";
 
     switch (farm.getTimeOfDay()) {
         case 0:
             std::cout << "Morning";
-        break;
+            break;
         case 1:
             std::cout << "Midday";
-        break;
+            break;
         case 2:
             std::cout << "Afternoon";
-        break;
+            break;
         default:
             std::cout << "this text should not appear.";
-        break;
+            break;
     }
 
-    std::cout << " | You have $" << farm.getMoney() << " | Goal: $10000\n";
-
+    std::cout << " | You have $" << farm.getMoney() << " | Goal: $10000\n\n";
+    
     std::cout << "What would you like to do?\n";
     std::cout << "1. Shop Produce\n";
     std::cout << "2. Buy Upgrades or Land (" << farm.getCurrentLand() << "/" << farm.getMaxLand() << " land)\n";
     std::cout << "3. Sell/Harvest Animals/Crops\n";
+    std::cout << "4. See explanation\n";
+
+    return;
 }
 
 // Function to display the Farmland array
@@ -67,12 +67,27 @@ void Textbased::displayFarmland() {
     cout << "|\n";
 
     cout << " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\n";
+
+    return;
+}
+
+void Textbased::displayExplanation(){
+    std::cout << "\nYou own a farm and begin with $1000. The goal is to get to $10000, and you\n";  //<change this if money changes>
+    std::cout << "lose if you run out of money.\n";
+    std::cout << "The table represents your farmland. You start with 2 and can have a maximum of 10.\n";
+    std::cout << "Once you have planted things, they will appear on the table. The top row\n";
+    std::cout << "shows what is planted, the middle row shows how much you can sell it for\n";
+    std::cout << "(which may change as the crops grow), and the bottom row has the growth percentage\n";
+    std::cout << "of the crops, or the amount of money you recieve each day from selling the animal\n";
+    std::cout << "products (such as eggs, etc.).\n\nGood luck!\n\n";
+
+    return;
 }
 
 // Function to get user choice
 int Textbased::getUserChoice() {
     int choice;
-    std::cout << "Enter your choice (1-3): ";
+    std::cout << "Enter your choice (1-4): ";
     std::cin >> choice;
     return choice;
 }
@@ -110,6 +125,7 @@ void Textbased::shopProduce(){  //<can we make this easier?>
 
     cout << "What is your choice? (1-6): ";
     cin >> choice;
+    cout << "\n";
 
     farm.plantProduce(choice);
 
@@ -117,45 +133,121 @@ void Textbased::shopProduce(){  //<can we make this easier?>
 
 }
 
+void Textbased::shopUpgrades(){
+   
+   int choice;
+   
+    //displaying options
+    cout << "       Soil Upgrade    Food Upgrade    More Farmland\n";
+    cout << "cost   $500            $500            $500\n";    //<choose the prices>
+    cout << "info   crops grow      more $/day\n";
+    cout << "       faster\n";
+    cout << "What is your choice? (1-3): ";
+    cin >> choice;
+    cout << "\n";
+
+    //determining based on answer
+    switch(choice){
+        case 1:
+            if (farm.getMoney() >= 500){
+                farm.setMoney(farm.getMoney() - 500);
+                farm.setGoodSoil(1);
+
+                farm.moveTime();
+            }
+            else {
+                cout << "Not enough money!\n\n";    //<check that this is the right amount of \ns>
+            }
+        break;
+        case 2:
+            if (farm.getMoney() >= 500){
+                farm.setMoney(farm.getMoney() - 500);
+                farm.setGoodFood(1);
+
+                farm.moveTime();
+            }
+            else {
+                cout << "Not enough money!\n\n";    //<check that this is the right amount of \ns>
+            }
+        break;
+        case 3:
+            if (farm.getMoney() >= 500){
+                farm.setMoney(farm.getMoney() - 500);
+                farm.setMiddleRow(farm.getCurrentLand(), "       ");
+                farm.setCurrentLand(farm.getCurrentLand() + 1);
+
+                farm.moveTime();
+            }
+            else {
+                cout << "Not enough money!\n\n";    //<check that this is the right amount of \ns>
+            }
+        break;
+        default:   
+            cout << "Invalid input.\n\n";
+        break;
+    }
+
+    return;
+}
+
 // Function to execute the chosen action
 void Textbased::executeAction(int choice){
     switch (choice) {
         case 1:
-            std::cout << "You chose to Shop Produce.\n";
-            // Add code for shopping produce
-            // show produce and plant
+            std::cout << "\nYou chose to Shop Produce.\n";
             shopProduce();
-
 
             break;
 
         case 2:
-            std::cout << "You chose to Buy Upgrades or Lands.\n";
-            // Add code for buying upgrades or lands
-            
+            std::cout << "\nYou chose to Buy Upgrades or Lands.\n";
+            shopUpgrades();
 
             break;
 
         case 3:
-            std::cout << "You chose to Sell/Harvest Animals/Crops.\n";
-            // Add code for selling/harvesting animals/crops
+            int index;
+
+            std::cout << "\nYou chose to Sell/Harvest Animals/Crops.\n";
+            std::cout << "Which farmland will you harvest/sell? (1-" << farm.getCurrentLand() << "): ";
+            cin >> index;
+
+            if (index > 0 && index <= farm.getCurrentLand()){
+                farm.harvestProduce(index-1);
+            }
+            else {
+                cout << "Invalid choice!\n\n";
+            }
 
             break;
 
+        case 4:
+            displayExplanation();
+            break;
+
         default:
-            std::cout << "Invalid choice. Please enter a number between 1 and 3.\n";
+            std::cout << "\nInvalid choice. Please enter a number between 1 and 3.\n";
             exit(0);
     }
+
+    return;
 }
 
 // Function to start the game loop
 void Textbased::startGame() {
+    //display title
+    std::cout << "-----------------------------\n";
+    std::cout << "      " << getTitle() << "      \n";
+    std::cout << "-----------------------------\n";
+
     while (1) {
         displayFarmland();
         displayMenu();         // Display the menu
         int choice = getUserChoice();  // Get user choice
         executeAction(choice); // Execute the chosen action
     }
+
+    return;
 }
 
 // empty lot
@@ -172,10 +264,7 @@ void Textbased::startGame() {
 //  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 
 //list:
-//ensure that table can cope with values of <10 TICK
-//Space out the text that gets given
-//Remove timechange line
-//make title and things only appear once
-//make a column next to table for info
 //check the values of cost and such appear correct and apply correctly
 //continue connecting the front and back
+//make a 'back' button in each menu
+//make it so you can lose
