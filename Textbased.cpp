@@ -225,10 +225,17 @@ void Textbased::executeAction(int choice){
             displayExplanation();
             break;
 
+        case 4:
+            displayExplanation();
+            break;
+
         default:
+            std::cout << "\nInvalid choice. Please enter a number between 1 and 3.\n";
             std::cout << "\nInvalid choice. Please enter a number between 1 and 3.\n";
             exit(0);
     }
+
+    return;
 
     return;
 }
