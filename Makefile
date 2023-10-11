@@ -37,4 +37,7 @@ clean-t-carrots:
 
 clean-all-tests:
 	@rm -rf testWheat testPotatoes testCarrots
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0966174 (more refactoring and added test files for Animal's sub-classes)

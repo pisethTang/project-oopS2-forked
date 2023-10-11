@@ -15,7 +15,7 @@ Farm::Farm(){
     max_land = 10;
     current_land = 2;
     day_num = 1;    //starts at one, goes up
-    time_of_day = 0;   //int between 0 and 3, when it hits 3 num_days++
+    time_of_day = 0;   //int between 0 and 3, when it hits 3 =>  num_days++
     money = 1000;  //start with 1000, can't be less than zero
     for (int i = 0; i < 10; i++) {
         top_row[i] = "       ";

@@ -21,20 +21,20 @@ void Textbased::displayMenu() {
     switch (farm.getTimeOfDay()) {
         case 0:
             std::cout << "Morning";
-        break;
+            break;
         case 1:
             std::cout << "Midday";
-        break;
+            break;
         case 2:
             std::cout << "Afternoon";
-        break;
+            break;
         default:
             std::cout << "this text should not appear.";
-        break;
+            break;
     }
 
     std::cout << " | You have $" << farm.getMoney() << " | Goal: $10000\n\n";
-
+    
     std::cout << "What would you like to do?\n";
     std::cout << "1. Shop Produce\n";
     std::cout << "2. Buy Upgrades or Land (" << farm.getCurrentLand() << "/" << farm.getMaxLand() << " land)\n";
