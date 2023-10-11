@@ -195,9 +195,7 @@ void Textbased::executeAction(int choice){
     switch (choice) {
         case 1:
             std::cout << "\nYou chose to Shop Produce.\n";
-
             shopProduce();
-
 
             break;
 
@@ -208,8 +206,18 @@ void Textbased::executeAction(int choice){
             break;
 
         case 3:
+            int index;
+
             std::cout << "\nYou chose to Sell/Harvest Animals/Crops.\n";
-            // Add code for selling/harvesting animals/crops
+            std::cout << "Which farmland will you harvest/sell? (1-" << farm.getCurrentLand() << "): ";
+            cin >> index;
+
+            if (index > 0 && index <= farm.getCurrentLand()){
+                farm.harvestProduce(index);
+            }
+            else {
+                cout << "Invalid choice!\n\n";
+            }
 
             break;
 

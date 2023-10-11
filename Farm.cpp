@@ -6,13 +6,13 @@
 #include "Potatoes.h"
 #include "Chickens.h"
 #include "Cows.h"
-#include "Sheep.h"
+#include "Sheep.h"  //<perhaps some of these can go?>
 #include <iostream>
 
 //constructors
 Farm::Farm(){
     //name = "";
-    max_land = 10; //<randomly chosen>
+    max_land = 10;
     current_land = 2;
     day_num = 1;    //starts at one, goes up
     time_of_day = 0;   //int between 0 and 3, when it hits 3 num_days++
@@ -494,8 +494,9 @@ void Farm::plantProduce(int produceIteration){
     return;
 }
 
-void Farm::harvestProduce(int index){
-    //it gives money to be sold
+void Farm::harvestProduce(int index){   //<this is NOT WORKING>
+    //This can't be simpler due to Produce not having selling price
+
     if (lands[index].getEmptyOrUsed() == 1){     //ensures it's used before giving player money
         Produce b = lands[index].getPlanted();
         Produce* ptr = &b;
@@ -503,6 +504,19 @@ void Farm::harvestProduce(int index){
         if (crops != nullptr){
             //if this element is a crop, get the money for selling
             setMoney(getMoney() + crops->getSellingPrice());
+
+            //change the visual array
+            setTopRow(index, "       ");
+            setMiddleRow(index, "       ");
+            setBottomRow(index, "       ");
+        }
+
+        Produce c = lands[index].getPlanted();
+        Produce* ptr2 = &c;
+        Animals* animals = dynamic_cast<Animals*>(ptr2);
+        if (animals != nullptr){
+            //if this element is an animal, get the money for selling
+            setMoney(getMoney() + animals->getSellingPrice());
 
             //change the visual array
             setTopRow(index, "       ");
