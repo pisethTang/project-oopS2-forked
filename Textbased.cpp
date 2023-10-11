@@ -138,13 +138,16 @@ void Textbased::executeAction(int choice){
     switch (choice) {
         case 1:
             std::cout << "\nYou chose to Shop Produce.\n";
+
             shopProduce();
+
 
             break;
 
         case 2:
             std::cout << "\nYou chose to Buy Upgrades or Lands.\n";
             // Add code for buying upgrades or lands
+            
 
             break;
 

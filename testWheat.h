@@ -26,27 +26,27 @@ private:
         // Test 1: Check if the constructor initializes cost per day correctly
         {
             Wheat w1;
-            if (w1.getCostPerDay() != 10) std::cout << "Test 1 failed! Incorrect cost per day." << std::endl;  
+            if (w1.getCostPerDay() != 15) std::cout << "Test 1 failed! Incorrect cost per day." << std::endl;  
         }
 
         // Test 2: Check if the constructor initializes selling price correctly
         {
             Wheat w2;
-            if (w2.getSellingPrice() != 25) std::cout << "Test 2 failed! Incorrect selling price." << std::endl;
+            if (w2.getSellingPrice() != 10) std::cout << "Test 2 failed! Incorrect selling price." << std::endl;
             
         }
 
         // Test 3: Check if the constructor initializes future selling price correctly
         {
             Wheat w3;
-            if (w3.getFutureSellPrice() != 175) std::cout << "Test 3 failed! Incorrect future selling price." << std::endl;
+            if (w3.getFutureSellPrice() != 125) std::cout << "Test 3 failed! Incorrect future selling price." << std::endl;
             
         }
 
         // Test 4: Check if the constructor initializes buying price correctly
         {
             Wheat w4;
-            if (w4.getBuyingPrice() != 25) std::cout << "Test 4 failed! Incorrect buying price." << std::endl;
+            if (w4.getBuyingPrice() != 10) std::cout << "Test 4 failed! Incorrect buying price." << std::endl;
             
         }
 
@@ -82,13 +82,13 @@ private:
         {
             Wheat p8;
             if (p8.getSellingPrice() <= p8.getCostPerDay()) std::cout << "Test 8 failed! Invariant not maintained." << std::endl;
-            
+            // <in the default constructor i think the selling price is lower than the cost per day - so should this be changed?>
         }
 
-        // Test 9: Check constant values (e.g., buying price should always be 25)
+        // Test 9: Check constant values (e.g., buying price should always be 10)
         {
             Wheat p9;
-            if (p9.getBuyingPrice() != 25) std::cout << "Test 9 failed! Incorrect constant value." << std::endl;
+            if (p9.getBuyingPrice() != 10) std::cout << "Test 9 failed! Incorrect constant value." << std::endl;
             
         }
     }
