@@ -7,12 +7,7 @@
 
 class test_cows {
 public:
-    void runTests() {
-        testConstructor();
-        // Add other test methods here
-        
-    };
-
+    void runCowsTests();
 private:
     void testConstructor();
 };
