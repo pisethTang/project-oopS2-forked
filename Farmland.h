@@ -27,7 +27,6 @@ class Farmland{
     Produce* getPlanted();
     void setUnlocked(bool b);
     void setProduce(Produce newPlanted);
-    //<put the above in the diagram>
 
     //destructor
 

@@ -333,3 +333,5 @@ void Textbased::startGame() {
 //go through all <>
 //check that all functions are used
 //change fonts
+//changed price of upgrades without updating visuals??
+//visuals don't work for price of cows n shit

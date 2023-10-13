@@ -201,23 +201,53 @@ void Farm::changeDay(){
             //<bug here where it can cycle through and get 6x the cost per day>
 
             //Produce a = lands[i].getPlanted();    //<>
-            // Produce* produce = lands[i].getPlanted();
 
-            // Animals* animals = dynamic_cast<Animals*>(produce);
-            Produce* animals = lands[i].getPlanted();
+            Produce* produce = lands[i].getPlanted();
 
-            //<we get to here before the segmentation fault>
-            std::cout << animals->getName() << "\n";
+            Animals* animals = dynamic_cast<Animals*>(produce);
+            
+            //Animals* animals = dynamic_cast<Animals*>(produce);
+            //Produce* animals = lands[i].getPlanted();
+
+            if (animals != nullptr) {
+                cout << "not a nullptr\n";
+            }
+            if (animals == nullptr) {
+                cout << "is a nullptr\n";
+            }
+
+            Crops* crops = dynamic_cast<Crops*>(produce);
+
+            if (crops != nullptr) {
+                cout << "not a nullptr\n";
+            }
+            if (crops == nullptr) {
+                cout << "is a nullptr\n";
+            }
+
+            //std::cout << animals->getName() << "\n";
 
             std::cout << "get to line 211\n";
 
             //<more attempts>
-            if (animals->getName() == "animal"){    //<neither of these appear>
-                std::cout << "let's fuckin goooo animal eition index " << i << "\n";
-            }
-            if (animals->getName() == "crop"){
-                std::cout << "let's fuckin goooo crop edition index " << i << "\n";
-            }
+            // if (animals->getName() == "animal"){    //<neither of these appear> <segmentation fault>
+            //     std::cout << "let's fuckin goooo animal eition index " << i << "\n";
+
+            //     // setMoney(getMoney() + animals->getValuePerDay(getHasGoodFood(), getDayNum()));
+            //     // lands[i].setProduce(*animals);  //<check that this works>
+
+            //     // //changing the visual array
+            //     // if(animals->getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
+            //     //     setBottomRow(i, "  $" + to_string(animals->getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
+            //     // }
+            //     // else{
+            //     //     setBottomRow(i, " $" + to_string(animals->getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
+            //     // }
+            // }
+
+            // if (animals->getName() == "crop"){
+            //     std::cout << "let's fuckin goooo crop edition index " << i << "\n";
+            // }
 
             std::cout << "got to line 218\n";   //<appears!!>
 
