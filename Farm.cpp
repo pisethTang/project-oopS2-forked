@@ -219,7 +219,7 @@ void Farm::changeDay(){
                 std::cout << "let's fuckin goooo crop edition index " << i << "\n";
             }
 
-            std::cout << "got to line 218\n";   //<doesn't appear>
+            std::cout << "got to line 218\n";   //<appears!!>
 
 
             // if (animals != nullptr){
