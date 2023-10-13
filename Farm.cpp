@@ -197,37 +197,31 @@ void Farm::changeDay(){
         if (lands[i].getEmptyOrUsed() == 1){
             //<is this going to work??>
             setMoney(getMoney() - lands[i].getPlanted()->getCostPerDay());
-            std::cout << "The daily cost is " << lands[i].getPlanted()->getCostPerDay() << "\n";
-            //<bug here where it can cycle through and get 6x the cost per day>
+            //<bug here where it can cycle through and get 6x the cost per day if things were sold>
 
-            //Produce a = lands[i].getPlanted();    //<>
+            Produce* ptr = lands[i].getPlanted();
 
-            Produce* produce = lands[i].getPlanted();
+            if (lands[i].getPlanted()->getName() == "animal"){
+                std::cout << "animal win\n";
 
-            Animals* animals = dynamic_cast<Animals*>(produce);
-            
-            //Animals* animals = dynamic_cast<Animals*>(produce);
-            //Produce* animals = lands[i].getPlanted();
+                Animals* animal = static_cast<Animals*>(ptr);
 
-            if (animals != nullptr) {
-                cout << "not a nullptr\n";
+                //<segmentation fault>
+                lands[i].setProduce(*animal);
+                std::cout << "Produce set\n";
+
+                setMoney(getMoney() + animal->getValuePerDay(getHasGoodFood(), getDayNum()));
             }
-            if (animals == nullptr) {
-                cout << "is a nullptr\n";
+            if (lands[i].getPlanted()->getName() == "crop"){
+                std::cout << "crop win\n";
+
+                Crops* crop = static_cast<Crops*>(ptr);
+
+                std::cout << "Get to line 229\n";
+                //<segmentation fault>
+                crop->setGrowthStage(crop->getGrowthStage() + crop->getGrowthSpeed(getHasGoodSoil(), getDayNum()));
+                lands[i].setProduce(*crop);
             }
-
-            Crops* crops = dynamic_cast<Crops*>(produce);
-
-            if (crops != nullptr) {
-                cout << "not a nullptr\n";
-            }
-            if (crops == nullptr) {
-                cout << "is a nullptr\n";
-            }
-
-            //std::cout << animals->getName() << "\n";
-
-            std::cout << "get to line 211\n";
 
             //<more attempts>
             // if (animals->getName() == "animal"){    //<neither of these appear> <segmentation fault>
