@@ -22,7 +22,6 @@ class Farm{
     public:
     //constructors
     Farm();
-
     
     // getters
     //std::string getName();    <perhaps remove>
@@ -36,6 +35,7 @@ class Farm{
     std::string getTopRow(int i);
     std::string getMiddleRow(int i);
     std::string getBottomRow(int i);
+    Farmland* getLands();
 
     // setters
     void setDayNum(int newDay);
