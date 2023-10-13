@@ -24,7 +24,7 @@ class Farmland{
     bool getEmptyOrUsed();
     void setEmptyOrUsed(bool a);
     bool getUnlocked();
-    Produce getPlanted();
+    Produce* getPlanted();
     void setUnlocked(bool b);
     void setProduce(Produce newPlanted);
     //<put the above in the diagram>

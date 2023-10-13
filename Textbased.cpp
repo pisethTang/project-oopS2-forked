@@ -306,7 +306,7 @@ void Textbased::startGame() {
         netMoney = farm.getMoney();
         for (int i = 0; i < farm.getCurrentLand(); i++){
             //determining the amount of money there is that could keep the farm above water
-            netMoney = netMoney + farm.getLands()[i].getPlanted().getSellingPrice();
+            netMoney = netMoney + farm.getLands()[i].getPlanted()->getSellingPrice();
         }
 
         if(netMoney <= 0){

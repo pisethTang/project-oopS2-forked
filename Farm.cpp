@@ -189,10 +189,10 @@ void Farm::changeDay(){
     for(int i = 0; i < max_land; i++){
         if (lands[i].getEmptyOrUsed() == 1){
             //<is this going to work??>
-            setMoney(getMoney() - lands[i].getPlanted().getCostPerDay());
+            setMoney(getMoney() - lands[i].getPlanted()->getCostPerDay());
 
-            Produce a = lands[i].getPlanted();
-            Produce* produce = &a;
+            //Produce a = lands[i].getPlanted();    //<>
+            Produce* produce = lands[i].getPlanted();
 
             Animals* animals = dynamic_cast<Animals*>(produce);
             if (animals != nullptr){
@@ -214,8 +214,8 @@ void Farm::changeDay(){
     for (int i = 0; i < max_land; i++){
         if (lands[i].getEmptyOrUsed() == 1){
             
-            Produce b = lands[i].getPlanted();
-            Produce* ptr = &b;
+            //Produce& b = lands[i].getPlanted();
+            Produce* ptr = lands[i].getPlanted();
             Crops* crops = dynamic_cast<Crops*>(ptr);
 
             if (crops != nullptr){
@@ -517,10 +517,10 @@ void Farm::plantProduce(int produceIteration){
 
 void Farm::harvestProduce(int index){   //<working now>
 if (lands[index].getEmptyOrUsed() == 1) {
-        Produce produce = lands[index].getPlanted();
+        Produce* produce = lands[index].getPlanted();
 
-        Crops* crops = dynamic_cast<Crops*>(&produce);
-        Animals* animals = dynamic_cast<Animals*>(&produce);
+        Crops* crops = dynamic_cast<Crops*>(produce);
+        Animals* animals = dynamic_cast<Animals*>(produce);
 
         if (crops != nullptr) {
             setMoney(getMoney() + crops->getSellingPrice());
