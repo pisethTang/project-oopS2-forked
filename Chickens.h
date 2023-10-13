@@ -13,6 +13,7 @@ class Chickens : public Animals{
     
     //functions
     int getValuePerDay(bool goodFood, int dayNum) override;
+    int getGarbage() override;
 
 };
 

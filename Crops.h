@@ -14,7 +14,7 @@ class Crops : public Produce{
     public:
     //constructors
     Crops();
-    Crops(std::string newName, int newCost, int newSellPrice, int newBuyPrice);  //<not sure we ever use this?>
+    Crops(int newCost, int newSellPrice, int newBuyPrice);  //<not sure we ever use this?>
 
     //functions
     int getGrowthStage();

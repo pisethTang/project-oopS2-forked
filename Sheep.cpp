@@ -3,7 +3,7 @@
 //constructors
 Sheep::Sheep(){
 
-    //<name>
+    name = "animal";
     cost_per_day = 35;   //sheep cost the most for upkeep
     selling_price = 200; //can sell the sheep for 200 gold each
     buying_price = 200; //costs 200 gold to buy sheep, but they are the most worth it
@@ -33,4 +33,8 @@ int Sheep::getValuePerDay(bool goodFood, int dayNum){
             return 0;
         }
     }
+}
+
+int Sheep::getGarbage(){
+    return 10;
 }

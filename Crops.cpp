@@ -3,7 +3,7 @@
 
 //constructors
 Crops::Crops(){ //<let's get rid of name>
-    name = "";
+    name = "crop";
     cost_per_day = 0;
     selling_price = 0;
     buying_price = 0;
@@ -11,8 +11,8 @@ Crops::Crops(){ //<let's get rid of name>
     future_sell_price = 0;
 }
 
-Crops::Crops(string newName, int newCost, int newSellPrice, int newBuyPrice){
-    name = newName;
+Crops::Crops(int newCost, int newSellPrice, int newBuyPrice){
+    name = "crop";
     cost_per_day = newCost;
     selling_price = newSellPrice;
     buying_price = newBuyPrice;

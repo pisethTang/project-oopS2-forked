@@ -9,6 +9,11 @@
 #include "Sheep.h"  //<perhaps some of these can go?>
 #include <iostream>
 
+// enum ProduceType{   //<do we need to do this differently?>
+//     animal,
+//     crop
+// };
+
 //constructors
 Farm::Farm(){
     //name = "";
@@ -182,31 +187,53 @@ void Farm::buyNewLand(){
 }
 
 void Farm::changeDay(){
+
     //setting the new day number
     setDayNum(getDayNum() + 1);
+
     //<we can make this loop so much better guys goodness me, apologies>
     //iterating through Land vector, checking each type and affecting money appropriately
     for(int i = 0; i < max_land; i++){
         if (lands[i].getEmptyOrUsed() == 1){
             //<is this going to work??>
             setMoney(getMoney() - lands[i].getPlanted()->getCostPerDay());
+            std::cout << "The daily cost is " << lands[i].getPlanted()->getCostPerDay() << "\n";
+            //<bug here where it can cycle through and get 6x the cost per day>
 
             //Produce a = lands[i].getPlanted();    //<>
-            Produce* produce = lands[i].getPlanted();
+            // Produce* produce = lands[i].getPlanted();
 
-            Animals* animals = dynamic_cast<Animals*>(produce);
-            if (animals != nullptr){
-                setMoney(getMoney() + animals->getValuePerDay(getHasGoodFood(), getDayNum()));
-                lands[i].setProduce(*animals);  //<check that this works>
+            // Animals* animals = dynamic_cast<Animals*>(produce);
+            Produce* animals = lands[i].getPlanted();
 
-                //changing the visual array
-                if(animals->getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
-                    setBottomRow(i, "  $" + to_string(animals->getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
-                }
-                else{
-                    setBottomRow(i, " $" + to_string(animals->getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
-                }
+            //<we get to here before the segmentation fault>
+            std::cout << animals->getName() << "\n";
+
+            std::cout << "get to line 211\n";
+
+            //<more attempts>
+            if (animals->getName() == "animal"){    //<neither of these appear>
+                std::cout << "let's fuckin goooo animal eition index " << i << "\n";
             }
+            if (animals->getName() == "crop"){
+                std::cout << "let's fuckin goooo crop edition index " << i << "\n";
+            }
+
+            std::cout << "got to line 218\n";   //<doesn't appear>
+
+
+            // if (animals != nullptr){
+            //     setMoney(getMoney() + animals->getValuePerDay(getHasGoodFood(), getDayNum()));
+            //     lands[i].setProduce(*animals);  //<check that this works>
+
+            //     //changing the visual array
+            //     if(animals->getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
+            //         setBottomRow(i, "  $" + to_string(animals->getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
+            //     }
+            //     else{
+            //         setBottomRow(i, " $" + to_string(animals->getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
+            //     }
+            // }
         }
     }
 

@@ -100,12 +100,12 @@ void Textbased::shopProduce(){  //<can we make this easier?>
     Produce* ptr1 = &a;
     int choice;
 
-    cout << "num    1       2       3       4       5       6       7\n";
-    cout << "type   Wheat   Carrots Potato  Chicken Cows    Sheep   Back to\n";
-    cout << "cost   " << ptr1->getBuyingPrice() << "      ";    //Wheat
+    cout << "num        1       2       3       4       5       6       7\n";
+    cout << "type       Wheat   Carrots Potato  Chicken Cows    Sheep   Back to\n";
+    cout << "cost       " << ptr1->getBuyingPrice() << "      ";    //Wheat
 
     Carrots b;
-    ptr1 = &a;
+    ptr1 = &b;
     cout << ptr1->getBuyingPrice() << "      "; //Carrots
 
     Potatoes c;
@@ -125,6 +125,9 @@ void Textbased::shopProduce(){  //<can we make this easier?>
     cout << ptr1->getBuyingPrice() << "     "; //Sheep
 
     cout << "main menu\n";
+
+    cout << "daily      15      10      20      10      25      35\n";
+    cout << "upkeep cost\n";
 
     //<add stuff about cost efficiency>
 
@@ -329,3 +332,4 @@ void Textbased::startGame() {
 //crops don't grow
 //go through all <>
 //check that all functions are used
+//change fonts

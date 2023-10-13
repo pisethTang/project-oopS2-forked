@@ -3,7 +3,7 @@
 //constructors
 Cows::Cows(){
 
-    //<name>
+    name = "animal";
     cost_per_day = 25;   //cows cost a lot for upkeep
     selling_price = 175; //can sell the cows for 175 gold each
     buying_price = 175; //costs 175 gold to buy cows
@@ -35,3 +35,6 @@ int Cows::getValuePerDay(bool goodFood, int dayNum){
     }
 }
 
+int Cows::getGarbage(){
+    return 4;
+}

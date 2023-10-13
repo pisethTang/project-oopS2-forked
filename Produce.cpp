@@ -38,3 +38,7 @@ int Produce::getBuyingPrice(){
 void Produce::setSellingPrice(int newSellPrice){
     selling_price = selling_price + newSellPrice;
 }
+
+int Produce::getGarbage(){
+    return 0;
+}

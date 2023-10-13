@@ -2,7 +2,7 @@
 
 Chickens::Chickens(){
 
-    //<name>
+    name = "animal";
     cost_per_day = 10;   //chickens don't require much upkeep
     selling_price = 125; //can sell the chickens for 125 gold each
     buying_price = 125; //costs 125 gold to buy chickens
@@ -30,4 +30,8 @@ int Chickens::getValuePerDay(bool goodFood, int dayNum){
             return 70;
         }
     }
+}
+
+int Chickens::getGarbage(){
+    return 3;
 }

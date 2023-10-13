@@ -3,7 +3,7 @@
 //constructors
 Potatoes::Potatoes(){
 
-    //<name>
+    name = "crop";
     cost_per_day = 20;  //20 gold per day to upkeep one Land of Potatoes
     selling_price = 35;    //225 gold to sell when fully grown, 35 gold to sell otherwise
     future_sell_price = 225;
@@ -30,3 +30,7 @@ int Potatoes::getGrowthSpeed(bool goodSoil, int dayNum){
 // void Potatoes::setSellingPrice(){
 //     selling_price = getFutureSellPrice();
 // }
+
+int Potatoes::getGarbage(){
+    return 6;
+}

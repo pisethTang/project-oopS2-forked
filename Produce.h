@@ -4,6 +4,11 @@
 #include <string>
 using namespace std;
 
+// enum ProduceType{   //<do we need to do this differently?>
+//     animal,
+//     crop
+// };
+
 class Produce{
     protected:
     string name;        //<do we even need a name?>
@@ -18,11 +23,13 @@ class Produce{
     Produce(string newName, int newCost, int newSellPrice, int newBuyPrice);
 
     //functions
-    virtual string getName();
+    virtual int getGarbage(); //<bear with me, I think we need this>
+    string getName();   //<removed virtual>
     int getCostPerDay();
     int getSellingPrice();
     int getBuyingPrice();
     void setSellingPrice(int newSellPrice);
+    //virtual ProduceType get_type() const = 0;
 
     //destructor    
 
