@@ -86,6 +86,7 @@ void Farm::setDayNum(int newDay){
 }
 
 void Farm::setTimeOfDay(int newTime){   //<can someone please check through the logic of this for me?>
+                                        //<also, perhaps we don't need this function at all?>
 
     switch(newTime) {
         case 0:
@@ -183,7 +184,7 @@ void Farm::buyNewLand(){
 void Farm::changeDay(){
     //setting the new day number
     setDayNum(getDayNum() + 1);
-
+    //<we can make this loop so much better guys goodness me, apologies>
     //iterating through Land vector, checking each type and affecting money appropriately
     for(int i = 0; i < max_land; i++){
         if (lands[i].getEmptyOrUsed() == 1){
@@ -192,6 +193,7 @@ void Farm::changeDay(){
 
             Produce a = lands[i].getPlanted();
             Produce* produce = &a;
+
             Animals* animals = dynamic_cast<Animals*>(produce);
             if (animals != nullptr){
                 setMoney(getMoney() + animals->getValuePerDay(getHasGoodFood(), getDayNum()));
@@ -215,10 +217,12 @@ void Farm::changeDay(){
             Produce b = lands[i].getPlanted();
             Produce* ptr = &b;
             Crops* crops = dynamic_cast<Crops*>(ptr);
+
             if (crops != nullptr){
                 //if this element is a crop, increase the growth stage by the growth speed
                 crops->setGrowthStage(crops->getGrowthStage() + crops->getGrowthSpeed(getHasGoodSoil(), getDayNum()));
                 lands[i].setProduce(*crops);    //<this line is because the above looked odd>
+                std::cout << "Getting to line 225\n"; //<>
                 //<the above looks wrong to me, it doesn't look like it updates lands itself>
 
                 //changing the growth stage on the visual array
