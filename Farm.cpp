@@ -75,6 +75,10 @@ std::string Farm::getBottomRow(int i){
     return bottom_row[i];
 }
 
+Farmland* Farm::getLands(){
+    return lands;
+}
+
 // setters
 void Farm::setDayNum(int newDay){
     day_num = newDay;

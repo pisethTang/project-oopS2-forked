@@ -100,7 +100,7 @@ void Textbased::shopProduce(){  //<can we make this easier?>
     int choice;
 
     cout << "num    1       2       3       4       5       6       7\n";
-    cout << "       Wheat   Carrots Potato  Chicken Cows    Sheep   Back to\n";
+    cout << "type   Wheat   Carrots Potato  Chicken Cows    Sheep   Back to\n";
     cout << "cost   " << ptr1->getBuyingPrice() << "      ";    //Wheat
 
     Carrots b;
@@ -281,16 +281,26 @@ void Textbased::executeAction(int choice){
 
 // Function to start the game loop
 void Textbased::startGame() {
+    //variable to determine lose condition
+    int netMoney = farm.getMoney();
+
     //display title
     std::cout << "-----------------------------\n";
     std::cout << "      " << getTitle() << "      \n";
     std::cout << "-----------------------------\n";
 
-    while (1) {
+    while (1 && farm.getMoney() < 10000 && netMoney > 0) {  //three conditions for game to continue
         displayFarmland();
         displayMenu();         // Display the menu
         int choice = getUserChoice();  // Get user choice
         executeAction(choice); // Execute the chosen action
+
+        //recalculating netMoney every time menu appears
+        netMoney = farm.getMoney();
+        for (int i = 0; i < farm.getCurrentLand(); i++){
+            //determining the amount of money there is that could keep the farm above water
+            netMoney = netMoney + farm.getLands()[i].getPlanted().getSellingPrice();
+        }
     }
 
     return;
@@ -298,5 +308,4 @@ void Textbased::startGame() {
 
 //list:
 //check the values of cost and such appear correct and apply correctly
-//continue connecting the front and back
-//make it so you can lose
+//make time travel an option
