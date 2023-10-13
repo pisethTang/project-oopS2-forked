@@ -16,8 +16,9 @@ test_carrots: testPotatoes.cpp
 	@g++ testPotatoes.cpp Potatoes.cpp Crops.cpp Produce.cpp -o testCrops
 	@./testCarrots
 
-
-
+test_all:
+	@g++ test.cpp superTest.cpp Produce.cpp Crops.cpp -o test 
+	@./test
 
 # ---- clean sections----
 # Seth: I don't think that abstract classes (although we are still unsure as to assign Produce, Crops and Animals as abstract or not...) need to be tested explicitly. 
@@ -36,3 +37,5 @@ clean-t-potatoes:
 clean-t-carrots:
 	@rm -rf testCarrots
 
+clean-all-tests:
+	@rm -rf testWheat testPotatoes testCarrots

@@ -34,3 +34,4 @@ int Cows::getValuePerDay(bool goodFood, int dayNum){
         }
     }
 }
+

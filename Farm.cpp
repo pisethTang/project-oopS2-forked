@@ -15,7 +15,7 @@ Farm::Farm(){
     max_land = 10;
     current_land = 2;
     day_num = 1;    //starts at one, goes up
-    time_of_day = 0;   //int between 0 and 3, when it hits 3 num_days++
+    time_of_day = 0;   //int between 0 and 3, when it hits 3 =>  num_days++
     money = 1000;  //start with 1000, can't be less than zero
     for (int i = 0; i < 10; i++) {
         top_row[i] = "       ";
@@ -507,39 +507,27 @@ void Farm::plantProduce(int produceIteration){
     return;
 }
 
-void Farm::harvestProduce(int index){   //<this is NOT WORKING>
-    //This can't be simpler due to Produce not having selling price
+void Farm::harvestProduce(int index){   //<working now>
+if (lands[index].getEmptyOrUsed() == 1) {
+        Produce produce = lands[index].getPlanted();
 
-    if (lands[index].getEmptyOrUsed() == 1){     //ensures it's used before giving player money
-        Produce b = lands[index].getPlanted();
-        Produce* ptr = &b;
-        Crops* crops = dynamic_cast<Crops*>(ptr);
-        if (crops != nullptr){
-            //if this element is a crop, get the money for selling
+        Crops* crops = dynamic_cast<Crops*>(&produce);
+        Animals* animals = dynamic_cast<Animals*>(&produce);
+
+        if (crops != nullptr) {
             setMoney(getMoney() + crops->getSellingPrice());
-
-            //change the visual array
-            setTopRow(index, "       ");
-            setMiddleRow(index, "       ");
-            setBottomRow(index, "       ");
-        }
-
-        Produce c = lands[index].getPlanted();
-        Produce* ptr2 = &c;
-        Animals* animals = dynamic_cast<Animals*>(ptr2);
-        if (animals != nullptr){
-            //if this element is an animal, get the money for selling
+        } else if (animals != nullptr) {
             setMoney(getMoney() + animals->getSellingPrice());
-
-            //change the visual array
-            setTopRow(index, "       ");
-            setMiddleRow(index, "       ");
-            setBottomRow(index, "       ");
         }
-    }
 
-    //this function doesn't delete the produce, but rather allows it to be written over
-    lands[index].setEmptyOrUsed(0);
+        // Change the visual array
+        setTopRow(index, "       ");
+        setMiddleRow(index, "       ");
+        setBottomRow(index, "       ");
+
+        // Reset the land to be empty
+        lands[index].setEmptyOrUsed(false);
+    }
 }
 
 //destructor

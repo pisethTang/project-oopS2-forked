@@ -21,20 +21,20 @@ void Textbased::displayMenu() {
     switch (farm.getTimeOfDay()) {
         case 0:
             std::cout << "Morning";
-        break;
+            break;
         case 1:
             std::cout << "Midday";
-        break;
+            break;
         case 2:
             std::cout << "Afternoon";
-        break;
+            break;
         default:
             std::cout << "this text should not appear.";
-        break;
+            break;
     }
 
     std::cout << " | You have $" << farm.getMoney() << " | Goal: $10000\n\n";
-
+    
     std::cout << "What would you like to do?\n";
     std::cout << "1. Shop Produce\n";
     std::cout << "2. Buy Upgrades or Land (" << farm.getCurrentLand() << "/" << farm.getMaxLand() << " land)\n";
@@ -162,8 +162,8 @@ void Textbased::shopUpgrades(){
     //determining based on answer
     switch(choice){
         case 1:
-            if (farm.getMoney() >= 1500){
-                farm.setMoney(farm.getMoney() - 1500);
+            if (farm.getMoney() >= 500){
+                farm.setMoney(farm.getMoney() - 500);
                 farm.setGoodSoil(1);
 
                 farm.moveTime();
@@ -175,8 +175,8 @@ void Textbased::shopUpgrades(){
             break;
 
         case 2:
-            if (farm.getMoney() >= 1500){
-                farm.setMoney(farm.getMoney() - 1500);
+            if (farm.getMoney() >= 500){
+                farm.setMoney(farm.getMoney() - 500);
                 farm.setGoodFood(1);
 
                 farm.moveTime();
@@ -188,8 +188,8 @@ void Textbased::shopUpgrades(){
             break;
 
         case 3:
-            if (farm.getMoney() >= 1000){
-                farm.setMoney(farm.getMoney() - 1000);
+            if (farm.getMoney() >= 500){
+                farm.setMoney(farm.getMoney() - 500);
                 farm.setMiddleRow(farm.getCurrentLand(), "       ");
                 farm.setCurrentLand(farm.getCurrentLand() + 1);
 
@@ -240,7 +240,7 @@ void Textbased::executeAction(int choice){
             cin >> index;
 
             if (index > 0 && index <= farm.getCurrentLand()){
-                farm.harvestProduce(index);
+                farm.harvestProduce(index-1);
             }
             else if(index == farm.getCurrentLand() + 1){
                 //empty so that no invalid choice notif appears
@@ -273,6 +273,8 @@ void Textbased::executeAction(int choice){
             std::cout << "\nInvalid choice. Please enter a number between 1 and 5.\n";
             //exit(0); <perhaps remove>
     }
+
+    return;
 
     return;
 }
