@@ -300,7 +300,9 @@ void Farm::plantProduce(int produceIteration){
                     else {
                         cout << "Not enough money!\n";
                     }
-                break;
+
+                    break;
+
                 case 2: //Carrots
                     if (getMoney() >= y.getBuyingPrice()){
                         //spend money
@@ -336,7 +338,9 @@ void Farm::plantProduce(int produceIteration){
                     else {
                         cout << "Not enough money!\n";
                     }
-                break;
+
+                    break;
+
                 case 3: //Potatoes
                     if (getMoney() >= x.getBuyingPrice()){
                         //spend money
@@ -372,7 +376,9 @@ void Farm::plantProduce(int produceIteration){
                     else {
                         cout << "Not enough money!\n";
                     }
-                break;
+
+                    break;
+
                 case 4: //Chickens
                     if (getMoney() >= w.getBuyingPrice()){
                         //spend money
@@ -405,7 +411,9 @@ void Farm::plantProduce(int produceIteration){
                     else {
                         cout << "Not enough money!\n";
                     }
-                break;
+
+                    break;
+
                 case 5: //Cows
                     if (getMoney() >= v.getBuyingPrice()){
                         //spend money
@@ -437,7 +445,9 @@ void Farm::plantProduce(int produceIteration){
                     else {
                         cout << "Not enough money!\n";
                     }
-                break;
+
+                    break;
+
                 case 6: //Sheep
                     if (getMoney() >= u.getBuyingPrice()){
                         //spend money
@@ -469,11 +479,14 @@ void Farm::plantProduce(int produceIteration){
                     else {
                         cout << "Not enough money!\n";
                     }
-                break;
+
+                    break;
 
                 default:
-                    cout << "Invalid selection!\n"; //<check that this works>
-                break;
+                    cout << "Invalid selection! This text shouldn't be seen!\n"; //<check that this works>
+                    planting = 0;   //planting didn't occur
+
+                    break;
             }
         }
 
