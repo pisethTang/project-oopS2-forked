@@ -201,6 +201,15 @@ void Farm::changeDay(){
 
             Produce* ptr = lands[i].getPlanted();
 
+            // Animals* animal2 = dynamic_cast<Animals*>(ptr);
+
+            // if (animal2 != nullptr) {
+            //     std::cout << "animal2 is not a nullptr\n";
+            // }
+            // if (animal2 == nullptr) {
+            //     std::cout << "animal2 is a nullptr\n";
+            // }
+
             if (lands[i].getPlanted()->getName() == "animal"){
                 std::cout << "animal win\n";
 
@@ -217,8 +226,16 @@ void Farm::changeDay(){
 
                 Crops* crop = static_cast<Crops*>(ptr);
 
-                std::cout << "Get to line 229\n";
+                std::cout << "Get to line 220\n";
+                //<get name and getgrowthstage both work>
+                //gethasgoodsoil works, as does getdaynum>
+                //<getgrowthspeed doesn't work>
+                crop->setGrowthStage(5);
+                std::cout << crop->getGrowthStage() << "\n";   //<not a segmentation fault?>
+                std::cout << "Get to line 222\n";
+                //<setGrowthStage and getGrowthStage both work>
                 //<segmentation fault>
+
                 crop->setGrowthStage(crop->getGrowthStage() + crop->getGrowthSpeed(getHasGoodSoil(), getDayNum()));
                 lands[i].setProduce(*crop);
             }
