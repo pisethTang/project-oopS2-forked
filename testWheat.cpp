@@ -3,6 +3,8 @@
 
 
 void test_wheat::testConstructor() {
+        std::cout << "----------------------------------------- Wheat's Tests -------------------------------------------" << std::endl;
+
         // Test 1: Check if the constructor initializes cost per day correctly
         {
             Wheat w1;
@@ -74,7 +76,7 @@ void test_wheat::testConstructor() {
 }
 
 
-void run_tests(){
+void test_wheat::runWheatTests(){
     test_wheat tw;
-    tw.runWheatTests();
+    tw.testConstructor();
 }

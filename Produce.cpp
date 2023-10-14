@@ -11,7 +11,7 @@ Produce::Produce(){
     buying_price = 0;
 }
 
-Produce::Produce(string newName, int newCost, int newSellPrice, int newBuyPrice){
+Produce::Produce(std::string newName, int newCost, int newSellPrice, int newBuyPrice){
     name = newName;
     cost_per_day = newCost;
     selling_price = newSellPrice;

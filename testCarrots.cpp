@@ -2,6 +2,7 @@
 
 void test_carrots::testConstructor() {
         // Test 1: Check if the constructor initializes cost per day correctly
+        std::cout << "----------------------------------------- Carrot's Tests -------------------------------------------" << std::endl;
         {
             Carrots c1;
             if (c1.getCostPerDay() != 10) std::cout << "Test 1 failed! Incorrect cost per day." << std::endl;  
@@ -67,6 +68,7 @@ void test_carrots::testConstructor() {
             if (c9.getBuyingPrice() != 25) std::cout << "Test 9 failed! Incorrect constant value." << std::endl;
             
         }
+        
 }
 
 void test_carrots::runCarrotsTests(){

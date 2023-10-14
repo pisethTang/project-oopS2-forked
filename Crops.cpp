@@ -11,7 +11,7 @@ Crops::Crops(){ //<let's get rid of name>
     future_sell_price = 0;
 }
 
-Crops::Crops(string newName, int newCost, int newSellPrice, int newBuyPrice){
+Crops::Crops(std::string newName, int newCost, int newSellPrice, int newBuyPrice){
     name = newName;
     cost_per_day = newCost;
     selling_price = newSellPrice;

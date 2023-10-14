@@ -10,7 +10,7 @@ Animals::Animals(){
     value_per_day = 0;
 }
 
-Animals::Animals(string newName, int newCost, int newSellPrice, int newBuyPrice, int newValue){
+Animals::Animals(std::string newName, int newCost, int newSellPrice, int newBuyPrice, int newValue){
     name = newName;
     cost_per_day = newCost;
     selling_price = newSellPrice;

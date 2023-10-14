@@ -17,6 +17,7 @@ class test_farm{
  private:
  //testing getters and setters
   void testGetDayNum() {
+    std::cout << "----------------------------------------- Farm's Tests -------------------------------------------" << std::endl;
     Farm farm;
     //Test case 1.1: Default day num
     if (farm.getDayNum() != 0) std::cout << "Test 1.1 failed!" << std::endl;

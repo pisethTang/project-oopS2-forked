@@ -5,7 +5,7 @@
 #include <limits>
 #include "Cows.h"
 
-class test_cows {
+class test_cows{
 public:
     void runCowsTests();
 private:

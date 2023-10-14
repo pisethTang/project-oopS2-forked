@@ -109,7 +109,7 @@ void Farm::setTimeOfDay(int newTime){   //<can someone please check through the 
             changeDay();
             break;
         default:
-            cout << "Time invalid! This shouldn't be seen!\n";
+            std::cout << "Time invalid! This shouldn't be seen!\n";
             break;
     }
 
@@ -195,10 +195,10 @@ void Farm::changeDay(){
 
                 //changing the visual array
                 if(animals->getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
-                    setBottomRow(i, "  $" + to_string(animals->getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
+                    setBottomRow(i, "  $" + std::to_string(animals->getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
                 }
                 else{
-                    setBottomRow(i, " $" + to_string(animals->getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
+                    setBottomRow(i, " $" + std::to_string(animals->getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
                 }
             }
         }
@@ -219,14 +219,14 @@ void Farm::changeDay(){
 
                 //changing the growth stage on the visual array
                 if(crops->getGrowthStage() < 10){
-                    setBottomRow(i, "  " + to_string(crops->getGrowthStage()) + "%   ");
+                    setBottomRow(i, "  " + std::to_string(crops->getGrowthStage()) + "%   ");
                 }
                 else if(crops->getGrowthStage() != 100 && crops->getGrowthStage() > 9){
-                    setBottomRow(i, "  " + to_string(crops->getGrowthStage()) + "%  ");
+                    setBottomRow(i, "  " + std::to_string(crops->getGrowthStage()) + "%  ");
                 }
                 else{
                     setBottomRow(i, " 100%  ");
-                    setMiddleRow(i, " $" + to_string(crops->getSellingPrice()) + "  "); //<check that they all fit>
+                    setMiddleRow(i, " $" + std::to_string(crops->getSellingPrice()) + "  "); //<check that they all fit>
                 }
             }
         }
@@ -280,17 +280,17 @@ void Farm::plantProduce(int produceIteration){
                         setTopRow(i, " Wheat ");    //top row
 
                         if(z.getSellingPrice() < 100){  //middle row
-                            setMiddleRow(i, "  $" + to_string(z.getSellingPrice()) + "  ");
+                            setMiddleRow(i, "  $" + std::to_string(z.getSellingPrice()) + "  ");
                         }
                         else{
-                            setMiddleRow(i, " $" + to_string(z.getSellingPrice()) + "  ");
+                            setMiddleRow(i, " $" + std::to_string(z.getSellingPrice()) + "  ");
                         }
 
                         if(z.getGrowthStage() < 10){
-                            setBottomRow(i, "  " + to_string(z.getGrowthStage()) + "%   ");
+                            setBottomRow(i, "  " + std::to_string(z.getGrowthStage()) + "%   ");
                         }
                         else if(z.getGrowthStage() != 100 && z.getGrowthStage() > 9){    //bottom row
-                            setBottomRow(i, "  " + to_string(z.getGrowthStage()) + "%  ");
+                            setBottomRow(i, "  " + std::to_string(z.getGrowthStage()) + "%  ");
                         }
                         else{
                             setBottomRow(i, " 100%  ");
@@ -298,7 +298,7 @@ void Farm::plantProduce(int produceIteration){
 
                     }
                     else {
-                        cout << "Not enough money!\n";
+                        std::cout << "Not enough money!\n";
                     }
                 break;
                 case 2: //Carrots
@@ -316,17 +316,17 @@ void Farm::plantProduce(int produceIteration){
                         setTopRow(i, "Carrots");    //top row
 
                         if(y.getSellingPrice() < 100){  //middle row
-                            setMiddleRow(i, "  $" + to_string(y.getSellingPrice()) + "  ");
+                            setMiddleRow(i, "  $" + std::to_string(y.getSellingPrice()) + "  ");
                         }
                         else{
-                            setMiddleRow(i, " $" + to_string(y.getSellingPrice()) + "  ");
+                            setMiddleRow(i, " $" + std::to_string(y.getSellingPrice()) + "  ");
                         }
 
                         if(y.getGrowthStage() < 10){
-                            setBottomRow(i, "  " + to_string(y.getGrowthStage()) + "%   ");
+                            setBottomRow(i, "  " + std::to_string(y.getGrowthStage()) + "%   ");
                         }
                         else if(y.getGrowthStage() != 100 && y.getGrowthStage() > 9){    //bottom row
-                            setBottomRow(i, "  " + to_string(y.getGrowthStage()) + "%  ");
+                            setBottomRow(i, "  " + std::to_string(y.getGrowthStage()) + "%  ");
                         }
                         else{
                             setBottomRow(i, " 100%  ");
@@ -334,7 +334,7 @@ void Farm::plantProduce(int produceIteration){
 
                     }
                     else {
-                        cout << "Not enough money!\n";
+                        std::cout << "Not enough money!\n";
                     }
                 break;
                 case 3: //Potatoes
@@ -352,17 +352,17 @@ void Farm::plantProduce(int produceIteration){
                         setTopRow(i, "Potato ");    //top row
 
                         if(x.getSellingPrice() < 100){  //middle row
-                            setMiddleRow(i, "  $" + to_string(x.getSellingPrice()) + "  ");
+                            setMiddleRow(i, "  $" + std::to_string(x.getSellingPrice()) + "  ");
                         }
                         else{
-                            setMiddleRow(i, " $" + to_string(x.getSellingPrice()) + "  ");
+                            setMiddleRow(i, " $" + std::to_string(x.getSellingPrice()) + "  ");
                         }
 
                         if(x.getGrowthStage() < 10){
-                            setBottomRow(i, "  " + to_string(x.getGrowthStage()) + "%   ");
+                            setBottomRow(i, "  " + std::to_string(x.getGrowthStage()) + "%   ");
                         }
                         else if(x.getGrowthStage() != 100 && x.getGrowthStage() > 9){    //bottom row
-                            setBottomRow(i, "  " + to_string(x.getGrowthStage()) + "%  ");
+                            setBottomRow(i, "  " + std::to_string(x.getGrowthStage()) + "%  ");
                         }
                         else{
                             setBottomRow(i, " 100%  ");
@@ -370,7 +370,7 @@ void Farm::plantProduce(int produceIteration){
 
                     }
                     else {
-                        cout << "Not enough money!\n";
+                        std::cout << "Not enough money!\n";
                     }
                 break;
                 case 4: //Chickens
@@ -388,22 +388,22 @@ void Farm::plantProduce(int produceIteration){
                         setTopRow(i, "Chicken");    //top row
 
                         if(w.getSellingPrice() < 100){  //middle row
-                            setMiddleRow(i, "  $" + to_string(w.getSellingPrice()) + "  ");
+                            setMiddleRow(i, "  $" + std::to_string(w.getSellingPrice()) + "  ");
                         }
                         else{
-                            setMiddleRow(i, " $" + to_string(w.getSellingPrice()) + "  ");
+                            setMiddleRow(i, " $" + std::to_string(w.getSellingPrice()) + "  ");
                         }
 
                         if(w.getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
-                            setBottomRow(i, "  $" + to_string(w.getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
+                            setBottomRow(i, "  $" + std::to_string(w.getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
                         }
                         else{
-                            setBottomRow(i, " $" + to_string(w.getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
+                            setBottomRow(i, " $" + std::to_string(w.getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
                         }
 
                     }
                     else {
-                        cout << "Not enough money!\n";
+                        std::cout << "Not enough money!\n";
                     }
                 break;
                 case 5: //Cows
@@ -421,21 +421,21 @@ void Farm::plantProduce(int produceIteration){
                         setTopRow(i, " Cows  ");    //top row
 
                         if(v.getSellingPrice() < 100){  //middle row
-                            setMiddleRow(i, "  $" + to_string(v.getSellingPrice()) + "  ");
+                            setMiddleRow(i, "  $" + std::to_string(v.getSellingPrice()) + "  ");
                         }
                         else{
-                            setMiddleRow(i, " $" + to_string(v.getSellingPrice()) + "  ");
+                            setMiddleRow(i, " $" + std::to_string(v.getSellingPrice()) + "  ");
                         }
 
                         if(v.getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
-                            setBottomRow(i, "  $" + to_string(v.getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
+                            setBottomRow(i, "  $" + std::to_string(v.getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
                         }
                         else{
-                            setBottomRow(i, " $" + to_string(v.getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
+                            setBottomRow(i, " $" + std::to_string(v.getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
                         }
                     }
                     else {
-                        cout << "Not enough money!\n";
+                        std::cout << "Not enough money!\n";
                     }
                 break;
                 case 6: //Sheep
@@ -453,26 +453,26 @@ void Farm::plantProduce(int produceIteration){
                         setTopRow(i, " Sheep ");    //top row
 
                         if(u.getSellingPrice() < 100){  //middle row
-                            setMiddleRow(i, "  $" + to_string(u.getSellingPrice()) + "  ");
+                            setMiddleRow(i, "  $" + std::to_string(u.getSellingPrice()) + "  ");
                         }
                         else{
-                            setMiddleRow(i, " $" + to_string(u.getSellingPrice()) + "  ");
+                            setMiddleRow(i, " $" + std::to_string(u.getSellingPrice()) + "  ");
                         }
 
                         if(u.getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
-                            setBottomRow(i, "  $" + to_string(u.getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
+                            setBottomRow(i, "  $" + std::to_string(u.getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
                         }
                         else{
-                            setBottomRow(i, " $" + to_string(u.getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
+                            setBottomRow(i, " $" + std::to_string(u.getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
                         }
                     }
                     else {
-                        cout << "Not enough money!\n";
+                        std::cout << "Not enough money!\n";
                     }
                 break;
 
                 default:
-                    cout << "Invalid selection!\n"; //<check that this works>
+                    std::cout << "Invalid selection!\n"; //<check that this works>
                 break;
             }
         }

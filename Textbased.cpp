@@ -29,7 +29,7 @@ void Textbased::displayMenu() {
             std::cout << "Afternoon";
         break;
         default:
-            std::cout << "this text should not appear.";
+            std::cout << "This text should not appear.";
         break;
     }
 
@@ -46,27 +46,27 @@ void Textbased::displayMenu() {
 
 // Function to display the Farmland array
 void Textbased::displayFarmland() {
-    cout << " _______________________________________________________________________________\n";
+    std::cout << " _______________________________________________________________________________\n";
 
     //top row
     for (int i = 0; i < 10; i++) {
-        cout << "|" << farm.getTopRow(i);
+        std::cout << "|" << farm.getTopRow(i);
     }
-    cout << "|\n";
+    std::cout << "|\n";
 
     //middle row
     for (int i = 0; i < 10; i++) {
-        cout << "|" << farm.getMiddleRow(i);
+        std::cout << "|" << farm.getMiddleRow(i);
     }
-    cout << "|\n";
+    std::cout << "|\n";
 
     //bottom row
     for (int i = 0; i < 10; i++) {
-        cout << "|" << farm.getBottomRow(i);
+        std::cout << "|" << farm.getBottomRow(i);
     }
-    cout << "|\n";
+    std::cout << "|\n";
 
-    cout << " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\n";
+    std::cout << " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\n";
 
     return;
 }
@@ -98,34 +98,34 @@ void Textbased::shopProduce(){  //<can we make this easier?>
     Produce* ptr1 = &a;
     int choice;
 
-    cout << "       Wheat   Carrots Potato  Chicken Cows    Sheep \n";
-    cout << "cost   " << ptr1->getBuyingPrice() << "      ";    //Wheat
+    std::cout << "       Wheat   Carrots Potato  Chicken Cows    Sheep \n";
+    std::cout << "cost   " << ptr1->getBuyingPrice() << "      ";    //Wheat
 
     Carrots b;
     ptr1 = &a;
-    cout << ptr1->getBuyingPrice() << "      "; //Carrots
+    std::cout << ptr1->getBuyingPrice() << "      "; //Carrots
 
     Potatoes c;
     ptr1 = &c;
-    cout << ptr1->getBuyingPrice() << "      "; //Potatoes
+    std::cout << ptr1->getBuyingPrice() << "      "; //Potatoes
 
     Chickens d;
     ptr1 = &d;
-    cout << ptr1->getBuyingPrice() << "     "; //Chickens
+    std::cout << ptr1->getBuyingPrice() << "     "; //Chickens
 
     Cows e;
     ptr1 = &e;
-    cout << ptr1->getBuyingPrice() << "     "; //Cows
+    std::cout << ptr1->getBuyingPrice() << "     "; //Cows
 
     Sheep f;
     ptr1 = &f;
-    cout << ptr1->getBuyingPrice() << "\n"; //Sheep
+    std::cout << ptr1->getBuyingPrice() << "\n"; //Sheep
 
     //<add stuff about cost efficiency>
 
-    cout << "What is your choice? (1-6): ";
-    cin >> choice;
-    cout << "\n";
+    std::cout << "What is your choice? (1-6): ";
+    std::cin >> choice;
+    std::cout << "\n";
 
     farm.plantProduce(choice);
 
@@ -138,13 +138,13 @@ void Textbased::shopUpgrades(){
    int choice;
    
     //displaying options
-    cout << "       Soil Upgrade    Food Upgrade    More Farmland\n";
-    cout << "cost   $1500           $1500           $1000\n";   //<choose the prices>
-    cout << "info   crops grow      more $/day\n";
-    cout << "       faster\n";
-    cout << "What is your choice? (1-3): ";
-    cin >> choice;
-    cout << "\n";
+    std::cout << "       Soil Upgrade    Food Upgrade    More Farmland\n";
+    std::cout << "cost   $1500           $1500           $1000\n";   //<choose the prices>
+    std::cout << "info   crops grow      more $/day\n";
+    std::cout << "       faster\n";
+    std::cout << "What is your choice? (1-3): ";
+    std::cin >> choice;
+    std::cout << "\n";
 
     //determining based on answer
     switch(choice){
@@ -156,7 +156,7 @@ void Textbased::shopUpgrades(){
                 farm.moveTime();
             }
             else {
-                cout << "Not enough money!\n\n";    //<check that this is the right amount of \ns>
+                std::cout << "Not enough money!\n\n";    //<check that this is the right amount of \ns>
             }
         break;
         case 2:
@@ -167,7 +167,7 @@ void Textbased::shopUpgrades(){
                 farm.moveTime();
             }
             else {
-                cout << "Not enough money!\n\n";    //<check that this is the right amount of \ns>
+                std::cout << "Not enough money!\n\n";    //<check that this is the right amount of \ns>
             }
         break;
         case 3:
@@ -179,11 +179,11 @@ void Textbased::shopUpgrades(){
                 farm.moveTime();
             }
             else {
-                cout << "Not enough money!\n\n";    //<check that this is the right amount of \ns>
+                std::cout << "Not enough money!\n\n";    //<check that this is the right amount of \ns>
             }
         break;
         default:   
-            cout << "Invalid input.\n\n";
+            std::cout << "Invalid input.\n\n";
         break;
     }
 
@@ -210,13 +210,13 @@ void Textbased::executeAction(int choice){
 
             std::cout << "\nYou chose to Sell/Harvest Animals/Crops.\n";
             std::cout << "Which farmland will you harvest/sell? (1-" << farm.getCurrentLand() << "): ";
-            cin >> index;
+            std::cin >> index;
 
             if (index > 0 && index <= farm.getCurrentLand()){
                 farm.harvestProduce(index);
             }
             else {
-                cout << "Invalid choice!\n\n";
+                std::cout << "Invalid choice!\n\n";
             }
 
             break;

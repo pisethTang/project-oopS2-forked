@@ -12,7 +12,7 @@ class Animals : public Produce{
     public:
     //constructors
     Animals();
-    Animals(string newName, int newCost, int newSellPrice, int newBuyPrice, int newValue);
+    Animals(std::string newName, int newCost, int newSellPrice, int newBuyPrice, int newValue);
 
     //functions
     std::string getName() override; //<do NOT remove this>
