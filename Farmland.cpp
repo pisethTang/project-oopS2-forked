@@ -36,3 +36,7 @@ void Farmland::setProduce(Produce* newPlanted){
 }
 
 //functions
+
+Farmland::~Farmland(){
+    delete[] planted;
+}

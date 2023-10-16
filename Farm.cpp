@@ -1,6 +1,4 @@
 #include "Farm.h"
-#include "Farmland.h"
-#include "Produce.h"
 #include "Wheat.h"
 #include "Carrots.h"
 #include "Potatoes.h"
@@ -8,11 +6,6 @@
 #include "Cows.h"
 #include "Sheep.h"  //<perhaps some of these can go?>
 #include <iostream>
-
-// enum ProduceType{   //<do we need to do this differently?>
-//     animal,
-//     crop
-// };
 
 //constructors
 Farm::Farm(){
@@ -97,41 +90,27 @@ void Farm::setTimeOfDay(int newTime){   //<can someone please check through the 
         case 0:
             time_of_day = 0;
             changeDay();
-            //cout << "Time changed to morning.\n"; //<remove these probably>
             break;
         case 1:
             if (getTimeOfDay() >= 1) {
                 changeDay();
             }
             time_of_day = 1;
-            //cout << "Time changed to midday->\n";
             break;
         case 2:
             if (getTimeOfDay() >= 2){
                 changeDay();
             }
             time_of_day = 2;
-            //cout << "Time changed to Afternoon.\n";
             break;
         case 3:
             time_of_day = 3;
-            //cout << "Time changed to evening. Have a good sleep!\n";
             changeDay();
             break;
         default:
             cout << "Time invalid! This shouldn't be seen!\n";
             break;
     }
-
-    // if (newTime >= 0 && newTime < 3){
-    //     time_of_day = newTime;
-    // }
-    // else if (newTime == 3){
-    //     changeDay();
-    // }
-    // else {
-    //     cout << "Time invalid!\n";
-    // }
     
     return;
 }
@@ -200,14 +179,12 @@ void Farm::changeDay(){
 
             Produce* ptr = lands[i].getPlanted();
 
+            //checking and changing the animals
             if (lands[i].getPlanted()->getName() == "animal"){
-                std::cout << "animal win\n";    //<>
 
                 Animals* animal = dynamic_cast<Animals*>(ptr);
 
                 if (animal != nullptr){
-                    std::cout << "not a nullptr!\n";
-
                     setMoney(getMoney() + animal->getValuePerDay(getHasGoodFood(), getDayNum()));
 
                     //changing the visuals
@@ -221,18 +198,13 @@ void Farm::changeDay(){
                         setBottomRow(i," $" + to_string(animal->getValuePerDay(getHasGoodFood(), getDayNum())) + " ");
                     }
                 }
-                else {
-                    std::cout << "nullptr :(\n";
-                }
             }
-            if (lands[i].getPlanted()->getName() == "crop"){
-                std::cout << "crop win\n";
 
-                Wheat* crop = dynamic_cast<Wheat*>(ptr);
+            //checking and changing the crops
+            if (lands[i].getPlanted()->getName() == "crop"){
+                Crops* crop = dynamic_cast<Crops*>(ptr);
 
                 if (crop != nullptr){
-                    std::cout << "Not a nullptr!\n";
-
                     //setting growth stage
                     crop->setGrowthStage(crop->getGrowthStage() + crop->getGrowthSpeed(getHasGoodSoil(), getDayNum()));
                     if (crop->getGrowthStage() >= 10){
@@ -252,7 +224,7 @@ void Farm::changeDay(){
                         setBottomRow(i, "   0%  ");
                     }
                     else if (crop->getGrowthStage() < 10){
-                        setBottomRow(i, "   " + to_string(crop->getGrowthStage()) + "%  ");
+                        setBottomRow(i, "  " + to_string(crop->getGrowthStage()) + "0%  ");
                     }
                     else {
                         setBottomRow(i, " 100%  ");
@@ -260,7 +232,7 @@ void Farm::changeDay(){
 
                 }
                 else {
-                    std::cout << "A nullptr :(\n";
+                    cout << "crop nullptr\n";
                 }
             }
         }
@@ -305,11 +277,8 @@ void Farm::plantProduce(int produceIteration){
                         //make land used
                         lands[i].setEmptyOrUsed(1);
 
-                        cout << "1\n";
-
                         //make Produce a Wheat
-                        lands[i].setProduce(z);    //<is this right?>
-                        cout << "2 lands[i].getPlanted()=" << lands[i].getPlanted()->getName() << "\n";
+                        lands[i].setProduce(z);
 
                         //change visual arrays
                         setTopRow(i, " Wheat ");    //top row
@@ -320,7 +289,6 @@ void Farm::plantProduce(int produceIteration){
                         else{
                             setMiddleRow(i, " $" + to_string(z->getSellingPrice()) + "  ");
                         }
-                        cout << "3\n";
 
                         if(z->getGrowthStage() < 10){
                             setBottomRow(i, "  " + to_string(z->getGrowthStage()) + "%   ");
@@ -331,9 +299,6 @@ void Farm::plantProduce(int produceIteration){
                         else{
                             setBottomRow(i, " 100%  ");
                         }
-                        cout << "4\n";
-
-
                     }
                     else {
                         cout << "Not enough money!\n";
@@ -350,7 +315,7 @@ void Farm::plantProduce(int produceIteration){
                         lands[i].setEmptyOrUsed(1);
 
                         //make Produce a Carrots
-                        lands[i].setProduce(y);    //<is this right?>
+                        lands[i].setProduce(y);
 
                         //change visual arrays
                         setTopRow(i, "Carrots");    //top row
@@ -388,7 +353,7 @@ void Farm::plantProduce(int produceIteration){
                         lands[i].setEmptyOrUsed(1);
 
                         //make Produce a Potatoes
-                        lands[i].setProduce(x);    //<is this right?>
+                        lands[i].setProduce(x);
 
                         //change visual arrays
                         setTopRow(i, "Potato ");    //top row
@@ -426,7 +391,7 @@ void Farm::plantProduce(int produceIteration){
                         lands[i].setEmptyOrUsed(1);
 
                         //make Produce a Chickens
-                        lands[i].setProduce(w);    //<is this right?>
+                        lands[i].setProduce(w);
 
                         //change visual arrays
                         setTopRow(i, "Chicken");    //top row
@@ -461,7 +426,7 @@ void Farm::plantProduce(int produceIteration){
                         lands[i].setEmptyOrUsed(1);
 
                         //make Produce a Cows
-                        lands[i].setProduce(v);    //<is this right?>
+                        lands[i].setProduce(v);
 
                         //change visual arrays
                         setTopRow(i, " Cows  ");    //top row
@@ -495,7 +460,7 @@ void Farm::plantProduce(int produceIteration){
                         lands[i].setEmptyOrUsed(1);
 
                         //make Produce a Sheep
-                        lands[i].setProduce(u);    //<is this right?>
+                        lands[i].setProduce(u);
 
                         //change visual arrays
                         setTopRow(i, " Sheep ");    //top row
@@ -526,6 +491,7 @@ void Farm::plantProduce(int produceIteration){
 
                     break;
             }
+
         }
 
         i++;    //iterating i;
