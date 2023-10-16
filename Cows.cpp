@@ -11,12 +11,12 @@ Cows::Cows(){
 }
 
 //functions
-int Cows::getValuePerDay(bool goodFood, int dayNum){
+int Cows::getValuePerDay(bool good_food, int day_num){
     //the case for standard food
 
-    if (goodFood == 0){
+    if (good_food == 0){
         //the cows only give milk every 7 days, and before the food is upgraded they aren't worth it
-        if ((dayNum % 7) == 0){
+        if ((day_num % 7) == 0){
             return 150;
         }
         else {
@@ -26,7 +26,7 @@ int Cows::getValuePerDay(bool goodFood, int dayNum){
 
     //the case for good food
     else {
-        if ((dayNum % 7) == 0){
+        if ((day_num % 7) == 0){
             return 300;
         }
         else {

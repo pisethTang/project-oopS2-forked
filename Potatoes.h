@@ -13,7 +13,7 @@ class Potatoes : public Crops{
     Potatoes();
 
     //functions
-    int getGrowthSpeed(bool goodSoil, int dayNum) override;
+    int getGrowthSpeed(bool good_soil, int day_num) override;
     // void setSellingPrice();
     int getGarbage() override;
 

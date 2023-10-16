@@ -31,8 +31,8 @@ void Farmland::setUnlocked(bool b){
     unlocked = b;
 }
 
-void Farmland::setProduce(Produce* newPlanted){
-    planted = newPlanted;
+void Farmland::setProduce(Produce* new_planted){
+    planted = new_planted;
 }
 
 //functions

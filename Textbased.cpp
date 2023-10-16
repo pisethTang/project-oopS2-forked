@@ -202,11 +202,16 @@ void Textbased::shopUpgrades(){
     //determining based on answer
     switch(choice){
         case 1:
-            if (farm.getMoney() >= 500){
+            if (farm.getMoney() >= 500 && farm.getHasGoodSoil() == 0){
                 farm.setMoney(farm.getMoney() - 500);
                 farm.setGoodSoil(1);
 
+                cout << "Soil upgrade bought!\n\n";
+
                 farm.moveTime();
+            }
+            else if (farm.getHasGoodSoil() == 1){
+                cout << "You already have this upgrade!\n\n";
             }
             else {
                 cout << "Not enough money!\n\n";    //<check that this is the right amount of \ns>
@@ -215,11 +220,16 @@ void Textbased::shopUpgrades(){
             break;
 
         case 2:
-            if (farm.getMoney() >= 500){
+            if (farm.getMoney() >= 500 && farm.getHasGoodFood() == 0){
                 farm.setMoney(farm.getMoney() - 500);
                 farm.setGoodFood(1);
 
+                cout << "Food upgrade bought!\n\n";
+
                 farm.moveTime();
+            }
+            else if (farm.getHasGoodFood() == 1){
+                cout << "You already have this upgrade!\n\n";
             }
             else {
                 cout << "Not enough money!\n\n";    //<check that this is the right amount of \ns>
@@ -228,12 +238,15 @@ void Textbased::shopUpgrades(){
             break;
 
         case 3:
-            if (farm.getMoney() >= 500){
+            if (farm.getMoney() >= 500 && farm.getCurrentLand() < farm.getMaxLand()){
                 farm.setMoney(farm.getMoney() - 500);
                 farm.setMiddleRow(farm.getCurrentLand(), "       ");
                 farm.setCurrentLand(farm.getCurrentLand() + 1);
 
                 farm.moveTime();
+            }
+            else if (farm.getCurrentLand() == farm.getMaxLand()){
+                cout << "No more land to buy!\n\n";
             }
             else {
                 cout << "Not enough money!\n\n";    //<check that this is the right amount of \ns>
@@ -295,6 +308,7 @@ void Textbased::executeAction(int choice){
         case 4:
             //changing time
             std::cout << "\nTo next day!\n\n";
+            farm.setTimeOfDay(0);
             farm.changeDay();
             break;
 
@@ -350,10 +364,13 @@ void Textbased::startGame() {
 
         if(netMoney <= 0){
             std::cout << "You ran out of money. You lose!\n";
+            exit(0);
         }
 
         if(netMoney >= 10000){
+            displayFarmland();
             std::cout << "You won! Congratulations!\n";
+            exit(0);
         }
     }
 
@@ -364,4 +381,4 @@ void Textbased::startGame() {
 //go through all <>
 //check that all functions are used
 //selling things causes massive problems
-//check weird time jump ot day 4 bug
+//redo the variables
