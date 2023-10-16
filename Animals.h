@@ -16,7 +16,6 @@ class Animals : public Produce{
 
     //functions
     int getGarbage() override;
-    //std::string getName(); //<do NOT remove this>
     virtual int getValuePerDay(bool good_soil, int day_num) = 0;
 
     //destructor

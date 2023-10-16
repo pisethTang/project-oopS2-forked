@@ -14,11 +14,7 @@ Wheat::Wheat(){
 }
 
 //functions
-int Wheat::getGrowthSpeed(bool good_soil, int day_num){ //<Can only be used in something above Farm?
-                                    //or we store hasGoodSoil in something else? land maybe?
-                                    //we could put this function into land and have it be 
-                                    //an if statement, but that would remove the virtual function
-                                    //which we need>
+int Wheat::getGrowthSpeed(bool good_soil, int day_num){
     //the case for standard soil
     if (good_soil == 0) {
 
@@ -42,10 +38,6 @@ int Wheat::getGrowthSpeed(bool good_soil, int day_num){ //<Can only be used in s
         }
     }
 }
-
-// void Wheat::setSellingPrice(){
-//     selling_price = getFutureSellPrice();   //<we need to test that this is working as it should>
-// }
 
 int Wheat::getGarbage(){
     return 15;

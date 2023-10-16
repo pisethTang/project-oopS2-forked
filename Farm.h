@@ -15,7 +15,6 @@ class Farm{
     std::string top_row[10]; //for user interface
     std::string middle_row[10];
     std::string bottom_row[10];
-
     bool has_good_soil;
     bool has_good_food; //these variables make produce grow faster
 

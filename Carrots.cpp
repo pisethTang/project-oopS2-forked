@@ -39,10 +39,6 @@ int Carrots::getGrowthSpeed(bool good_soil, int day_num){
     }
 }
 
-// void Carrots::setSellingPrice(){
-//     selling_price = getFutureSellPrice();
-// }
-
 int Carrots::getGarbage(){
     return 2;
 }

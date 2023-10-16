@@ -27,10 +27,6 @@ int Potatoes::getGrowthSpeed(bool good_soil, int day_num){
     }
 }
 
-// void Potatoes::setSellingPrice(){
-//     selling_price = getFutureSellPrice();
-// }
-
 int Potatoes::getGarbage(){
     return 6;
 }

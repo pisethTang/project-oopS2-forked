@@ -30,7 +30,7 @@ int Crops::getFutureSellPrice(){
 }
 
 void Crops::setGrowthStage(int new_growth_stage){
-    if ((getGrowthStage() + new_growth_stage) <= 10){      //growth_stage cannot be greater than 10 (chosen arbitrarily)
+    if ((getGrowthStage() + new_growth_stage) <= 10){      //growth_stage cannot be greater than 10
         growth_stage = getGrowthStage() + new_growth_stage;
     }
     else {

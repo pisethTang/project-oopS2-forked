@@ -75,7 +75,7 @@ void Textbased::displayFarmland() {
 }
 
 void Textbased::displayExplanation(){
-    std::cout << "\nYou own a farm and begin with $1000. The goal is to get to $10000, and you\n";  //<change this if money changes>
+    std::cout << "\nYou own a farm and begin with $1000. The goal is to get to $10000, and you\n";
     std::cout << "lose if you run out of money.\n";
     std::cout << "The table represents your farmland. You start with 2 and can have a maximum of 10.\n";
     std::cout << "Once you have planted things, they will appear on the table. The top row\n";
@@ -119,7 +119,7 @@ int Textbased::getUserChoice() {
 // Updated
 
 // Function to shop for produce
-void Textbased::shopProduce(){  //<can we make this easier?>
+void Textbased::shopProduce(){
     Wheat* a = new Wheat;
     Produce* ptr1 = a;
     int choice;
@@ -152,8 +152,6 @@ void Textbased::shopProduce(){  //<can we make this easier?>
 
     std::cout << "daily      15      10      20      10      25      35\n";
     std::cout << "upkeep cost\n";
-
-    //<add stuff about cost efficiency>
 
     while(true){
     try{
@@ -192,7 +190,7 @@ void Textbased::shopUpgrades(){
     //displaying options
     cout << "num    1               2               3               4\n";
     cout << "       Soil Upgrade    Food Upgrade    More Farmland   Back to main\n";
-    cout << "cost   $500            $500            $500            menu\n";   //<choose the prices>
+    cout << "cost   $500            $500            $500            menu\n";
     cout << "info   crops grow      more $/day\n";
     cout << "       faster\n";
     cout << "What is your choice? (1-4): ";
@@ -214,7 +212,7 @@ void Textbased::shopUpgrades(){
                 cout << "You already have this upgrade!\n\n";
             }
             else {
-                cout << "Not enough money!\n\n";    //<check that this is the right amount of \ns>
+                cout << "Not enough money!\n\n";
             }
 
             break;
@@ -232,7 +230,7 @@ void Textbased::shopUpgrades(){
                 cout << "You already have this upgrade!\n\n";
             }
             else {
-                cout << "Not enough money!\n\n";    //<check that this is the right amount of \ns>
+                cout << "Not enough money!\n\n";
             }
 
             break;
@@ -249,7 +247,7 @@ void Textbased::shopUpgrades(){
                 cout << "No more land to buy!\n\n";
             }
             else {
-                cout << "Not enough money!\n\n";    //<check that this is the right amount of \ns>
+                cout << "Not enough money!\n\n";
             }
 
             break;
@@ -292,8 +290,11 @@ void Textbased::executeAction(int choice){
             std::cout << "(1-" << farm.getCurrentLand() + 1 << "): ";
             cin >> index;
 
-            if (index > 0 && index <= farm.getCurrentLand()){
+            if (index > 0 && index <= farm.getCurrentLand() && farm.getLands()[index].getEmptyOrUsed() == 1){
                 farm.harvestProduce(index-1);
+            }
+            else if (index > 0 && index <= farm.getCurrentLand() && farm.getLands()[index].getEmptyOrUsed() == 0){
+                cout << "Nothing in this plot of land!\n\n";
             }
             else if(index == farm.getCurrentLand() + 1){
                 //empty so that no invalid choice notif appears
@@ -378,7 +379,4 @@ void Textbased::startGame() {
 }
 
 //list:
-//go through all <>
-//check that all functions are used
-//selling things causes massive problems
-//redo the variables
+//changelog

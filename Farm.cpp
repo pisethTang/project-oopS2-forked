@@ -4,7 +4,7 @@
 #include "Potatoes.h"
 #include "Chickens.h"
 #include "Cows.h"
-#include "Sheep.h"  //<perhaps some of these can go?>
+#include "Sheep.h"
 #include <iostream>
 
 //constructors
@@ -147,7 +147,6 @@ void Farm::changeDay(){
     for(int i = 0; i < current_land; i++){
         if (lands[i].getEmptyOrUsed() == 1){
             setMoney(getMoney() - lands[i].getPlanted()->getCostPerDay());
-            //<bug here where it can cycle through and get 6x the cost per day if things were sold>
 
             Produce* ptr = lands[i].getPlanted();
 
@@ -215,7 +214,7 @@ void Farm::changeDay(){
 
 }
 
-void Farm::moveTime(){  //<put this function in all the other functions>
+void Farm::moveTime(){
     setTimeOfDay(getTimeOfDay() + 1);
 
     if (getTimeOfDay() >= 3){
@@ -241,8 +240,6 @@ void Farm::plantProduce(int produce_iteration){
             Chickens* w = new Chickens();
             Cows* v = new Cows();
             Sheep* u = new Sheep();
-
-            //<do we need to dynamically allocate these?>
 
             switch (produce_iteration) {
                 case 1: //Wheat
@@ -477,7 +474,7 @@ void Farm::plantProduce(int produce_iteration){
                     break;
 
                 default:
-                    cout << "Invalid selection! This text shouldn't be seen!\n"; //<check that this works>
+                    cout << "Invalid selection! This text shouldn't be seen!\n";
                     planting = 0;   //planting didn't occur
 
                     break;
@@ -501,7 +498,7 @@ void Farm::plantProduce(int produce_iteration){
     return;
 }
 
-void Farm::harvestProduce(int index){   //<working now>
+void Farm::harvestProduce(int index){
 if (lands[index].getEmptyOrUsed() == 1) {
         Produce* produce = lands[index].getPlanted();
 

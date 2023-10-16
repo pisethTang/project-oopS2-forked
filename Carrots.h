@@ -14,9 +14,7 @@ class Carrots : public Crops {
 
     //functions
     int getGrowthSpeed(bool good_soil, int day_num) override;
-    // std::string getName(); //<perhaps remove>
     int getGarbage() override;
-    // void setSellingPrice();
 
 };
 
