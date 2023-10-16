@@ -368,7 +368,7 @@ void Textbased::startGame() {
             exit(0);
         }
 
-        if(netMoney >= 10000){
+        if(farm.getMoney() >= 10000){
             displayFarmland();
             std::cout << "You won! Congratulations!\n";
             exit(0);
