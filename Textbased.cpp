@@ -377,6 +377,3 @@ void Textbased::startGame() {
 
     return;
 }
-
-//list:
-//changelog
