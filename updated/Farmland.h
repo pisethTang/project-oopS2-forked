@@ -26,7 +26,7 @@ class Farmland{
     bool getUnlocked();
     Produce* getPlanted();
     void setUnlocked(bool b);
-    void setProduce(Produce* new_planted);
+    void setProduce(Produce* newPlanted);
 
     //destructor
 

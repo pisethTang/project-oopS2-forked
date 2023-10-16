@@ -1,0 +1,266 @@
+[33mcommit b821a822b48803ea3a427c31638e56a34935521c[m[33m ([m[1;36mHEAD -> [m[1;32mmaddybranch[m[33m)[m
+Merge: 42110e3 decd476
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Fri Oct 6 03:52:55 2023 +1030
+
+    Merge remote-tracking branch 'origin/project' into maddybranch
+
+[33mcommit decd4761a59a607b7ed0f1e382d4ae7c319afed7[m[33m ([m[1;31morigin/project[m[33m)[m
+Merge: 94c4e7d 774ffce
+Author: Tang Piseth <tangpiseth43@gmail.com>
+Date:   Tue Oct 10 12:22:40 2023 +1030
+
+    Seth: w
+
+[33mcommit 774ffce38d11a2a036359f946e6b7878a4147602[m
+Merge: 667de5d cba6386
+Author: 1850837 <140363535+1850837@users.noreply.github.com>
+Date:   Tue Oct 10 12:10:57 2023 +1030
+
+    Merge pull request #2 from 1850837/maddybranch
+    
+    stuff
+
+[33mcommit 94c4e7dc8ce8a4a821af7b28a979170bbf3a4674[m
+Author: Tang Piseth <tangpiseth43@gmail.com>
+Date:   Tue Oct 10 12:03:38 2023 +1030
+
+    Seth: 1st push
+
+[33mcommit 42110e34042b043d4fee739bd9ce44a090bf9d8b[m[33m ([m[1;31morigin/maddybranch[m[33m)[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Fri Oct 6 03:52:13 2023 +1030
+
+    putting visuals into changeday
+
+[33mcommit cba6386d9d701bde7811440f31767c8fc0135dae[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Fri Oct 6 03:36:13 2023 +1030
+
+    stuff
+
+[33mcommit 667de5ddfefe9366701def04ffbae54bfd86fa4e[m[33m ([m[1;31morigin/sophiabranch[m[33m, [m[1;31morigin/sethbranch[m[33m, [m[1;32msophiabranch[m[33m, [m[1;32msethbranch[m[33m, [m[1;32mproject[m[33m)[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Fri Oct 6 03:31:23 2023 +1030
+
+    even more visuals and testing things
+
+[33mcommit 53f4f32bbc6c7f627a7e00c1a688f42bed7d1d93[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Fri Oct 6 03:07:27 2023 +1030
+
+    More visuals stuff
+
+[33mcommit 8e9bf2abcb0179f208039f6c254e63f5a6a0c7a8[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Fri Oct 6 01:33:27 2023 +1030
+
+    stuff
+
+[33mcommit caa4335734566a1697710e94fb48351f809680f8[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Thu Oct 5 23:03:09 2023 +1030
+
+    Seth adding stuff to the test header files
+
+[33mcommit c6d3d49bf8dc90a1ce5ffe71b4be3f293543ce68[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Thu Oct 5 16:16:15 2023 +1030
+
+    added a visualisation idea
+
+[33mcommit 36bc192c68a225e157e2321eece6f07814ee80de[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Thu Oct 5 14:18:03 2023 +1030
+
+    Changes to the unit testing functions
+
+[33mcommit 4d091acc5fba579c8f506a62ad4694e241cb466f[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Thu Oct 5 14:16:36 2023 +1030
+
+    Changes to the unit testing functions
+
+[33mcommit e32fe5578a3c137d7f371c6d458f0b159b3f951f[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Thu Oct 5 09:07:20 2023 +1030
+
+    Some additions to some functions, all working
+
+[33mcommit df8380647c6df767223fb74909b441160eadd8df[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Thu Oct 5 08:04:43 2023 +1030
+
+    WORKINGgit add .
+
+[33mcommit 3004c3770d3fc416237dc89cf872e65c8406220b[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Thu Oct 5 07:29:50 2023 +1030
+
+    More test files
+
+[33mcommit c7d8ce7e9409598291783bef8c94872096ca41de[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Thu Oct 5 02:15:37 2023 +1030
+
+    fucked a bunch of stuff up and did my best to comment it out rip
+
+[33mcommit 1c5c8ce23dc877b62c9e927c213fd8af56a52fe1[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Wed Oct 4 23:58:57 2023 +1030
+
+    Swapped around some functions and attempted to reorganise Farmland vs Farm
+
+[33mcommit 467fe77266fcdfeb52a3a3829b919dceb6275f75[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Wed Oct 4 22:02:58 2023 +1030
+
+    Some added things
+
+[33mcommit b9d39986eea0c30900f2947cf1f1be6db85e5926[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Wed Oct 4 14:46:22 2023 +1030
+
+    more restructuring
+
+[33mcommit d254a4fd7a39e221991430a3a2f7168608091631[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Wed Oct 4 14:35:58 2023 +1030
+
+    Beginning restructure
+
+[33mcommit f6dff4a74e08150260e8f98a7509dab9503e561a[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Tue Oct 3 14:02:04 2023 +1030
+
+    more comments rip
+
+[33mcommit 0ad7ac7fc74493730b6586a68bebb385946827c4[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Tue Oct 3 13:03:58 2023 +1030
+
+    aaalmost perfected changeDay()
+
+[33mcommit 2dae2edb9950a7d48141e34c87729803153cd21b[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Tue Oct 3 12:29:07 2023 +1030
+
+    removed farm name and added Textbased
+
+[33mcommit d4d815465963360f9755ffa9125ce5ebc4859bd5[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Tue Oct 3 11:06:04 2023 +1030
+
+    edited
+
+[33mcommit 9ad688b6d222f2cfb06b1eaee2d4b732f1732dd0[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Tue Oct 3 11:04:52 2023 +1030
+
+    stored document things
+
+[33mcommit 1e0e93314ff0fed0cf624d71c95e2870cc573a26[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Tue Oct 3 10:35:51 2023 +1030
+
+    commented out a few things
+
+[33mcommit 0306e95ca5896a1221b91ca664c2667bfc5816f2[m
+Merge: 59959ac 2aac0fa
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Tue Oct 3 10:30:14 2023 +1030
+
+    merge conflict resolved
+
+[33mcommit 59959ac2208660911cd8d519654c862cac6c57d6[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Tue Oct 3 10:26:40 2023 +1030
+
+    try
+
+[33mcommit 23fe92b7caa5dbafdcde506485bbe836ded9282a[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Tue Oct 3 10:20:21 2023 +1030
+
+    testing git push
+
+[33mcommit de9cfa779af224a82345935487bc8e6c3c4642c3[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Sun Oct 1 13:50:46 2023 +1030
+
+    Some small adjustments
+
+[33mcommit 2aac0fa9a043c7c90e8774e3b6ee7f31d47484f7[m
+Merge: 649e85f 2a28fac
+Author: 1850837 <140363535+1850837@users.noreply.github.com>
+Date:   Sun Oct 1 13:46:52 2023 +1030
+
+    Merge pull request #1 from pisethTang/project
+    
+    main-1-1.cpp 's been changed
+
+[33mcommit 2a28fac183b22781cd5030d5e62fcf330c6cff86[m
+Author: Tang Piseth <tangpiseth43@gmail.com>
+Date:   Sun Oct 1 10:15:18 2023 +0700
+
+    main-1-1.cpp 's been changed
+
+[33mcommit 649e85fcd8a628679cf078ba0bb3e58678cc0561[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Thu Sep 28 19:58:55 2023 +0930
+
+    Mucked around and made things work less well
+
+[33mcommit 76ebbb50056aeb7eb1bf04acd9d960679504bdb4[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Thu Sep 28 17:32:40 2023 +0930
+
+    Added a bunch in Land.cpp and some functions in Farm.h that aren't in the diagram
+
+[33mcommit 0a5678d3c411e7ae59b6dc1e883ac9fe06565614[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Tue Sep 26 16:35:08 2023 +0930
+
+    Considered the land functions
+
+[33mcommit e12e0ad99faea18bb6dce297294c5d360d8d8c39[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Tue Sep 26 16:13:18 2023 +0930
+
+    Completed the level 3 inherited classes
+
+[33mcommit fbd13fb82539bd1a31a206e7667722760dbbe430[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Tue Sep 26 14:46:55 2023 +0930
+
+    Edited a little bit
+
+[33mcommit 7548806820a4eb1033ca21b7b43e83d73fd1dffa[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Tue Sep 26 13:34:37 2023 +0930
+
+    Added subclasses
+
+[33mcommit dc7a05b9dad35c2413b82f9ac960aeefe1cd6494[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Tue Sep 26 13:00:50 2023 +0930
+
+    Added comments and a few get-functions
+
+[33mcommit 43a3e7d5297c465a2bdf6b94914695d9f2966f85[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Mon Sep 25 14:52:33 2023 +0930
+
+    Made header files for all except the specific produce
+
+[33mcommit e21be817449cc2592562573cfee4b536df21a38b[m
+Author: 1850837 <sevensixthree763@gmail.com>
+Date:   Wed Sep 13 14:58:23 2023 +0930
+
+    A start!
+
+[33mcommit 5929b0564a19088f3fbb17d355c0e0f5035989ca[m[33m ([m[1;31morigin/testing[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mtesting[m[33m, [m[1;32mmain[m[33m)[m
+Author: 1850837 <140363535+1850837@users.noreply.github.com>
+Date:   Mon Jul 24 12:18:44 2023 +0930
+
+    Create README.md

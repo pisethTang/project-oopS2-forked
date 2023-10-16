@@ -22,15 +22,17 @@ bool Farmland::getUnlocked(){
 }
 
 Produce* Farmland::getPlanted(){    //<this is edited from return planted, let's see if this works>    
-    return planted;
+    Produce* a = planted;
+    
+    return a;
 }
 
 void Farmland::setUnlocked(bool b){
     unlocked = b;
 }
 
-void Farmland::setProduce(Produce* new_planted){
-    planted = new_planted;
+void Farmland::setProduce(Produce* newPlanted){
+    planted = newPlanted;
 }
 
 //functions

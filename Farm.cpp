@@ -190,12 +190,10 @@ void Farm::changeDay(){
 
             //animals
             if (lands[i].getPlanted()->getName() == "animal"){
-                std::cout << "animal win\n";
 
                 Animals* animal = dynamic_cast<Animals*>(ptr);
                 if (animal != nullptr){
                     setMoney(getMoney() + animal->getValuePerDay(getHasGoodFood(), getDayNum()));
-                    cout << "animal NOT NULLPTR\n";
 
                     //changing the visual array
                     if(animal->getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
@@ -219,52 +217,33 @@ void Farm::changeDay(){
 
                 if (crop != nullptr){
                     std::cout << "Not a nullptr!\n";
+                    //setting growth stage
                     crop->setGrowthStage(crop->getGrowthStage() + crop->getGrowthSpeed(getHasGoodSoil(), getDayNum()));
+                    //setting selling price if fully grown
+                    if (crop->getGrowthStage() == 10){
+                        crop->setSellingPrice(crop->getFutureSellPrice());
+                    }
+                    //putting the changes into the array itself
                     lands[i].setProduce(crop);
 
                     //changing the visual array
-                    if(crop->getGrowthStage() < 100){    //bottom row
-                        setBottomRow(i, "  $" + to_string(crop->getGrowthStage()) + "  ");
+                    if (crop->getGrowthStage() == 0){
+                        setBottomRow(i, "   0%  ");
                     }
-                    else if (crop->getGrowthStage() < 10){
-                        setBottomRow(i, "  $" + to_string(crop->getGrowthStage()) + "  ");
+                    else if (crop->getGrowthStage() < 10){   //bottom row
+                        setBottomRow(i, "  " + to_string(crop->getGrowthStage()) + "0%  ");
                     }
                     else {
-                        setBottomRow(i, " $" + to_string(crop->getGrowthStage()) + " ");
+                        setBottomRow(i, " 100%  ");
+                    }
+
+                    //middle row
+                    if (crop->getGrowthStage() == 10){
+                        setMiddleRow(i, " $" + to_string(crop->getFutureSellPrice()) + "  ");
                     }
                 }
                 else {
                     std::cout << "A nullptr :(\n";
-                }
-            }
-        }
-    }
-
-    //iterating through land vector, checking each type and growing crops
-    for (int i = 0; i < max_land; i++){
-        if (lands[i].getEmptyOrUsed() == 1){
-            
-            //Produce& b = lands[i].getPlanted();
-            Produce* ptr = lands[i].getPlanted();
-            Crops* crops = dynamic_cast<Crops*>(ptr);
-
-            if (crops != nullptr){
-                //if this element is a crop, increase the growth stage by the growth speed
-                crops->setGrowthStage(crops->getGrowthStage() + crops->getGrowthSpeed(getHasGoodSoil(), getDayNum()));
-                lands[i].setProduce(crops);
-                std::cout << "Getting to line 225\n"; //<>
-                //<the above looks wrong to me, it doesn't look like it updates lands itself>
-
-                //changing the growth stage on the visual array
-                if(crops->getGrowthStage() < 10){
-                    setBottomRow(i, "  " + to_string(crops->getGrowthStage()) + "%   ");
-                }
-                else if(crops->getGrowthStage() != 100 && crops->getGrowthStage() > 9){
-                    setBottomRow(i, "  " + to_string(crops->getGrowthStage()) + "%  ");
-                }
-                else{
-                    setBottomRow(i, " 100%  ");
-                    setMiddleRow(i, " $" + to_string(crops->getSellingPrice()) + "  "); //<check that they all fit>
                 }
             }
         }
@@ -321,10 +300,10 @@ void Farm::plantProduce(int produce_iteration){
                             setMiddleRow(i, " $" + to_string(z->getSellingPrice()) + "  ");
                         }
 
-                        if(z->getGrowthStage() < 10){
+                        if(z->getGrowthStage() == 0){
                             setBottomRow(i, "  " + to_string(z->getGrowthStage()) + "%   ");
                         }
-                        else if(z->getGrowthStage() != 100 && z->getGrowthStage() > 9){    //bottom row
+                        else if(z->getGrowthStage() < 10){    //bottom row
                             setBottomRow(i, "  " + to_string(z->getGrowthStage()) + "%  ");
                         }
                         else{
@@ -359,10 +338,10 @@ void Farm::plantProduce(int produce_iteration){
                             setMiddleRow(i, " $" + to_string(y->getSellingPrice()) + "  ");
                         }
 
-                        if(y->getGrowthStage() < 10){
+                        if(y->getGrowthStage() == 0){
                             setBottomRow(i, "  " + to_string(y->getGrowthStage()) + "%   ");
                         }
-                        else if(y->getGrowthStage() != 100 && y->getGrowthStage() > 9){    //bottom row
+                        else if(y->getGrowthStage() < 10){    //bottom row
                             setBottomRow(i, "  " + to_string(y->getGrowthStage()) + "%  ");
                         }
                         else{
@@ -397,10 +376,10 @@ void Farm::plantProduce(int produce_iteration){
                             setMiddleRow(i, " $" + to_string(x->getSellingPrice()) + "  ");
                         }
 
-                        if(x->getGrowthStage() < 10){
+                        if(x->getGrowthStage() == 0){
                             setBottomRow(i, "  " + to_string(x->getGrowthStage()) + "%   ");
                         }
-                        else if(x->getGrowthStage() != 100 && x->getGrowthStage() > 9){    //bottom row
+                        else if(x->getGrowthStage() < 10){    //bottom row
                             setBottomRow(i, "  " + to_string(x->getGrowthStage()) + "%  ");
                         }
                         else{
