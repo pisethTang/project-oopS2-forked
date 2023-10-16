@@ -12,7 +12,7 @@ class Farm{
     int day_num;    //starts at zero, goes up
     int time_of_day;   //int between 0 and 3, when it hits 3 num_days++
     int money;  //start with 1000, can't be less than zero
-    std::string top_row[10];
+    std::string top_row[10]; // for user interface
     std::string middle_row[10];
     std::string bottom_row[10];
 
@@ -68,5 +68,5 @@ class Farm{
     ~Farm();
 
 };
-;   //<literally why is this necessary>
+;
 #endif
