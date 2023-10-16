@@ -200,28 +200,31 @@ void Farm::changeDay(){
             //<bug here where it can cycle through and get 6x the cost per day if things were sold>
 
             Produce* ptr = lands[i].getPlanted();
-            cout << "ptr->getName()=" << ptr->getName() << endl;
-
-            // Animals* animal2 = dynamic_cast<Animals*>(ptr);
-
-            // if (animal2 != nullptr) {
-            //     std::cout << "animal2 is not a nullptr\n";
-            // }
-            // if (animal2 == nullptr) {
-            //     std::cout << "animal2 is a nullptr\n";
-            // }
 
             if (lands[i].getPlanted()->getName() == "animal"){
-                std::cout << "animal win\n";
+                std::cout << "animal win\n";    //<>
 
-                Animals* animal = static_cast<Animals*>(ptr);
+                Animals* animal = dynamic_cast<Animals*>(ptr);
 
-                //<segmentation fault>
-                lands[i].setProduce(animal);
-                std::cout << "Produce set\n";
+                if (animal != nullptr){
+                    std::cout << "not a nullptr!\n";
 
-                setMoney(getMoney() + animal->getValuePerDay(getHasGoodFood(), getDayNum()));
-                std::cout << "Money set\n";
+                    setMoney(getMoney() + animal->getValuePerDay(getHasGoodFood(), getDayNum()));
+
+                    //changing the visuals
+                    if (animal->getValuePerDay(getHasGoodFood(), getDayNum()) < 10){
+                        std::cout << "  $" + to_string(animal->getValuePerDay(getHasGoodFood(), getDayNum())) + "  ";
+                    }
+                    else if (animal -> getValuePerDay(getHasGoodFood(), getDayNum()) < 100){
+                        std::cout << " $" + to_string(animal->getValuePerDay(getHasGoodFood(), getDayNum())) + "  ";
+                    }
+                    else {
+                        std::cout << " $" + to_string(animal->getValuePerDay(getHasGoodFood(), getDayNum())) + " ";
+                    }
+                }
+                else {
+                    std::cout << "nullptr :(\n";
+                }
             }
             if (lands[i].getPlanted()->getName() == "crop"){
                 std::cout << "crop win\n";
@@ -230,87 +233,31 @@ void Farm::changeDay(){
 
                 if (crop != nullptr){
                     std::cout << "Not a nullptr!\n";
+
+                    //setting growth stage
+                    crop->setGrowthStage(crop->getGrowthStage() + crop->getGrowthSpeed(getHasGoodSoil(), getDayNum()));
+                    if (crop->getGrowthStage() >= 10){
+                        crop->setGrowthStage(10);
+                        
+                        crop->setSellingPrice(crop->getFutureSellPrice());
+                    }
+
+                    lands[i].setProduce(crop);
+
+                    //changing visuals
+                    if (crop->getGrowthStage() == 0){
+                        std::cout << "   0%  ";
+                    }
+                    else if (crop->getGrowthStage() < 10){
+                        std::cout << "  " + to_string(crop->getGrowthStage()) + "%  ";
+                    }
+                    else {
+                        std::cout << " 100%  ";
+                    }
+
                 }
                 else {
                     std::cout << "A nullptr :(\n";
-                }
-
-                //<get name and getgrowthstage both work>
-                //gethasgoodsoil works, as does getdaynum>
-                //<getgrowthspeed doesn't work>
-                // crop->setGrowthStage(5);
-                // std::cout << crop->getGrowthStage() << "\n";   //<not a segmentation fault?>
-                // std::cout << "Get to line 222\n";
-                // //<setGrowthStage and getGrowthStage both work>
-                // //<segmentation fault>
-
-                // crop->setGrowthStage(crop->getGrowthStage() + crop->getGrowthSpeed(getHasGoodSoil(), getDayNum()));
-                // lands[i].setProduce(*crop);
-            }
-
-            //<more attempts>
-            // if (animals->getName() == "animal"){    //<neither of these appear> <segmentation fault>
-            //     std::cout << "let's fuckin goooo animal eition index " << i << "\n";
-
-            //     // setMoney(getMoney() + animals->getValuePerDay(getHasGoodFood(), getDayNum()));
-            //     // lands[i].setProduce(*animals);  //<check that this works>
-
-            //     // //changing the visual array
-            //     // if(animals->getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
-            //     //     setBottomRow(i, "  $" + to_string(animals->getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
-            //     // }
-            //     // else{
-            //     //     setBottomRow(i, " $" + to_string(animals->getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
-            //     // }
-            // }
-
-            // if (animals->getName() == "crop"){
-            //     std::cout << "let's fuckin goooo crop edition index " << i << "\n";
-            // }
-
-            std::cout << "got to line 218\n";   //<appears!!>
-
-
-            // if (animals != nullptr){
-            //     setMoney(getMoney() + animals->getValuePerDay(getHasGoodFood(), getDayNum()));
-            //     lands[i].setProduce(*animals);  //<check that this works>
-
-            //     //changing the visual array
-            //     if(animals->getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
-            //         setBottomRow(i, "  $" + to_string(animals->getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
-            //     }
-            //     else{
-            //         setBottomRow(i, " $" + to_string(animals->getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
-            //     }
-            // }
-        }
-    }
-
-    //iterating through land vector, checking each type and growing crops
-    for (int i = 0; i < max_land; i++){
-        if (lands[i].getEmptyOrUsed() == 1){
-            
-            //Produce& b = lands[i].getPlanted();
-            Produce* ptr = lands[i].getPlanted();
-            Crops* crops = dynamic_cast<Crops*>(ptr);
-
-            if (crops != nullptr){
-                //if this element is a crop, increase the growth stage by the growth speed
-                crops->setGrowthStage(crops->getGrowthStage() + crops->getGrowthSpeed(getHasGoodSoil(), getDayNum()));
-                lands[i].setProduce(crops);    //<this line is because the above looked odd>
-                std::cout << "Getting to line 225\n"; //<>
-                //<the above looks wrong to me, it doesn't look like it updates lands itself>
-
-                //changing the growth stage on the visual array
-                if(crops->getGrowthStage() < 10){
-                    setBottomRow(i, "  " + to_string(crops->getGrowthStage()) + "%   ");
-                }
-                else if(crops->getGrowthStage() != 100 && crops->getGrowthStage() > 9){
-                    setBottomRow(i, "  " + to_string(crops->getGrowthStage()) + "%  ");
-                }
-                else{
-                    setBottomRow(i, " 100%  ");
-                    setMiddleRow(i, " $" + to_string(crops->getSellingPrice()) + "  "); //<check that they all fit>
                 }
             }
         }

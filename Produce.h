@@ -4,11 +4,6 @@
 #include <string>
 using namespace std;
 
-// enum ProduceType{   //<do we need to do this differently?>
-//     animal,
-//     crop
-// };
-
 class Produce{
     protected:
     string name;        //<do we even need a name?>
