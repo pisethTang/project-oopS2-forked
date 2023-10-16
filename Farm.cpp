@@ -85,15 +85,15 @@ Farmland* Farm::getLands(){
 }
 
 // setters
-void Farm::setDayNum(int newDay){
-    day_num = newDay;
+void Farm::setDayNum(int new_day){
+    day_num = new_day;
     return;
 }
 
-void Farm::setTimeOfDay(int newTime){   //<can someone please check through the logic of this for me?>
+void Farm::setTimeOfDay(int new_time){   //<can someone please check through the logic of this for me?>
                                         //<also, perhaps we don't need this function at all?>
 
-    switch(newTime) {
+    switch(new_time) {
         case 0:
             time_of_day = 0;
             changeDay();
@@ -123,10 +123,10 @@ void Farm::setTimeOfDay(int newTime){   //<can someone please check through the 
             break;
     }
 
-    // if (newTime >= 0 && newTime < 3){
-    //     time_of_day = newTime;
+    // if (new_time >= 0 && new_time < 3){
+    //     time_of_day = new_time;
     // }
-    // else if (newTime == 3){
+    // else if (new_time == 3){
     //     changeDay();
     // }
     // else {
@@ -136,36 +136,36 @@ void Farm::setTimeOfDay(int newTime){   //<can someone please check through the 
     return;
 }
 
-void Farm::setMoney(int newMoney){
-    money = newMoney;
+void Farm::setMoney(int new_money){
+    money = new_money;
     return;
 }
 
-void Farm::setCurrentLand(int newLand){
-    current_land = newLand;
+void Farm::setCurrentLand(int new_land){
+    current_land = new_land;
     return;
 }
 
-void Farm::setGoodSoil(bool newSoil){
-    has_good_soil = newSoil;
+void Farm::setGoodSoil(bool new_soil){
+    has_good_soil = new_soil;
     return;
 }
 
-void Farm::setGoodFood(bool newFood){
-    has_good_food = newFood;
+void Farm::setGoodFood(bool new_food){
+    has_good_food = new_food;
     return;
 }
 
-void Farm::setTopRow(int i, std::string newString){
-    top_row[i] = newString;
+void Farm::setTopRow(int i, std::string new_string){
+    top_row[i] = new_string;
 }
 
-void Farm::setMiddleRow(int i, std::string newString){
-    middle_row[i] = newString;
+void Farm::setMiddleRow(int i, std::string new_string){
+    middle_row[i] = new_string;
 }
 
-void Farm::setBottomRow(int i, std::string newString){
-    bottom_row[i] = newString;
+void Farm::setBottomRow(int i, std::string new_string){
+    bottom_row[i] = new_string;
 }
 
 //functions
@@ -325,7 +325,7 @@ void Farm::moveTime(){  //<put this function in all the other functions>
     }
 }
 
-void Farm::plantProduce(int produceIteration){
+void Farm::plantProduce(int produce_iteration){
 
     int planting = 0;
     int i = 0;
@@ -347,7 +347,7 @@ void Farm::plantProduce(int produceIteration){
 
             //<do we need to dynamically allocate these?>
 
-            switch (produceIteration) {
+            switch (produce_iteration) {
                 case 1: //Wheat
                     if (getMoney() >= z.getBuyingPrice()){
                         //spend money
@@ -476,14 +476,20 @@ void Farm::plantProduce(int produceIteration){
                         //change visual arrays
                         setTopRow(i, "Chicken");    //top row
 
-                        if(w.getSellingPrice() < 100){  //middle row
+                        if(w.getSellingPrice() < 100 && w.getSellingPrice() > 9){  //middle row
                             setMiddleRow(i, "  $" + to_string(w.getSellingPrice()) + "  ");
+                        }
+                        else if (w.getSellingPrice() < 10){
+                            setMiddleRow(i, "  $" + to_string(w.getSellingPrice()) + "   ");
                         }
                         else{
                             setMiddleRow(i, " $" + to_string(w.getSellingPrice()) + "  ");
                         }
 
-                        if(w.getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
+                        if(w.getValuePerDay(getHasGoodFood(), getDayNum()) < 10){
+                            setBottomRow(i, "  $" + to_string(w.getValuePerDay(getHasGoodFood(), getDayNum())) + "   ");
+                        }
+                        else if(w.getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
                             setBottomRow(i, "  $" + to_string(w.getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
                         }
                         else{
@@ -511,14 +517,20 @@ void Farm::plantProduce(int produceIteration){
                         //change visual arrays
                         setTopRow(i, " Cows  ");    //top row
 
-                        if(v.getSellingPrice() < 100){  //middle row
+                        if(v.getSellingPrice() < 100 && v.getSellingPrice() > 9){  //middle row
                             setMiddleRow(i, "  $" + to_string(v.getSellingPrice()) + "  ");
+                        }
+                        else if (v.getSellingPrice() < 10){
+                            setMiddleRow(i, "  $" + to_string(v.getSellingPrice()) + "   ");
                         }
                         else{
                             setMiddleRow(i, " $" + to_string(v.getSellingPrice()) + "  ");
                         }
 
-                        if(v.getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
+                        if(v.getValuePerDay(getHasGoodFood(), getDayNum()) < 10){
+                            setBottomRow(i, "  $" + to_string(v.getValuePerDay(getHasGoodFood(), getDayNum())) + "   ");
+                        }
+                        else if(v.getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
                             setBottomRow(i, "  $" + to_string(v.getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
                         }
                         else{
@@ -545,14 +557,20 @@ void Farm::plantProduce(int produceIteration){
                         //change visual arrays
                         setTopRow(i, " Sheep ");    //top row
 
-                        if(u.getSellingPrice() < 100){  //middle row
+                        if(u.getSellingPrice() < 100 && u.getSellingPrice() > 9){  //middle row
                             setMiddleRow(i, "  $" + to_string(u.getSellingPrice()) + "  ");
+                        }
+                        else if (u.getSellingPrice() < 10){
+                            setMiddleRow(i, "  $" + to_string(u.getSellingPrice()) + "   ");
                         }
                         else{
                             setMiddleRow(i, " $" + to_string(u.getSellingPrice()) + "  ");
                         }
 
-                        if(u.getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
+                        if(u.getValuePerDay(getHasGoodFood(), getDayNum()) < 10){
+                            setBottomRow(i, "  $" + to_string(u.getValuePerDay(getHasGoodFood(), getDayNum())) + "   ");
+                        }
+                        else if(u.getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
                             setBottomRow(i, "  $" + to_string(u.getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
                         }
                         else{

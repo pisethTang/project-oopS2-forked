@@ -328,23 +328,12 @@ void Textbased::startGame() {
 
 //list:
 //check the values of cost and such appear correct and apply correctly
-//check if the buying menu and diagram has all important info including upkeep prices
 //if you type text things fuck up
 //crops don't grow
 //go through all <>
 //check that all functions are used
-//change fonts
 //changed price of upgrades without updating visuals??
-//visuals don't work for price of cows n shit
 //selling things causes massive problems
 //neaten up camel case versus _ naming
 //add saving
 //catch-try-throw stuff
-//put delete stuff
-
-
-
-//ask about types of storage/containers on checklist (vectors lists maps)
-//ask about big glitch
-//makefile options for debug and release builds
-//where do we put update notes

@@ -20,7 +20,7 @@ class Produce{
     //constructors
     Produce();
     //<do we need any constructors in between here?>
-    Produce(string newName, int newCost, int newSellPrice, int newBuyPrice);
+    Produce(string new_name, int new_cost, int new_sell_price, int new_buy_price);
 
     //functions
     virtual int getGarbage(); //<bear with me, I think we need this>
@@ -28,7 +28,7 @@ class Produce{
     int getCostPerDay();
     int getSellingPrice();
     int getBuyingPrice();
-    void setSellingPrice(int newSellPrice);
+    void setSellingPrice(int new_sell_price);
     //virtual ProduceType get_type() const = 0;
 
     //destructor    

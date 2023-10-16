@@ -15,12 +15,12 @@ Carrots::Carrots(){
 };
 
 //functions
-int Carrots::getGrowthSpeed(bool goodSoil, int dayNum){
+int Carrots::getGrowthSpeed(bool good_soil, int day_num){
     //the case for standard soil
 
-    if (goodSoil == 0){
+    if (good_soil == 0){
         //carrots need rain, it rains every 4 days, thus the growth speed is faster on those days
-        if (dayNum % 4 == 0){
+        if (day_num % 4 == 0){
             return 2;
         }
         else {
@@ -30,7 +30,7 @@ int Carrots::getGrowthSpeed(bool goodSoil, int dayNum){
 
     //the case for good soil
     else {
-        if (dayNum % 4 == 0){
+        if (day_num % 4 == 0){
             return 4;
         }
         else {
