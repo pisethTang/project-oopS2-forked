@@ -145,7 +145,6 @@ void Textbased::shopProduce(){  //<can we make this easier?>
         cout << "Invalid selection!\n";
     }
 
-
     return;
 
 }

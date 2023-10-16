@@ -1,18 +1,11 @@
 #include "Farm.h"
-#include "Farmland.h"
-#include "Produce.h"
-#include "Wheat.h"
+#include "Wheat.h"  //<curious no animals>
 #include "Carrots.h"
 #include "Potatoes.h"
 #include "Chickens.h"
 #include "Cows.h"
-#include "Sheep.h"  //<perhaps some of these can go?>
+#include "Sheep.h"
 #include <iostream>
-
-// enum ProduceType{   //<do we need to do this differently?>
-//     animal,
-//     crop
-// };
 
 //constructors
 Farm::Farm(){
@@ -97,25 +90,21 @@ void Farm::setTimeOfDay(int new_time){   //<can someone please check through the
         case 0:
             time_of_day = 0;
             changeDay();
-            //cout << "Time changed to morning.\n"; //<remove these probably>
             break;
         case 1:
             if (getTimeOfDay() >= 1) {
                 changeDay();
             }
             time_of_day = 1;
-            //cout << "Time changed to midday.\n";
             break;
         case 2:
             if (getTimeOfDay() >= 2){
                 changeDay();
             }
             time_of_day = 2;
-            //cout << "Time changed to Afternoon.\n";
             break;
         case 3:
             time_of_day = 3;
-            //cout << "Time changed to evening. Have a good sleep!\n";
             changeDay();
             break;
         default:
@@ -130,7 +119,7 @@ void Farm::setTimeOfDay(int new_time){   //<can someone please check through the
     //     changeDay();
     // }
     // else {
-    //     cout << "Time invalid!\n";
+    //     cout << "Time invalid!\n"; //<>
     // }
     
     return;
@@ -191,7 +180,6 @@ void Farm::changeDay(){
     //setting the new day number
     setDayNum(getDayNum() + 1);
 
-    //<we can make this loop so much better guys goodness me, apologies>
     //iterating through Land vector, checking each type and affecting money appropriately
     for(int i = 0; i < max_land; i++){
         if (lands[i].getEmptyOrUsed() == 1){
@@ -296,7 +284,7 @@ void Farm::changeDay(){
             if (crops != nullptr){
                 //if this element is a crop, increase the growth stage by the growth speed
                 crops->setGrowthStage(crops->getGrowthStage() + crops->getGrowthSpeed(getHasGoodSoil(), getDayNum()));
-                lands[i].setProduce(crops);    //<this line is because the above looked odd>
+                lands[i].setProduce(crops);
                 std::cout << "Getting to line 225\n"; //<>
                 //<the above looks wrong to me, it doesn't look like it updates lands itself>
 
@@ -337,16 +325,12 @@ void Farm::plantProduce(int produce_iteration){
 
             //1 is wheat, 2 is carrots, 3 is potatoes, 4 is chickens, 5 is cows, 6 is sheep
 
-            //<I get errors if I initialise in the switch, which sucks bc i don't want to initialise all this>
             Wheat z;
             Carrots y;
             Potatoes x;
             Chickens w;
             Cows v;
             Sheep u;
-
-            //<do we need to dynamically allocate these?>
-
             switch (produce_iteration) {
                 case 1: //Wheat
                     if (getMoney() >= z.getBuyingPrice()){
@@ -608,7 +592,7 @@ void Farm::plantProduce(int produce_iteration){
     return;
 }
 
-void Farm::harvestProduce(int index){   //<working now>
+void Farm::harvestProduce(int index){   //<bug here>
 if (lands[index].getEmptyOrUsed() == 1) {
         Produce* produce = lands[index].getPlanted();
 
@@ -620,6 +604,7 @@ if (lands[index].getEmptyOrUsed() == 1) {
         } else if (animals != nullptr) {
             setMoney(getMoney() + animals->getSellingPrice());
         }
+        //<the above is not giving any money back>
 
         // Change the visual array
         setTopRow(index, "       ");
@@ -627,7 +612,9 @@ if (lands[index].getEmptyOrUsed() == 1) {
         setBottomRow(index, "       ");
 
         // Reset the land to be empty
-        lands[index].setEmptyOrUsed(false);
+        lands[index].setEmptyOrUsed(0);
+
+        //<something with this function is causing another array to loop more than it should>
     }
 }
 
