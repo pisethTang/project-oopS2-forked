@@ -2,6 +2,8 @@
 
 void test_chickens::testConstructor() {
         // Test 1: Check if the constructor initializes cost per day correctly
+        std::cout << "----------------------------------------- Chicken's Tests -------------------------------------------" << std::endl;
+
         {
             Chickens c1;
             if (c1.getCostPerDay() != 25) std::cout << "Test 1 failed! Incorrect cost per day." << std::endl;
