@@ -282,10 +282,7 @@ void Textbased::executeAction(int choice){
 
         default:
             std::cout << "\nInvalid choice. Please enter a number between 1 and 6.\n";
-            //exit(0); <perhaps remove>
     }
-
-    return;
 
     return;
 }
@@ -306,13 +303,11 @@ void Textbased::startGame() {
         int choice = getUserChoice();  // Get user choice
         executeAction(choice); // Execute the chosen action
 
-
         //recalculating netMoney every time menu appears
         netMoney = farm.getMoney();
 
         for (int i = 0; i < farm.getCurrentLand(); i++){
             //determining the amount of money there is that could keep the farm above water
-            cout << "farm.getLands()[i].getPlanted()=" << farm.getLands()[i].getPlanted();
             if (farm.getLands()[i].getEmptyOrUsed() == 1){
                 netMoney = netMoney + farm.getLands()[i].getPlanted()->getSellingPrice();
             }

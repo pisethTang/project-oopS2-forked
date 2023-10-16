@@ -33,6 +33,9 @@ void Crops::setGrowthStage(int newGrowthStage){
     if ((getGrowthStage() + newGrowthStage) <= 10){      //growth_stage cannot be greater than 10 (chosen arbitrarily)
         growth_stage = getGrowthStage() + newGrowthStage;
     }
+    else {
+        growth_stage = 10;
+    }
 }
 
 void Crops::updateSellPrice(){
