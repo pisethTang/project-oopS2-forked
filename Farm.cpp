@@ -216,28 +216,35 @@ void Farm::changeDay(){
                 Animals* animal = static_cast<Animals*>(ptr);
 
                 //<segmentation fault>
-                lands[i].setProduce(*animal);
+                lands[i].setProduce(animal);
                 std::cout << "Produce set\n";
 
                 setMoney(getMoney() + animal->getValuePerDay(getHasGoodFood(), getDayNum()));
+                std::cout << "Money set\n";
             }
             if (lands[i].getPlanted()->getName() == "crop"){
                 std::cout << "crop win\n";
 
-                Crops* crop = static_cast<Crops*>(ptr);
+                Crops* crop = dynamic_cast<Crops*>(ptr);
 
-                std::cout << "Get to line 220\n";
+                if (crop != nullptr){
+                    std::cout << "Not a nullptr!\n";
+                }
+                else {
+                    std::cout << "A nullptr :(\n";
+                }
+
                 //<get name and getgrowthstage both work>
                 //gethasgoodsoil works, as does getdaynum>
                 //<getgrowthspeed doesn't work>
-                crop->setGrowthStage(5);
-                std::cout << crop->getGrowthStage() << "\n";   //<not a segmentation fault?>
-                std::cout << "Get to line 222\n";
-                //<setGrowthStage and getGrowthStage both work>
-                //<segmentation fault>
+                // crop->setGrowthStage(5);
+                // std::cout << crop->getGrowthStage() << "\n";   //<not a segmentation fault?>
+                // std::cout << "Get to line 222\n";
+                // //<setGrowthStage and getGrowthStage both work>
+                // //<segmentation fault>
 
-                crop->setGrowthStage(crop->getGrowthStage() + crop->getGrowthSpeed(getHasGoodSoil(), getDayNum()));
-                lands[i].setProduce(*crop);
+                // crop->setGrowthStage(crop->getGrowthStage() + crop->getGrowthSpeed(getHasGoodSoil(), getDayNum()));
+                // lands[i].setProduce(*crop);
             }
 
             //<more attempts>
@@ -289,7 +296,7 @@ void Farm::changeDay(){
             if (crops != nullptr){
                 //if this element is a crop, increase the growth stage by the growth speed
                 crops->setGrowthStage(crops->getGrowthStage() + crops->getGrowthSpeed(getHasGoodSoil(), getDayNum()));
-                lands[i].setProduce(*crops);    //<this line is because the above looked odd>
+                lands[i].setProduce(crops);    //<this line is because the above looked odd>
                 std::cout << "Getting to line 225\n"; //<>
                 //<the above looks wrong to me, it doesn't look like it updates lands itself>
 
@@ -350,7 +357,7 @@ void Farm::plantProduce(int produceIteration){
                         lands[i].setEmptyOrUsed(1);
 
                         //make Produce a Wheat
-                        lands[i].setProduce(z);    //<is this right?>
+                        lands[i].setProduce(&z);    //<is this right?>
 
                         //change visual arrays
                         setTopRow(i, " Wheat ");    //top row
@@ -388,7 +395,7 @@ void Farm::plantProduce(int produceIteration){
                         lands[i].setEmptyOrUsed(1);
 
                         //make Produce a Carrots
-                        lands[i].setProduce(y);    //<is this right?>
+                        lands[i].setProduce(&y);    //<is this right?>
 
                         //change visual arrays
                         setTopRow(i, "Carrots");    //top row
@@ -426,7 +433,7 @@ void Farm::plantProduce(int produceIteration){
                         lands[i].setEmptyOrUsed(1);
 
                         //make Produce a Potatoes
-                        lands[i].setProduce(x);    //<is this right?>
+                        lands[i].setProduce(&x);    //<is this right?>
 
                         //change visual arrays
                         setTopRow(i, "Potato ");    //top row
@@ -464,7 +471,7 @@ void Farm::plantProduce(int produceIteration){
                         lands[i].setEmptyOrUsed(1);
 
                         //make Produce a Chickens
-                        lands[i].setProduce(w);    //<is this right?>
+                        lands[i].setProduce(&w);    //<is this right?>
 
                         //change visual arrays
                         setTopRow(i, "Chicken");    //top row
@@ -499,7 +506,7 @@ void Farm::plantProduce(int produceIteration){
                         lands[i].setEmptyOrUsed(1);
 
                         //make Produce a Cows
-                        lands[i].setProduce(v);    //<is this right?>
+                        lands[i].setProduce(&v);    //<is this right?>
 
                         //change visual arrays
                         setTopRow(i, " Cows  ");    //top row
@@ -533,7 +540,7 @@ void Farm::plantProduce(int produceIteration){
                         lands[i].setEmptyOrUsed(1);
 
                         //make Produce a Sheep
-                        lands[i].setProduce(u);    //<is this right?>
+                        lands[i].setProduce(&u);    //<is this right?>
 
                         //change visual arrays
                         setTopRow(i, " Sheep ");    //top row

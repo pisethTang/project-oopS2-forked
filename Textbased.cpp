@@ -145,6 +145,7 @@ void Textbased::shopProduce(){  //<can we make this easier?>
         cout << "Invalid selection!\n";
     }
 
+
     return;
 
 }
@@ -280,7 +281,7 @@ void Textbased::executeAction(int choice){
             break;
 
         default:
-            std::cout << "\nInvalid choice. Please enter a number between 1 and 5.\n";
+            std::cout << "\nInvalid choice. Please enter a number between 1 and 6.\n";
             //exit(0); <perhaps remove>
     }
 
@@ -335,3 +336,15 @@ void Textbased::startGame() {
 //change fonts
 //changed price of upgrades without updating visuals??
 //visuals don't work for price of cows n shit
+//selling things causes massive problems
+//neaten up camel case versus _ naming
+//add saving
+//catch-try-throw stuff
+//put delete stuff
+
+
+
+//ask about types of storage/containers on checklist (vectors lists maps)
+//ask about big glitch
+//makefile options for debug and release builds
+//where do we put update notes
