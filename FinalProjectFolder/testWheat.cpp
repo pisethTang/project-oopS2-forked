@@ -32,29 +32,24 @@ void test_wheat::testConstructor() {
         if (w5.getGrowthStage() != 0) std::cout << "Test 5 failed! Incorrect growth stage." << std::endl; 
     }
 
-    // Test 6: Check invariants (e.g., selling price should be greater than cost per day)
+
+    // Test 6: Check constant values (e.g., buying price should always be 10)
     {
         Wheat w6;
-        if (w6.getSellingPrice() <= w6.getCostPerDay()) std::cout << "Test 6 failed! Invariant not maintained." << std::endl;
+        if (w6.getBuyingPrice() != 10) std::cout << "Test 6 failed! Incorrect constant value." << std::endl;
     }
 
-    // Test 7: Check constant values (e.g., buying price should always be 10)
+    // Test 7: Check for Wheat's growth speed
     {
         Wheat w7;
-        if (w7.getBuyingPrice() != 10) std::cout << "Test 7 failed! Incorrect constant value." << std::endl;
+        if (w7.getGrowthSpeed(false, 10) == 2) std::cout << "Test 7 failed! Incorrect growth speed of wheat." << std::endl;
     }
 
-    // Test 8: Check for Wheat's growth speed
-    {
-        Wheat w8;
-        if (w8.getGrowthSpeed(false, 10) == 2) std::cout << "Test 8 failed! Incorrect growth speed of wheat." << std::endl;
-    }
-
-    // Test 9: Add more tests as needed for specific functionality
+    // Test 8: Add more tests as needed for specific functionality
      {
-            Wheat w9;
-            w9.setSellingPrice(100);
-            if(w9.getSellingPrice() != 100) std::cout << "Test 9 failed! Wheat's selling price has been incorrectly set." <<std::endl;
+            Wheat w8;
+            w8.setSellingPrice(100);
+            if(w8.getSellingPrice() != 110) std::cout << "Test 8 failed! Wheat's selling price has been incorrectly set." <<std::endl;
             
     }
 

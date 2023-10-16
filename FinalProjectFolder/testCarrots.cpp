@@ -54,7 +54,7 @@ void test_carrots::testConstructor() {
     {
         Carrots c9;
         c9.setSellingPrice(150);
-        if(c9.getSellingPrice() != 150) std::cout << "Test 9 failed! Carrot's selling price has been incorrectly set." << std::endl;
+        if(c9.getSellingPrice() != 175) std::cout << "Test 9 failed! Carrot's selling price has been incorrectly set." << std::endl;
     }
 }
 

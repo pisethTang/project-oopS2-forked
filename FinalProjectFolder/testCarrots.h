@@ -1,7 +1,6 @@
 #ifndef CARROTSTEST_H
 #define CARROTSTEST_H
 
-
 #include <iostream>
 #include <limits>
 #include "Carrots.h"
