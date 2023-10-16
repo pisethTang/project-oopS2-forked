@@ -307,9 +307,12 @@ void Textbased::startGame() {
 
         //recalculating netMoney every time menu appears
         netMoney = farm.getMoney();
+
         for (int i = 0; i < farm.getCurrentLand(); i++){
             //determining the amount of money there is that could keep the farm above water
+            std::cout << "farm.getLands[i].getPlanted() = " << farm.getLands()[i].getPlanted() << "\n";
             netMoney = netMoney + farm.getLands()[i].getPlanted()->getSellingPrice();
+            //<some testlines here>
         }
 
         if(netMoney <= 0){
