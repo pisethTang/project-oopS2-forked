@@ -5,6 +5,7 @@
 #include "Chickens.h"
 #include "Cows.h"
 #include "Sheep.h"
+#include <limits>
 
 // Constructor with a title parameter
 Textbased::Textbased(const std::string& title) : title(title) {}
@@ -86,66 +87,100 @@ void Textbased::displayExplanation(){
     return;
 }
 
-// Function to get user choice
+// function to get user's choice
 int Textbased::getUserChoice() {
     int choice;
-    std::cout << "Enter your choice (1-6): ";
-    std::cin >> choice;
+
+    while (true) {
+        try {
+            std::cout << "Enter your choice (1-6): ";
+            std::cin >> choice;
+
+            if (std::cin.fail()) {
+                throw std::runtime_error("Invalid input. Please enter an integer.");
+            }
+
+            if (choice < 1 || choice > 6) {
+                throw std::out_of_range("Invalid input. Please enter an integer between 1 and 6.");
+            }
+
+            // If the input is valid, break out of the loop
+            break;
+        } catch (const std::exception& e) {
+            std::cerr << "Error: " << e.what() << std::endl;
+            std::cin.clear();  // Clear the error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Discard invalid input
+        }
+    }
+
     return choice;
 }
 
+// Updated
+
 // Function to shop for produce
 void Textbased::shopProduce(){  //<can we make this easier?>
-    Wheat a;
-    Produce* ptr1 = &a;
+    Wheat* a = new Wheat;
+    Produce* ptr1 = a;
     int choice;
 
-    cout << "num        1       2       3       4       5       6       7\n";
-    cout << "type       Wheat   Carrots Potato  Chicken Cows    Sheep   Back to\n";
-    cout << "cost       " << ptr1->getBuyingPrice() << "      ";    //Wheat
+    std::cout << "num        1       2       3       4       5       6       7\n";
+    std::cout << "type       Wheat   Carrots Potato  Chicken Cows    Sheep   Back to\n";
+    std::cout << "cost       " << ptr1->getBuyingPrice() << "      ";    //Wheat
 
-    Carrots b;
-    ptr1 = &b;
-    cout << ptr1->getBuyingPrice() << "      "; //Carrots
+    Carrots* b = new Carrots;
+    ptr1 = b;
+    std::cout << ptr1->getBuyingPrice() << "      "; //Carrots
 
-    Potatoes c;
-    ptr1 = &c;
-    cout << ptr1->getBuyingPrice() << "      "; //Potatoes
+    Potatoes* c = new Potatoes;
+    ptr1 = c;
+    std::cout << ptr1->getBuyingPrice() << "      "; //Potatoes
 
-    Chickens d;
-    ptr1 = &d;
-    cout << ptr1->getBuyingPrice() << "     "; //Chickens
+    Chickens* d = new Chickens;
+    ptr1 = d;
+    std::cout << ptr1->getBuyingPrice() << "     "; //Chickens
 
-    Cows e;
-    ptr1 = &e;
-    cout << ptr1->getBuyingPrice() << "     "; //Cows
+    Cows* e = new Cows;
+    ptr1 = e;
+    std::cout << ptr1->getBuyingPrice() << "     "; //Cows
 
-    Sheep f;
-    ptr1 = &f;
-    cout << ptr1->getBuyingPrice() << "     "; //Sheep
+    Sheep* f = new Sheep;
+    ptr1 = f;
+    std::cout << ptr1->getBuyingPrice() << "     "; //Sheep
 
-    cout << "main menu\n";
+    std::cout << "Main menu\n";
 
-    cout << "daily      15      10      20      10      25      35\n";
-    cout << "upkeep cost\n";
+    std::cout << "daily      15      10      20      10      25      35\n";
+    std::cout << "upkeep cost\n";
 
     //<add stuff about cost efficiency>
 
-    cout << "What is your choice? (1-7): ";
-    cin >> choice;
-    cout << "\n";
+    while(true){
+    try{
+    std::cout << "What is your choice? (1-7): ";
+    std::cin >> choice;
+    std::cout << "\n";
+    if(std::cin.fail()) throw std::runtime_error("Invalid input. Please enter an integer.");
+    if (choice < 1 || choice > 7) throw std::out_of_range("Invalid input. Please enter an integer between 1 and 6.");
+    if (choice > 0 && choice < 7) farm.plantProduce(choice);
 
-    if (choice > 0 && choice < 7) {
-        farm.plantProduce(choice);
-    }
-    else if (choice == 7) {
-        //this needs to be empty so that the menu can reappear without the invalid selection notif
-    }
-    else {
-        cout << "Invalid selection!\n";
+   
+    break;
+    }catch(std::runtime_error const& e){
+            std::cerr << "Error: " << e.what() << std::endl;
+            std::cin.clear();  // Clear the error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Discard invalid input
+    }catch(std::out_of_range const& e){
+            std::cerr << "Error: " << e.what() << std::endl;
+            std::cin.clear();  // Clear the error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Discard invalid input
+    }catch(std::exception const& e){
+            std::cerr << "Error: " << e.what() << std::endl;
+            std::cin.clear();  // Clear the error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Discard invalid input
     }
 
-
+    }
     return;
 
 }
@@ -157,7 +192,7 @@ void Textbased::shopUpgrades(){
     //displaying options
     cout << "num    1               2               3               4\n";
     cout << "       Soil Upgrade    Food Upgrade    More Farmland   Back to main\n";
-    cout << "cost   $1500           $1500           $1000           menu\n";   //<choose the prices>
+    cout << "cost   $500            $500            $500            menu\n";   //<choose the prices>
     cout << "info   crops grow      more $/day\n";
     cout << "       faster\n";
     cout << "What is your choice? (1-4): ";
@@ -320,31 +355,13 @@ void Textbased::startGame() {
         if(netMoney >= 10000){
             std::cout << "You won! Congratulations!\n";
         }
-
     }
 
     return;
 }
 
 //list:
-//check the values of cost and such appear correct and apply correctly
-//check if the buying menu and diagram has all important info including upkeep prices
-//if you type text things fuck up
-//crops don't grow
 //go through all <>
 //check that all functions are used
-//change fonts
-//changed price of upgrades without updating visuals??
-//visuals don't work for price of cows n shit
 //selling things causes massive problems
-//neaten up camel case versus _ naming
-//add saving
-//catch-try-throw stuff
-//put delete stuff
-
-
-
-//ask about types of storage/containers on checklist (vectors lists maps)
-//ask about big glitch
-//makefile options for debug and release builds
-//where do we put update notes
+//check weird time jump ot day 4 bug
