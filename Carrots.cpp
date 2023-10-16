@@ -37,7 +37,6 @@ int Carrots::getGrowthSpeed(bool goodSoil, int dayNum){
             return 2;
         } 
     }
-
 }
 
 // void Carrots::setSellingPrice(){
