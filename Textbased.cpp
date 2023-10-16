@@ -21,25 +21,27 @@ void Textbased::displayMenu() {
     switch (farm.getTimeOfDay()) {
         case 0:
             std::cout << "Morning";
-        break;
+            break;
         case 1:
             std::cout << "Midday";
-        break;
+            break;
         case 2:
             std::cout << "Afternoon";
-        break;
+            break;
         default:
             std::cout << "this text should not appear.";
-        break;
+            break;
     }
 
     std::cout << " | You have $" << farm.getMoney() << " | Goal: $10000\n\n";
-
+    
     std::cout << "What would you like to do?\n";
     std::cout << "1. Shop Produce\n";
     std::cout << "2. Buy Upgrades or Land (" << farm.getCurrentLand() << "/" << farm.getMaxLand() << " land)\n";
     std::cout << "3. Sell/Harvest Animals/Crops\n";
-    std::cout << "4. See explanation\n";
+    std::cout << "4. Move time ahead\n";
+    std::cout << "5. See explanation\n";
+    std::cout << "6. Quit\n";
 
     return;
 }
@@ -87,7 +89,7 @@ void Textbased::displayExplanation(){
 // Function to get user choice
 int Textbased::getUserChoice() {
     int choice;
-    std::cout << "Enter your choice (1-4): ";
+    std::cout << "Enter your choice (1-6): ";
     std::cin >> choice;
     return choice;
 }
@@ -98,7 +100,8 @@ void Textbased::shopProduce(){  //<can we make this easier?>
     Produce* ptr1 = &a;
     int choice;
 
-    cout << "       Wheat   Carrots Potato  Chicken Cows    Sheep \n";
+    cout << "num    1       2       3       4       5       6       7\n";
+    cout << "type   Wheat   Carrots Potato  Chicken Cows    Sheep   Back to\n";
     cout << "cost   " << ptr1->getBuyingPrice() << "      ";    //Wheat
 
     Carrots b;
@@ -119,15 +122,25 @@ void Textbased::shopProduce(){  //<can we make this easier?>
 
     Sheep f;
     ptr1 = &f;
-    cout << ptr1->getBuyingPrice() << "\n"; //Sheep
+    cout << ptr1->getBuyingPrice() << "     "; //Sheep
+
+    cout << "main menu\n";
 
     //<add stuff about cost efficiency>
 
-    cout << "What is your choice? (1-6): ";
+    cout << "What is your choice? (1-7): ";
     cin >> choice;
     cout << "\n";
 
-    farm.plantProduce(choice);
+    if (choice > 0 && choice < 7) {
+        farm.plantProduce(choice);
+    }
+    else if (choice == 7) {
+        //this needs to be empty so that the menu can reappear without the invalid selection notif
+    }
+    else {
+        cout << "Invalid selection!\n";
+    }
 
     return;
 
@@ -138,11 +151,12 @@ void Textbased::shopUpgrades(){
    int choice;
    
     //displaying options
-    cout << "       Soil Upgrade    Food Upgrade    More Farmland\n";
-    cout << "cost   $500            $500            $500\n";    //<choose the prices>
+    cout << "num    1               2               3               4\n";
+    cout << "       Soil Upgrade    Food Upgrade    More Farmland   Back to main\n";
+    cout << "cost   $1500           $1500           $1000           menu\n";   //<choose the prices>
     cout << "info   crops grow      more $/day\n";
     cout << "       faster\n";
-    cout << "What is your choice? (1-3): ";
+    cout << "What is your choice? (1-4): ";
     cin >> choice;
     cout << "\n";
 
@@ -158,7 +172,9 @@ void Textbased::shopUpgrades(){
             else {
                 cout << "Not enough money!\n\n";    //<check that this is the right amount of \ns>
             }
-        break;
+
+            break;
+
         case 2:
             if (farm.getMoney() >= 500){
                 farm.setMoney(farm.getMoney() - 500);
@@ -169,7 +185,9 @@ void Textbased::shopUpgrades(){
             else {
                 cout << "Not enough money!\n\n";    //<check that this is the right amount of \ns>
             }
-        break;
+
+            break;
+
         case 3:
             if (farm.getMoney() >= 500){
                 farm.setMoney(farm.getMoney() - 500);
@@ -181,10 +199,18 @@ void Textbased::shopUpgrades(){
             else {
                 cout << "Not enough money!\n\n";    //<check that this is the right amount of \ns>
             }
-        break;
+
+            break;
+
+        case 4:
+
+            break;
+
         default:   
             cout << "Invalid input.\n\n";
-        break;
+
+            break;
+
     }
 
     return;
@@ -209,12 +235,18 @@ void Textbased::executeAction(int choice){
             int index;
 
             std::cout << "\nYou chose to Sell/Harvest Animals/Crops.\n";
-            std::cout << "Which farmland will you harvest/sell? (1-" << farm.getCurrentLand() << "): ";
+            std::cout << "Which farmland will you harvest/sell? Or, press ";
+            std::cout << farm.getCurrentLand() + 1 << " to return: ";
+            std::cout << "(1-" << farm.getCurrentLand() + 1 << "): ";
             cin >> index;
 
             if (index > 0 && index <= farm.getCurrentLand()){
                 farm.harvestProduce(index-1);
             }
+            else if(index == farm.getCurrentLand() + 1){
+                //empty so that no invalid choice notif appears
+                cout << "\n";
+            } 
             else {
                 cout << "Invalid choice!\n\n";
             }
@@ -222,49 +254,78 @@ void Textbased::executeAction(int choice){
             break;
 
         case 4:
+            //changing time
+            std::cout << "\nTo next day!\n\n";
+            farm.changeDay();
+            break;
+
+        case 5:
             displayExplanation();
+
+            break;
+
+        case 6:
+            int quit;
+
+            std::cout << "\nAre you sure you want to quit? Your progress won't be saved.\n";
+            std:: cout << "Type 6 again to quit, or any other number to continue: ";
+            cin >> quit;
+            if (quit == 6){
+                exit(0);
+            }
+
             break;
 
         default:
-            std::cout << "\nInvalid choice. Please enter a number between 1 and 3.\n";
-            exit(0);
+            std::cout << "\nInvalid choice. Please enter a number between 1 and 5.\n";
+            //exit(0); <perhaps remove>
     }
+
+    return;
 
     return;
 }
 
 // Function to start the game loop
 void Textbased::startGame() {
+    //variable to determine lose condition
+    int netMoney = farm.getMoney();
+
     //display title
     std::cout << "-----------------------------\n";
     std::cout << "      " << getTitle() << "      \n";
     std::cout << "-----------------------------\n";
 
-    while (1) {
+    while (1 && farm.getMoney() < 10000 && netMoney > 0) {  //three conditions for game to continue
         displayFarmland();
         displayMenu();         // Display the menu
         int choice = getUserChoice();  // Get user choice
         executeAction(choice); // Execute the chosen action
+
+        //recalculating netMoney every time menu appears
+        netMoney = farm.getMoney();
+        for (int i = 0; i < farm.getCurrentLand(); i++){
+            //determining the amount of money there is that could keep the farm above water
+            netMoney = netMoney + farm.getLands()[i].getPlanted().getSellingPrice();
+        }
+
+        if(netMoney <= 0){
+            std::cout << "You ran out of money. You lose!\n";
+        }
+
+        if(netMoney >= 10000){
+            std::cout << "You won! Congratulations!\n";
+        }
+
     }
 
     return;
 }
 
-// empty lot
-//  _______________________________________________________________________________
-// |       |       |       |       |       |       |       |       |       |       |
-// |       |       |   X   |   X   |   X   |   X   |   X   |   X   |   X   |   X   |
-// |       |       |       |       |       |       |       |       |       |       |
-//  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
-
-//  _______________________________________________________________________________
-// |Carrots|Potato | Wheat | Sheep | Cows  |Chicken|       |       |       |       |
-// |  $16  |  $50  |  $75  | $150  | $170  | $130  |   X   |   X   |   X   |   X   |
-// |  15%  | 100%  |  75%  | $35/d | $40/d | $30/d |       |       |       |       |
-//  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
-
 //list:
 //check the values of cost and such appear correct and apply correctly
-//continue connecting the front and back
-//make a 'back' button in each menu
-//make it so you can lose
+//check if the buying menu and diagram has all important info including upkeep prices
+//if you type text things fuck up
+//crops don't grow
+//go through all <>
+//check that all functions are used

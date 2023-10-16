@@ -15,7 +15,7 @@ Farm::Farm(){
     max_land = 10;
     current_land = 2;
     day_num = 1;    //starts at one, goes up
-    time_of_day = 0;   //int between 0 and 3, when it hits 3 num_days++
+    time_of_day = 0;   //int between 0 and 3, when it hits 3 =>  num_days++
     money = 1000;  //start with 1000, can't be less than zero
     for (int i = 0; i < 10; i++) {
         top_row[i] = "       ";
@@ -75,6 +75,10 @@ std::string Farm::getBottomRow(int i){
     return bottom_row[i];
 }
 
+Farmland* Farm::getLands(){
+    return lands;
+}
+
 // setters
 void Farm::setDayNum(int newDay){
     day_num = newDay;
@@ -82,6 +86,7 @@ void Farm::setDayNum(int newDay){
 }
 
 void Farm::setTimeOfDay(int newTime){   //<can someone please check through the logic of this for me?>
+                                        //<also, perhaps we don't need this function at all?>
 
     switch(newTime) {
         case 0:
@@ -179,7 +184,7 @@ void Farm::buyNewLand(){
 void Farm::changeDay(){
     //setting the new day number
     setDayNum(getDayNum() + 1);
-
+    //<we can make this loop so much better guys goodness me, apologies>
     //iterating through Land vector, checking each type and affecting money appropriately
     for(int i = 0; i < max_land; i++){
         if (lands[i].getEmptyOrUsed() == 1){
@@ -188,6 +193,7 @@ void Farm::changeDay(){
 
             Produce a = lands[i].getPlanted();
             Produce* produce = &a;
+
             Animals* animals = dynamic_cast<Animals*>(produce);
             if (animals != nullptr){
                 setMoney(getMoney() + animals->getValuePerDay(getHasGoodFood(), getDayNum()));
@@ -211,10 +217,12 @@ void Farm::changeDay(){
             Produce b = lands[i].getPlanted();
             Produce* ptr = &b;
             Crops* crops = dynamic_cast<Crops*>(ptr);
+
             if (crops != nullptr){
                 //if this element is a crop, increase the growth stage by the growth speed
                 crops->setGrowthStage(crops->getGrowthStage() + crops->getGrowthSpeed(getHasGoodSoil(), getDayNum()));
                 lands[i].setProduce(*crops);    //<this line is because the above looked odd>
+                std::cout << "Getting to line 225\n"; //<>
                 //<the above looks wrong to me, it doesn't look like it updates lands itself>
 
                 //changing the growth stage on the visual array
@@ -300,7 +308,9 @@ void Farm::plantProduce(int produceIteration){
                     else {
                         cout << "Not enough money!\n";
                     }
-                break;
+
+                    break;
+
                 case 2: //Carrots
                     if (getMoney() >= y.getBuyingPrice()){
                         //spend money
@@ -336,7 +346,9 @@ void Farm::plantProduce(int produceIteration){
                     else {
                         cout << "Not enough money!\n";
                     }
-                break;
+
+                    break;
+
                 case 3: //Potatoes
                     if (getMoney() >= x.getBuyingPrice()){
                         //spend money
@@ -372,7 +384,9 @@ void Farm::plantProduce(int produceIteration){
                     else {
                         cout << "Not enough money!\n";
                     }
-                break;
+
+                    break;
+
                 case 4: //Chickens
                     if (getMoney() >= w.getBuyingPrice()){
                         //spend money
@@ -405,7 +419,9 @@ void Farm::plantProduce(int produceIteration){
                     else {
                         cout << "Not enough money!\n";
                     }
-                break;
+
+                    break;
+
                 case 5: //Cows
                     if (getMoney() >= v.getBuyingPrice()){
                         //spend money
@@ -437,7 +453,9 @@ void Farm::plantProduce(int produceIteration){
                     else {
                         cout << "Not enough money!\n";
                     }
-                break;
+
+                    break;
+
                 case 6: //Sheep
                     if (getMoney() >= u.getBuyingPrice()){
                         //spend money
@@ -469,11 +487,14 @@ void Farm::plantProduce(int produceIteration){
                     else {
                         cout << "Not enough money!\n";
                     }
-                break;
+
+                    break;
 
                 default:
-                    cout << "Invalid selection!\n"; //<check that this works>
-                break;
+                    cout << "Invalid selection! This text shouldn't be seen!\n"; //<check that this works>
+                    planting = 0;   //planting didn't occur
+
+                    break;
             }
         }
 

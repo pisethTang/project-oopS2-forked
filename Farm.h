@@ -6,7 +6,7 @@
 
 class Farm{
     protected:
-    Farmland* lands;    //a vector of Land, of size max_land
+    Farmland* lands;    //an array of Land, of size max_land
     int max_land;
     int current_land;
     int day_num;    //starts at zero, goes up
@@ -22,7 +22,6 @@ class Farm{
     public:
     //constructors
     Farm();
-
     
     // getters
     int getDayNum();
@@ -35,6 +34,7 @@ class Farm{
     std::string getTopRow(int i);
     std::string getMiddleRow(int i);
     std::string getBottomRow(int i);
+    Farmland* getLands();
 
     // setters
     void setDayNum(int newDay);
@@ -48,7 +48,7 @@ class Farm{
     void setBottomRow(int i, std::string newString);
 
     //functions
-    void buyNewLand(); //This is going to add a land to the land vector, take away money, and 
+    void buyNewLand(); //This is going to add a land to the land array, take away money, and 
                        //change current land
 
     void changeDay();   //this function adds one to the day counter, gives the user one day's worth of
