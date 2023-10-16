@@ -11,12 +11,12 @@ Sheep::Sheep(){
 }
 
 //functions
-int Sheep::getValuePerDay(bool good_food, int day_num){
+int Sheep::getValuePerDay(bool goodFood, int dayNum){
 //the case for standard food
 
-    if (good_food == 0){
+    if (goodFood == 0){
         //the sheep give wool every four days, without good soil this barely gives more
-        if ((day_num % 4) == 0){
+        if ((dayNum % 4) == 0){
             return 175;
         }
         else {
@@ -26,7 +26,7 @@ int Sheep::getValuePerDay(bool good_food, int day_num){
 
     //the case for good food
     else {
-        if ((day_num % 4) == 0){
+        if ((dayNum % 4) == 0){
             return 350;
         }
         else {

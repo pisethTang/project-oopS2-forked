@@ -9,11 +9,11 @@ Chickens::Chickens(){
 
 }
 
-int Chickens::getValuePerDay(bool good_food, int day_num){
+int Chickens::getValuePerDay(bool goodFood, int dayNum){
     //the case for standard food
-    if (good_food == 0){
+    if (goodFood == 0){
         //the chickens will be unhappy once a week, and that day it will break even
-        if ((day_num % 7) == 0){
+        if ((dayNum % 7) == 0){
             return 10;
         }
         else {
@@ -23,7 +23,7 @@ int Chickens::getValuePerDay(bool good_food, int day_num){
 
     //the case for good food
     else {
-        if ((day_num % 7) == 0){
+        if ((dayNum % 7) == 0){
             return 20;
         }
         else {

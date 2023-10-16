@@ -38,15 +38,15 @@ class Farm{
     Farmland* getLands();
 
     // setters
-    void setDayNum(int new_day);
-    void setTimeOfDay(int new_time);
-    void setMoney(int new_money);
-    void setCurrentLand(int new_land);
-    void setGoodSoil(bool new_soil);
-    void setGoodFood(bool new_food);
-    void setTopRow(int i, std::string new_string);
-    void setMiddleRow(int i, std::string new_string);
-    void setBottomRow(int i, std::string new_string);
+    void setDayNum(int newDay);
+    void setTimeOfDay(int newTime);
+    void setMoney(int newMoney);
+    void setCurrentLand(int newLand);
+    void setGoodSoil(bool newSoil);
+    void setGoodFood(bool newFood);
+    void setTopRow(int i, std::string newString);
+    void setMiddleRow(int i, std::string newString);
+    void setBottomRow(int i, std::string newString);
 
     //functions
     void buyNewLand(); //This is going to add a land to the land array, take away money, and 
@@ -58,10 +58,10 @@ class Farm{
                         //it also allows crops to grow
     void moveTime();    //this function progresses time by one unit, checks if the day has ended,
                         //and calls the changeDay() function if the day has ended
-    void plantProduce(int produce_iteration);    //Also takes away money and only does the following:
+    void plantProduce(int produceIteration);    //Also takes away money and only does the following:
                                                 //this function finds the first available element in
                                                 //the Land vector and assigns that pointer to a produce
-                                                //of iteration produce_iteration
+                                                //of iteration produceIteration
     void harvestProduce(int index); //this function removes the produce and adds money
 
     //destructor
