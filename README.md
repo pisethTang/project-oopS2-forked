@@ -15,3 +15,5 @@ Using diff language tag to generate some colored text:
 
  Using $LaTeX$
  $${\color{red}Welcome \space \color{lightblue}To \space \color{orange}Stackoverflow}$$
+
+ $$x + 1 = 0$$
