@@ -302,6 +302,7 @@ void Farm::plantProduce(int produceIteration){
                     }
                     else {
                         cout << "Not enough money!\n";
+                        planting = 0;
                     }
 
                     break;
@@ -340,6 +341,7 @@ void Farm::plantProduce(int produceIteration){
                     }
                     else {
                         cout << "Not enough money!\n";
+                        planting = 0;
                     }
 
                     break;
@@ -378,6 +380,7 @@ void Farm::plantProduce(int produceIteration){
                     }
                     else {
                         cout << "Not enough money!\n";
+                        planting = 0;
                     }
 
                     break;
@@ -403,7 +406,10 @@ void Farm::plantProduce(int produceIteration){
                             setMiddleRow(i, " $" + to_string(w->getSellingPrice()) + "  ");
                         }
 
-                        if(w->getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
+                        if(w->getValuePerDay(getHasGoodFood(), getDayNum()) < 10){
+                            setBottomRow(i, "   $" + to_string(w->getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
+                        }
+                        else if(w->getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
                             setBottomRow(i, "  $" + to_string(w->getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
                         }
                         else{
@@ -413,6 +419,7 @@ void Farm::plantProduce(int produceIteration){
                     }
                     else {
                         cout << "Not enough money!\n";
+                        planting = 0;
                     }
 
                     break;
@@ -438,7 +445,10 @@ void Farm::plantProduce(int produceIteration){
                             setMiddleRow(i, " $" + to_string(v->getSellingPrice()) + "  ");
                         }
 
-                        if(v->getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
+                        if(v->getValuePerDay(getHasGoodFood(), getDayNum()) < 10){
+                            setBottomRow(i, "   $" + to_string(v->getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
+                        }
+                        else if(v->getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
                             setBottomRow(i, "  $" + to_string(v->getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
                         }
                         else{
@@ -447,6 +457,7 @@ void Farm::plantProduce(int produceIteration){
                     }
                     else {
                         cout << "Not enough money!\n";
+                        planting = 0;
                     }
 
                     break;
@@ -472,7 +483,10 @@ void Farm::plantProduce(int produceIteration){
                             setMiddleRow(i, " $" + to_string(u->getSellingPrice()) + "  ");
                         }
 
-                        if(u->getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
+                        if(u->getValuePerDay(getHasGoodFood(), getDayNum()) < 10){
+                            setBottomRow(i, "   $" + to_string(u->getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
+                        }
+                        else if(u->getValuePerDay(getHasGoodFood(), getDayNum()) < 100){    //bottom row
                             setBottomRow(i, "  $" + to_string(u->getValuePerDay(getHasGoodFood(), getDayNum())) + "  ");
                         }
                         else{
@@ -481,6 +495,7 @@ void Farm::plantProduce(int produceIteration){
                     }
                     else {
                         cout << "Not enough money!\n";
+                        planting = 0;
                     }
 
                     break;
@@ -491,7 +506,6 @@ void Farm::plantProduce(int produceIteration){
 
                     break;
             }
-
         }
 
         i++;    //iterating i;
@@ -531,6 +545,8 @@ if (lands[index].getEmptyOrUsed() == 1) {
 
         // Reset the land to be empty
         lands[index].setEmptyOrUsed(false);
+
+        moveTime();
     }
 }
 
