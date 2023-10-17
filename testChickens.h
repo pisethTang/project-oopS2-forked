@@ -1,8 +1,7 @@
-#ifndef COWSTEST_H
-#define COWSTEST_H
+#ifndef CHICKENTEST_H
+#define CHICKENTEST_H
 
 #include <iostream>
-#include <limits>
 #include "Chickens.h"
 
 class test_chickens {

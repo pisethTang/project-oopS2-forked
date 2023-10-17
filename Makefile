@@ -17,7 +17,7 @@ test_carrots: testPotatoes.cpp
 	@./testCarrots
 
 test_all:
-	@g++ test.cpp superTest.cpp Produce.cpp Crops.cpp Animals.cpp Carrots.cpp Potatoes.cpp Wheat.cpp Farm.cpp Farmland.cpp Sheep.cpp Cows.cpp Chickens.cpp testCarrots.cpp testPotatoes.cpp testWheat.cpp testChickens.cpp testCows.cpp -o test 
+	@g++ test.cpp superTest.cpp Produce.cpp Crops.cpp Animals.cpp Carrots.cpp Potatoes.cpp Wheat.cpp Farm.cpp Farmland.cpp Sheep.cpp Cows.cpp Chickens.cpp testCarrots.cpp testPotatoes.cpp testWheat.cpp testChickens.cpp testCows.cpp testSheep.cpp -o test 
 	@./test
 
 # ---- clean sections----

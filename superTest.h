@@ -17,6 +17,7 @@
 class super_test{
     public:
         void run_all_tests();
+      
 };  
 
 

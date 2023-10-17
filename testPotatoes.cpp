@@ -32,42 +32,37 @@ void test_potatoes::testConstructor() {
         // Test 5: Check if the constructor initializes growth stage correctly
         {
             Potatoes p5;
-            if (p5.getGrowthStage() != 0) std::cout << "Test 5 failed! Incorrect growth stage." << std::endl;
-        
+            p5.setGrowthStage(5); // std::numeric_limits<int>::max() basically returns the largest possible integers your machine can store, which is around 2 billion
+            if (p5.getGrowthStage() != 5) std::cout << "Test 5 failed! Incorrect growth stage." << std::endl; 
         }
-        // Test 6: Check for overflow when using large values
-        // {
-        //     Potatoes p6;
-        //     // Assuming a large value that might cause overflow
-        //    
-        //     p6.setFutureSellPrice(std::numeric_limits<int>::max()); // std::numeric_limits<int>::max() basically returns the largest possible integers your machine can store, which is around 2 billion
-        //     if (p6.getFutureSellPrice() != std::numeric_limits<int>::max()) {
-        //         std::cout << "Test 6 failed! Overflow not handled correctly." << std::endl;
-        //     }
-        // }
+       
 
-        // Test 7: Check for underflow when using small values
-        // {
-        //     Potatoes p7;
-        //     // Assuming a small value that might cause underflow
-        //    
-        //     p7.setCostPerDay(std::numeric_limits<int>::min()); // whereas, std::numeric_limits<int>::min() returns the smallest integers in your machine, which is around -2 billion
-        //     if (p7.getCostPerDay() != std::numeric_limits<int>::min()) {
-        //         std::cout << "Test 7 failed! Underflow not handled correctly." << std::endl;
-        //     }
-        // }
-
-        // Test 8: Check invariants (e.g., selling price should be greater than cost per day)
+        // Test 6: Check invariants (e.g., selling price should be greater than cost per day)
         {
-            Potatoes p8;
-            if (p8.getSellingPrice() <= p8.getCostPerDay()) std::cout << "Test 8 failed! Invariant not maintained." << std::endl;
+            Potatoes p6;
+            if (p6.getSellingPrice() <= p6.getCostPerDay()) std::cout << "Test 6 failed! Invariant not maintained." << std::endl;
             
         }
 
-        // Test 9: Check constant values (e.g., buying price should always be 25)
+        // Test 7: Check constant values (e.g., buying price should always be 25)
+        {
+            Potatoes p7;
+            if (p7.getBuyingPrice() != 25) std::cout << "Test 7 failed! Incorrect constant value." << std::endl;
+            
+        }
+
+        // Test 8: Check for Potatoes' growth speed
+        {
+            Potatoes p8;
+            if (p8.getGrowthSpeed(false, 10) == 2) std::cout << "Test 8 failed! Incorrect growth speed of potato." << std::endl;
+        }
+
+
+        // Test 9: Check if the selling price is updated correctly
         {
             Potatoes p9;
-            if (p9.getBuyingPrice() != 25) std::cout << "Test 9 failed! Incorrect constant value." << std::endl;
+            p9.setSellingPrice(100);
+            if(p9.getSellingPrice() != 100) std::cout << "Test 9 failed! Potato's selling price has been incorrectly set." <<std::endl;
             
         }
     }

@@ -1,0 +1,7 @@
+- Date: 10/01/2023
+- Unit Testing: instead of testing the Produce class, we used a bottom-up and top-bottom approach instead.
+One of us was testing from the top (Farm downwards) and
+another one was testing from the bottom (from animals and crops' subclasses: wheat, cows, ...etc)
+- Debugging: GDB, a debugger, has been introduced and used to a small extent.
+
+NOTE: Date refers to the time that we decided to divert from our original plan.
