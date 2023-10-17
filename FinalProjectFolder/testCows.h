@@ -2,13 +2,11 @@
 #define COWSTEST_H
 
 #include <iostream>
-#include <limits>
-#include "Chickens.h"
+#include "Cows.h"
 
-class test_chickens {
+class test_cows{
 public:
-    void runChickensTests();
-    
+    void runCowsTests();
 private:
     void testConstructor();
 };

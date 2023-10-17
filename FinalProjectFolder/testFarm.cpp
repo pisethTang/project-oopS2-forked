@@ -1,22 +1,7 @@
-#ifndef FARMTEST_H
-#define FARMTEST_H
+#include "testFarm.h"
 
-#include <iostream>
-
-#include "Farm.h"
-
-class test_farm{
- public:
-  void runTests() {
-    // testFarm();
-    testGetDayNum();
-    testGetTimeOfDay();
-    // Add other test methods here
-  };
-
- private:
- //testing getters and setters
-  void testGetDayNum() {
+ void test_farm::testGetDayNum() {
+    std::cout << "----------------------------------------- Farm's Tests -------------------------------------------" << std::endl;
     Farm farm;
     //Test case 1.1: Default day num
     if (farm.getDayNum() != 0) std::cout << "Test 1.1 failed!" << std::endl;
@@ -48,6 +33,3 @@ class test_farm{
     if (farm.getTimeOfDay() != 0) std::cout << "Test 2.3 failed!" << std::endl;
    
   }
-};
-
-#endif

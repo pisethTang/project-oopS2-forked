@@ -1,6 +1,8 @@
 #include "testSheep.h"
 
 void test_sheep::testConstructor() {
+        std::cout << "----------------------------------------- Sheep's Tests -------------------------------------------" << std::endl;
+
         // Test 1: Check if the constructor initializes cost per day correctly
         {
             Sheep s1;

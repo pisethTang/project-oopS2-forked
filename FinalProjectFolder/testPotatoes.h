@@ -1,9 +1,6 @@
 #ifndef TESTPOTATOES_H
 #define TESTPOTATOES_H
 
-
-
-
 #include <iostream>
 #include <limits>
 #include "Potatoes.h"
