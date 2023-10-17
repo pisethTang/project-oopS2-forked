@@ -1,0 +1,8 @@
+---Changelog---
+
+4-10-23
+change: decided to make use terminal-based user interface instead of graphical user interface 
+justification: terminal based ui was chosen as it is simpler to implement and would not require additional time to be spent on deveoping and 
+maintaining the graphical interface. We determined that it would allow us to focus primarily on the gameplay and mechanics of the game. It would 
+also be helpful in debugging, with clear textual output being generated.
+

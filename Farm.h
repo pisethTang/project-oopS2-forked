@@ -12,7 +12,7 @@ class Farm{
     int day_num;    //starts at zero, goes up
     int time_of_day;   //int between 0 and 3, when it hits 3 num_days++
     int money;  //start with 1000, can't be less than zero
-    std::string top_row[10];
+    std::string top_row[10]; //for user interface
     std::string middle_row[10];
     std::string bottom_row[10];
 
@@ -24,7 +24,6 @@ class Farm{
     Farm();
     
     // getters
-    //std::string getName();    <perhaps remove>
     int getDayNum();
     int getTimeOfDay();
     int getMaxLand();
@@ -52,7 +51,6 @@ class Farm{
     void buyNewLand(); //This is going to add a land to the land array, take away money, and 
                        //change current land
 
-    //<Put these on the diagram>
     void changeDay();   //this function adds one to the day counter, gives the user one day's worth of
                         //money from their animals, and takes away money for upkeep
                         //it also allows crops to grow
@@ -68,5 +66,5 @@ class Farm{
     ~Farm();
 
 };
-;   //<literally why is this necessary>
+;
 #endif
