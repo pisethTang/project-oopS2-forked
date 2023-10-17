@@ -6,7 +6,7 @@ using namespace std;
 
 class Produce{
     protected:
-    string name;        //<do we even need a name?>
+    string name;
     int cost_per_day;   //the cost of upkeep per day
     int selling_price;  //the price that a Produce sells for
     int buying_price;   //the price to buy and plant a Produce
@@ -14,17 +14,15 @@ class Produce{
     public:
     //constructors
     Produce();
-    //<do we need any constructors in between here?>
-    Produce(string newName, int newCost, int newSellPrice, int newBuyPrice);
+    Produce(string new_name, int new_cost, int new_sell_price, int new_buy_price);
 
     //functions
-    virtual int getGarbage(); //<bear with me, I think we need this>
-    string getName();   //<removed virtual>
+    virtual int getGarbage();
+    string getName();
     int getCostPerDay();
     int getSellingPrice();
     int getBuyingPrice();
-    void setSellingPrice(int newSellPrice);
-    //virtual ProduceType get_type() const = 0;
+    void setSellingPrice(int new_sell_price);
 
     //destructor    
 

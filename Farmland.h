@@ -3,13 +3,6 @@
 
 #include "Produce.h"
 
-// Produce can't access staffs in Land...?
-// Land can't access staffs in Farm?
-
-// Farm = {L1, L2, ... Ln}
-// L = {P1, P2, ...}
-// Produce = {Crop, Animal}
-
 class Farmland{
     protected:
     bool empty_or_used;
@@ -26,7 +19,7 @@ class Farmland{
     bool getUnlocked();
     Produce* getPlanted();
     void setUnlocked(bool b);
-    void setProduce(Produce* newPlanted);
+    void setProduce(Produce* new_planted);
 
     //destructor
     ~Farmland();
