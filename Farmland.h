@@ -29,7 +29,7 @@ class Farmland{
     void setProduce(Produce* newPlanted);
 
     //destructor
-
+    ~Farmland();
 };
 
 #endif
