@@ -100,12 +100,12 @@ void Textbased::shopProduce(){  //<can we make this easier?>
     Produce* ptr1 = &a;
     int choice;
 
-    cout << "num    1       2       3       4       5       6       7\n";
-    cout << "type   Wheat   Carrots Potato  Chicken Cows    Sheep   Back to\n";
-    cout << "cost   " << ptr1->getBuyingPrice() << "      ";    //Wheat
+    cout << "num        1       2       3       4       5       6       7\n";
+    cout << "type       Wheat   Carrots Potato  Chicken Cows    Sheep   Back to\n";
+    cout << "cost       " << ptr1->getBuyingPrice() << "      ";    //Wheat
 
     Carrots b;
-    ptr1 = &a;
+    ptr1 = &b;
     cout << ptr1->getBuyingPrice() << "      "; //Carrots
 
     Potatoes c;
@@ -125,6 +125,9 @@ void Textbased::shopProduce(){  //<can we make this easier?>
     cout << ptr1->getBuyingPrice() << "     "; //Sheep
 
     cout << "main menu\n";
+
+    cout << "daily      15      10      20      10      25      35\n";
+    cout << "upkeep cost\n";
 
     //<add stuff about cost efficiency>
 
@@ -277,7 +280,7 @@ void Textbased::executeAction(int choice){
             break;
 
         default:
-            std::cout << "\nInvalid choice. Please enter a number between 1 and 5.\n";
+            std::cout << "\nInvalid choice. Please enter a number between 1 and 6.\n";
             //exit(0); <perhaps remove>
     }
 
@@ -304,9 +307,14 @@ void Textbased::startGame() {
 
         //recalculating netMoney every time menu appears
         netMoney = farm.getMoney();
+
         for (int i = 0; i < farm.getCurrentLand(); i++){
             //determining the amount of money there is that could keep the farm above water
-            netMoney = netMoney + farm.getLands()[i].getPlanted().getSellingPrice();
+            std::cout << "farm.getLands[i].getPlanted() = " << farm.getLands()[i].getPlanted() << "\n";
+            if (farm.getLands()[i].getEmptyOrUsed() == 1){
+                netMoney = netMoney + farm.getLands()[i].getPlanted()->getSellingPrice();
+            }
+            //<some testlines here>
         }
 
         if(netMoney <= 0){
@@ -324,8 +332,12 @@ void Textbased::startGame() {
 
 //list:
 //check the values of cost and such appear correct and apply correctly
-//check if the buying menu and diagram has all important info including upkeep prices
 //if you type text things fuck up
 //crops don't grow
 //go through all <>
 //check that all functions are used
+//changed price of upgrades without updating visuals??
+//selling things causes massive problems
+//neaten up camel case versus _ naming
+//add saving
+//catch-try-throw stuff

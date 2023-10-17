@@ -3,7 +3,7 @@
 //constructors
 Potatoes::Potatoes(){
 
-    //<name>
+    name = "crop";
     cost_per_day = 20;  //20 gold per day to upkeep one Land of Potatoes
     selling_price = 35;    //225 gold to sell when fully grown, 35 gold to sell otherwise
     future_sell_price = 225;
@@ -13,10 +13,10 @@ Potatoes::Potatoes(){
 }
 
 //functions
-int Potatoes::getGrowthSpeed(bool goodSoil, int dayNum){
+int Potatoes::getGrowthSpeed(bool good_soil, int day_num){
     //the case for standard soil
 
-    if(goodSoil == 0){
+    if(good_soil == 0){
         //potatoes thrive in any environment and grow the fastest and most consistently
         return 2;
     }
@@ -30,3 +30,7 @@ int Potatoes::getGrowthSpeed(bool goodSoil, int dayNum){
 // void Potatoes::setSellingPrice(){
 //     selling_price = getFutureSellPrice();
 // }
+
+int Potatoes::getGarbage(){
+    return 6;
+}

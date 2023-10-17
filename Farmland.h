@@ -14,7 +14,7 @@ class Farmland{
     protected:
     bool empty_or_used;
     bool unlocked;
-    Produce planted;
+    Produce* planted;
 
     public:
     //constructors
@@ -24,10 +24,9 @@ class Farmland{
     bool getEmptyOrUsed();
     void setEmptyOrUsed(bool a);
     bool getUnlocked();
-    Produce getPlanted();
+    Produce* getPlanted();
     void setUnlocked(bool b);
-    void setProduce(Produce newPlanted);
-    //<put the above in the diagram>
+    void setProduce(Produce* new_planted);
 
     //destructor
 

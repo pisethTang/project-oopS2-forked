@@ -5,7 +5,7 @@
 Carrots::Carrots(){
     //carrots are slow growing, and more expensive than wheat to maintain, but gives more money
 
-    //<name>
+    name = "crop";
     cost_per_day = 10;  //10 gold per day to upkeep one Land of Carrots
     selling_price = 25;    //175 gold to sell when fully grown, 25 gold to sell otherwise
     future_sell_price = 175;
@@ -15,12 +15,12 @@ Carrots::Carrots(){
 };
 
 //functions
-int Carrots::getGrowthSpeed(bool goodSoil, int dayNum){
+int Carrots::getGrowthSpeed(bool good_soil, int day_num){
     //the case for standard soil
 
-    if (goodSoil == 0){
+    if (good_soil == 0){
         //carrots need rain, it rains every 4 days, thus the growth speed is faster on those days
-        if (dayNum % 4 == 0){
+        if (day_num % 4 == 0){
             return 2;
         }
         else {
@@ -30,12 +30,19 @@ int Carrots::getGrowthSpeed(bool goodSoil, int dayNum){
 
     //the case for good soil
     else {
-        if (dayNum % 4 == 0){
+        if (day_num % 4 == 0){
             return 4;
         }
         else {
             return 2;
         } 
     }
+}
 
+// void Carrots::setSellingPrice(){
+//     selling_price = getFutureSellPrice();
+// }
+
+int Carrots::getGarbage(){
+    return 2;
 }

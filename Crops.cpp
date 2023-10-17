@@ -3,7 +3,7 @@
 
 //constructors
 Crops::Crops(){ //<let's get rid of name>
-    name = "";
+    name = "crop";
     cost_per_day = 0;
     selling_price = 0;
     buying_price = 0;
@@ -11,11 +11,11 @@ Crops::Crops(){ //<let's get rid of name>
     future_sell_price = 0;
 }
 
-Crops::Crops(string newName, int newCost, int newSellPrice, int newBuyPrice){
-    name = newName;
-    cost_per_day = newCost;
-    selling_price = newSellPrice;
-    buying_price = newBuyPrice;
+Crops::Crops(int new_cost, int new_sell_price, int new_buy_price){
+    name = "crop";
+    cost_per_day = new_cost;
+    selling_price = new_sell_price;
+    buying_price = new_buy_price;
     growth_stage = 0;
     future_sell_price = 0;
 }
@@ -29,9 +29,12 @@ int Crops::getFutureSellPrice(){
     return future_sell_price;
 }
 
-void Crops::setGrowthStage(int newGrowthStage){
-    if ((getGrowthStage() + newGrowthStage) <= 10){      //growth_stage cannot be greater than 10 (chosen arbitrarily)
-        growth_stage = getGrowthStage() + newGrowthStage;
+void Crops::setGrowthStage(int new_growth_stage){
+    if ((getGrowthStage() + new_growth_stage) <= 10){      //growth_stage cannot be greater than 10 (chosen arbitrarily)
+        growth_stage = getGrowthStage() + new_growth_stage;
+    }
+    else {
+        growth_stage = 10;
     }
 }
 

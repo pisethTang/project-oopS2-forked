@@ -3,7 +3,7 @@
 //constructors
 Cows::Cows(){
 
-    //<name>
+    name = "animal";
     cost_per_day = 25;   //cows cost a lot for upkeep
     selling_price = 175; //can sell the cows for 175 gold each
     buying_price = 175; //costs 175 gold to buy cows
@@ -11,12 +11,12 @@ Cows::Cows(){
 }
 
 //functions
-int Cows::getValuePerDay(bool goodFood, int dayNum){
+int Cows::getValuePerDay(bool good_food, int day_num){
     //the case for standard food
 
-    if (goodFood == 0){
+    if (good_food == 0){
         //the cows only give milk every 7 days, and before the food is upgraded they aren't worth it
-        if ((dayNum % 7) == 0){
+        if ((day_num % 7) == 0){
             return 150;
         }
         else {
@@ -26,7 +26,7 @@ int Cows::getValuePerDay(bool goodFood, int dayNum){
 
     //the case for good food
     else {
-        if ((dayNum % 7) == 0){
+        if ((day_num % 7) == 0){
             return 300;
         }
         else {
@@ -35,3 +35,6 @@ int Cows::getValuePerDay(bool goodFood, int dayNum){
     }
 }
 
+int Cows::getGarbage(){
+    return 4;
+}

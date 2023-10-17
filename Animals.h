@@ -12,11 +12,12 @@ class Animals : public Produce{
     public:
     //constructors
     Animals();
-    Animals(string newName, int newCost, int newSellPrice, int newBuyPrice, int newValue);
+    Animals(int new_cost, int new_sell_price, int new_buy_price, int new_value);
 
     //functions
-    std::string getName() override; //<do NOT remove this>
-    virtual int getValuePerDay(bool goodSoil, int dayNum) = 0;
+    int getGarbage() override;
+    //std::string getName(); //<do NOT remove this>
+    virtual int getValuePerDay(bool good_soil, int day_num) = 0;
 
     //destructor
 

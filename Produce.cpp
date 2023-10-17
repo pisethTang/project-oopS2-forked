@@ -11,11 +11,11 @@ Produce::Produce(){
     buying_price = 0;
 }
 
-Produce::Produce(string newName, int newCost, int newSellPrice, int newBuyPrice){
-    name = newName;
-    cost_per_day = newCost;
-    selling_price = newSellPrice;
-    buying_price = newBuyPrice;
+Produce::Produce(string new_name, int new_cost, int new_sell_price, int new_buy_price){
+    name = new_name;
+    cost_per_day = new_cost;
+    selling_price = new_sell_price;
+    buying_price = new_buy_price;
 }
 
 //functions
@@ -35,6 +35,10 @@ int Produce::getBuyingPrice(){
     return buying_price;
 }
 
-void Produce::setSellingPrice(int newSellPrice){
-    selling_price = selling_price + newSellPrice;
+void Produce::setSellingPrice(int new_sell_price){
+    selling_price = selling_price + new_sell_price;
+}
+
+int Produce::getGarbage(){
+    return 0;
 }

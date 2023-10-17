@@ -3,22 +3,26 @@
 
 //constructors
 Animals::Animals(){
-    name = "";
+    name = "animal";
     cost_per_day = 0;
     selling_price = 0;
     buying_price = 0;
     value_per_day = 0;
 }
 
-Animals::Animals(string newName, int newCost, int newSellPrice, int newBuyPrice, int newValue){
-    name = newName;
-    cost_per_day = newCost;
-    selling_price = newSellPrice;
-    buying_price = newBuyPrice;
-    value_per_day = newValue;
+Animals::Animals(int new_cost, int new_sell_price, int new_buy_price, int new_value){
+    name = "animal";
+    cost_per_day = new_cost;
+    selling_price = new_sell_price;
+    buying_price = new_buy_price;
+    value_per_day = new_value;
 }
 
 //functions
-std::string Animals::getName(){
-    return "name";  //<can't remove this>
+int Animals::getGarbage(){
+    return 1;
 }
+
+// std::string Animals::getName(){
+//     return "name";  //<can't remove this>
+// }
