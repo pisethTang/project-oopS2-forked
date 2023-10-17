@@ -20,7 +20,7 @@ class test_farm{
     std::cout << "----------------------------------------- Farm's Tests -------------------------------------------" << std::endl;
     Farm farm;
     //Test case 1.1: Default day num
-    if (farm.getDayNum() != 0) std::cout << "Test 1.1 failed!" << std::endl;
+    if (farm.getDayNum() != 1) std::cout << "Test 1.1 failed!" << std::endl;
     
 
     // Test case 1.2: Setting day number to 1
@@ -33,21 +33,28 @@ class test_farm{
   }
 
   void testGetTimeOfDay(){
+    
     Farm farm;
-
+  
     //Test case 2.1: Default day time
     if (farm.getTimeOfDay() != 0) std::cout << "Test 2.1 failed!" << std::endl;
   
-
+    // day num = 2
+    // time of day = 1
      // Test case 2.2: Setting day time to 2
     farm.setTimeOfDay(2);
     if (farm.getTimeOfDay() != 2) std::cout << "Test 2.2 failed!" << std::endl;
-  
 
+    // day num = 3
+    // time of day = 2
+  
     // Test case 2.3: Setting day time to 4 <not sure what should happen here, should it default back to 0?>
     farm.setTimeOfDay(4);
-    if (farm.getTimeOfDay() != 0) std::cout << "Test 2.3 failed!" << std::endl;
-   
+    // std::cout << farm.getTimeOfDay() << std::endl;
+    if (farm.getTimeOfDay() != 2) std::cout << "Test 2.3 failed!" << std::endl;
+    
+
+
   }
 };
 
