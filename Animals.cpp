@@ -10,12 +10,12 @@ Animals::Animals(){
     value_per_day = 0;
 }
 
-Animals::Animals(int new_cost, int new_sell_price, int new_buy_price, int new_value){
+Animals::Animals(int newCost, int newSellPrice, int newBuyPrice, int newValue){
     name = "animal";
-    cost_per_day = new_cost;
-    selling_price = new_sell_price;
-    buying_price = new_buy_price;
-    value_per_day = new_value;
+    cost_per_day = newCost;
+    selling_price = newSellPrice;
+    buying_price = newBuyPrice;
+    value_per_day = newValue;
 }
 
 //functions

@@ -12,7 +12,7 @@ class Cows: public Animals{
     Cows();
 
     //functions
-    int getValuePerDay(bool good_food, int day_num) override;
+    int getValuePerDay(bool goodFood, int dayNum) override;
     int getGarbage() override;
 
 };

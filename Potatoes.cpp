@@ -13,10 +13,10 @@ Potatoes::Potatoes(){
 }
 
 //functions
-int Potatoes::getGrowthSpeed(bool good_soil, int day_num){
+int Potatoes::getGrowthSpeed(bool goodSoil, int dayNum){
     //the case for standard soil
 
-    if(good_soil == 0){
+    if(goodSoil == 0){
         //potatoes thrive in any environment and grow the fastest and most consistently
         return 2;
     }

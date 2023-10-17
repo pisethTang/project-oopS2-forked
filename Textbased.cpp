@@ -145,6 +145,7 @@ void Textbased::shopProduce(){  //<can we make this easier?>
         cout << "Invalid selection!\n";
     }
 
+
     return;
 
 }
@@ -304,26 +305,28 @@ void Textbased::startGame() {
         displayMenu();         // Display the menu
         int choice = getUserChoice();  // Get user choice
         executeAction(choice); // Execute the chosen action
+        cout << "5\n";
 
         //recalculating netMoney every time menu appears
         netMoney = farm.getMoney();
+        cout << "6\n";
 
         for (int i = 0; i < farm.getCurrentLand(); i++){
             //determining the amount of money there is that could keep the farm above water
-            std::cout << "farm.getLands[i].getPlanted() = " << farm.getLands()[i].getPlanted() << "\n";
-            if (farm.getLands()[i].getEmptyOrUsed() == 1){
-                netMoney = netMoney + farm.getLands()[i].getPlanted()->getSellingPrice();
-            }
-            //<some testlines here>
+            cout << "farm.getLands()[i].getPlanted()=" << farm.getLands()[i].getPlanted();
+            // netMoney = netMoney + farm.getLands()[i].getPlanted()->getSellingPrice();
         }
+        cout << "7\n";
 
         if(netMoney <= 0){
             std::cout << "You ran out of money. You lose!\n";
         }
+        cout << "8\n";
 
         if(netMoney >= 10000){
             std::cout << "You won! Congratulations!\n";
         }
+        cout << "9\n";
 
     }
 
@@ -332,12 +335,23 @@ void Textbased::startGame() {
 
 //list:
 //check the values of cost and such appear correct and apply correctly
+//check if the buying menu and diagram has all important info including upkeep prices
 //if you type text things fuck up
 //crops don't grow
 //go through all <>
 //check that all functions are used
+//change fonts
 //changed price of upgrades without updating visuals??
+//visuals don't work for price of cows n shit
 //selling things causes massive problems
 //neaten up camel case versus _ naming
 //add saving
 //catch-try-throw stuff
+//put delete stuff
+
+
+
+//ask about types of storage/containers on checklist (vectors lists maps)
+//ask about big glitch
+//makefile options for debug and release builds
+//where do we put update notes
