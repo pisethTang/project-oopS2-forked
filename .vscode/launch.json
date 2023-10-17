@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/sething2002/oop-s1-2023",
-      "program": "/home/sething2002/oop-s1-2023/build/Debug/outDebug",
+      "cwd": "/home/sething2002/project-oopS2-forked/updated",
+      "program": "/home/sething2002/project-oopS2-forked/updated/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
