@@ -193,10 +193,14 @@ void Textbased::shopUpgrades(){
     cout << "cost   $500            $500            $500            menu\n";
     cout << "info   crops grow      more $/day\n";
     cout << "       faster\n";
+    while(true){
+        try{
     cout << "What is your choice? (1-4): ";
     cin >> choice;
     cout << "\n";
-
+    
+    if(std::cin.fail()) throw std::runtime_error("Invalid input. Please enter an integer.");
+    if (choice < 1 || choice > 4) throw std::out_of_range("Invalid input. Please enter an integer between 1 and 4.");
     //determining based on answer
     switch(choice){
         case 1:
@@ -257,9 +261,30 @@ void Textbased::shopUpgrades(){
             break;
 
         default:   
-            cout << "Invalid input.\n\n";
-
+            // cout << "Invalid input.\n\n";
             break;
+        }
+
+
+        // break;
+        
+        
+        } // end of try block ____ begin catch blocks
+        catch(std::runtime_error const& e){
+            std::cerr << "Error: " << e.what() << std::endl;
+            std::cin.clear();  // Clear the error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Discard invalid input
+        }catch(std::out_of_range const& e){
+            std::cerr << "Error: " << e.what() << std::endl;
+            std::cin.clear();  // Clear the error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Discard invalid input
+        }catch(std::exception const& e){
+            std::cerr << "Error: " << e.what() << std::endl;
+            std::cin.clear();  // Clear the error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Discard invalid input
+        }
+        // end of catch blocks
+
 
     }
 
