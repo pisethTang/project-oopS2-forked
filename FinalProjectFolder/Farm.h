@@ -40,8 +40,10 @@ class Farm{
     void setTimeOfDay(int new_time);
     void setMoney(int new_money);
     void setCurrentLand(int new_land);
+    
     void setGoodSoil(bool new_soil);
     void setGoodFood(bool new_food);
+
     void setTopRow(int i, std::string new_string);
     void setMiddleRow(int i, std::string new_string);
     void setBottomRow(int i, std::string new_string);
@@ -65,5 +67,5 @@ class Farm{
     ~Farm();
 
 };
-;
+
 #endif

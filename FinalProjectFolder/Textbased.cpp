@@ -237,7 +237,7 @@ void Textbased::shopUpgrades(){
                 cout << "Not enough money!\n\n";
             }
 
-            break;
+            // break;
 
         case 3:
             if (farm.getMoney() >= 500 && farm.getCurrentLand() < farm.getMaxLand()){
@@ -253,11 +253,8 @@ void Textbased::shopUpgrades(){
             else {
                 cout << "Not enough money!\n\n";
             }
-
             break;
-
         case 4:
-
             break;
 
         default:   
@@ -265,10 +262,8 @@ void Textbased::shopUpgrades(){
             break;
         }
 
-
-        // break;
-        
-        
+        break;
+            
         } // end of try block ____ begin catch blocks
         catch(std::runtime_error const& e){
             std::cerr << "Error: " << e.what() << std::endl;

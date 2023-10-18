@@ -474,7 +474,8 @@ void Farm::plantProduce(int produce_iteration){
                     break;
 
                 default:
-                    cout << "Invalid selection! This text shouldn't be seen!\n";
+                    // cout << "Invalid selection! This text shouldn't be seen!\n";
+                    return ;
                     planting = 0;   //planting didn't occur
 
                     break;
