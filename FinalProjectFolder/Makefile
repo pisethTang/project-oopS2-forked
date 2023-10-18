@@ -1,6 +1,6 @@
 # ---- source file sections ----
 main-1: main-1-1.cpp
-	@clang++ -g -Wall -Wextra Animals.cpp Carrots.cpp Chickens.cpp Cows.cpp Crops.cpp Farm.cpp Farmland.cpp main-1-1.cpp Potatoes.cpp Produce.cpp Sheep.cpp Textbased.cpp Wheat.cpp -o main 
+	@clang++ -Wall -g Animals.cpp Carrots.cpp Chickens.cpp Cows.cpp Crops.cpp Farm.cpp Farmland.cpp main-1-1.cpp Potatoes.cpp Produce.cpp Sheep.cpp Textbased.cpp Wheat.cpp -o main
 	@./main
 
 # test sections
@@ -17,10 +17,12 @@ test_carrots: testPotatoes.cpp
 	@./testCarrots
 
 test_all:
-	@g++ test.cpp superTest.cpp Produce.cpp Crops.cpp -o test 
+	@g++ test.cpp superTest.cpp Produce.cpp Crops.cpp Animals.cpp Carrots.cpp Potatoes.cpp Wheat.cpp Farm.cpp Farmland.cpp Sheep.cpp Cows.cpp Chickens.cpp testCarrots.cpp testPotatoes.cpp testWheat.cpp testChickens.cpp testCows.cpp testSheep.cpp -o test 
 	@./test
 
 # ---- clean sections----
+# Seth: I don't think that abstract classes (although we are still unsure as to assign Produce, Crops and Animals as abstract or not...) need to be tested explicitly. 
+# We will test their derived classes. And they will act as a proxy for their parents/super classes.
 # clean sources
 clean-source:
 	@rm -rf main
@@ -37,3 +39,4 @@ clean-t-carrots:
 
 clean-all-tests:
 	@rm -rf testWheat testPotatoes testCarrots
+

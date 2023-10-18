@@ -47,7 +47,7 @@ void test_carrots::testConstructor() {
     // Test 8: Check for Carrots' growth speed
     {
         Carrots c8;
-        if (c8.getGrowthSpeed(false, 10) == 2) std::cout << "Test 8 failed! Incorrect growth speed of carrots." << std::endl;
+        if (c8.getGrowthSpeed(false, 10) != 1) std::cout << "Test 8 failed! Incorrect growth speed of carrots." << std::endl;
     }
 
     // Test 9: Check if the future selling price is updated correctly

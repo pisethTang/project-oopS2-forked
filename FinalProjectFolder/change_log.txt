@@ -1,18 +1,31 @@
----Changelog---
+-------------------------------------------------------- Change Log -----------------------------------------------------------------------------
 
-4-10-23
-change: decided to make use terminal-based user interface instead of graphical user interface 
-justification: terminal based ui was chosen as it is simpler to implement and would not require 
+
+1-10-23 (Seth)
+Change: 
+- Unit Testing: instead of testing the Produce class, we used a bottom-up and top-bottom approach instead.One of us was testing from the top
+  (Farm downwards) and another one was testing from the bottom (from animals and crops' subclasses: wheat, cows, ...etc)
+- Justification: By testing a derived class, we were effectively testing the base classes since the derived classes inherit most of the base classes' attributes.
+
+- Debugging: GDB, a debugger, has been introduced and used to a small extent to detect segmentation fault error.
+- Justification: We were trying to trace the behavior of the dynamic_cast<> construct, why it was returning a nullptr.
+  Without resorting to the  debugger, it would have been harder to do so.
+
+
+4-10-23 (Team)
+Change: decided to make use terminal-based user interface instead of graphical user interface 
+Justification: terminal based ui was chosen as it is simpler to implement and would not require 
 additional time to be spent on deveoping and maintaining the graphical interface. We determined
 that this change would allow the Farm class to only hold what a farm would, while the Textbased
 class would handle the input and output. It would also be helpful in debugging, with clear 
 textual output being generated.
 
-8-10-23
-change: in changing the above, it was decided that there would be three arrays in the Farm class that 
+
+8-10-23 (Maddy)
+Change: in changing the above, it was decided that there would be three arrays in the Farm class that 
 represent the visual display in the Textbased class. The relevant functions were put in the Farm class
 to accomodate this change.
-justification: it was decided that it made more sense to have this part of the visuals calculated
+Justification: it was decided that it made more sense to have this part of the visuals calculated
 in the Farm class, before being processed in the Textbased class, as this made the Textbased class neater
 and more compact, as this is the class that should just be printing and calling functions with the
 user's input.
